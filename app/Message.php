@@ -14,7 +14,7 @@ class Message extends Model
         'message'
     ];
 
-
+    public $timestamps = false;
   /****************************************************
   * Relations
   ****************************************************/
