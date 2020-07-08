@@ -29,6 +29,7 @@ class CreatePlacesTable extends Migration
             $table->decimal('lat', 6,4);
             $table->decimal('long', 7,4);
             $table->string('place_img');
+            $table->decimal('price', 11, 2);
             $table->boolean('visibility');
             $table->string('slug');
             $table->timestamps();

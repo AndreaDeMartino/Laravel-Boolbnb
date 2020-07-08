@@ -16,4 +16,6 @@ class Sponsor extends Model
     public function places(){
         return $this->belongsToMany('App\Place');
     }
+
+    public $timestamps = false;
 }
