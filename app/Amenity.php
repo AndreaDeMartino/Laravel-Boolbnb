@@ -10,6 +10,7 @@ class Amenity extends Model
         'name'
     ];
 
+    public $timestamps = false;
 
     /****************************************************
     * Relations
@@ -19,4 +20,6 @@ class Amenity extends Model
     public function places(){
         return $this->belongsToMany('App\Place');
     }
+
+
 }
