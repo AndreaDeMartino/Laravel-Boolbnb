@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
             $newUser->name = $faker->firstName();
             $newUser->last_name = $faker->lastName();
             $newUser->birth_date = $faker->date();
+            $newUser->avatar = 'https://i.pravatar.cc/300';
             $newUser->email = $faker->email();
             $newUser->password = Hash::make('mypassword');
             $newUser->save();
