@@ -21,6 +21,14 @@ Route::get('/', function () {
 //Auth routes
 Auth::routes();
 
-//Guest
+// Gruppo Autenticazione
+Route::prefix('user') // URI
+    ->name('user.') // PREFISSO NAME
+    ->namespace('User') //ACTION
+    ->middleware('auth')
+    ->group(function(){
 
-Route::get('/home', 'HomeController@index')->name('home');
+    // User Home
+    Route::get('/home', 'HomeController@index')->name('home'); 
+
+    });

@@ -49,13 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $maxTime = strtotime("-100 year", time());
-        $maxDate = date("Y-m-d", $time);
+        $maxAge = $this->age(-100);
+        $minAge = $this->age(-18);
 
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'birth_date' => ['required', 'date', "after:$maxDate"],
+            'birth_date' => ['required', 'date', "after:$maxAge", "before:$minAge"],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -76,5 +76,17 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
+    }
+
+    /****************************************************
+    * Functions
+    ****************************************************/
+
+    // Check on birth_date
+    private function age($num)
+    {
+        $time = strtotime("$num year", time());
+        $date = date("Y-m-d", $time);
+        return $date;
     }
 }
