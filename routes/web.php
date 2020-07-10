@@ -13,10 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Access without login
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('guest.welcome');
+})->name('home');
 
+//Auth routes
 Auth::routes();
+
+//Guest
 
 Route::get('/home', 'HomeController@index')->name('home');
