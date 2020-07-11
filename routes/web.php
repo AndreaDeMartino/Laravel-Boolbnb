@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Access without login
-Route::get('/', function () {
-    return view('guest.welcome');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 //Auth routes
 Auth::routes();
@@ -28,7 +26,7 @@ Route::prefix('user') // URI
     ->middleware('auth')
     ->group(function(){
 
-    // User Home
-    Route::get('/home', 'HomeController@index')->name('home'); 
+        // User Home
+        Route::get('/home', 'HomeController@index')->name('home'); 
 
     });
