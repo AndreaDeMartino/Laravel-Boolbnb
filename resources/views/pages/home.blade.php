@@ -4,7 +4,7 @@
 
     <div class="places-group container">
         @foreach ($places as $place)
-            <a href="{{$place->id}}">
+            <a href="{{route('place.show', $place->slug)}}">
                 <div class="places-group__box mb-4">
                     <h3>{{$place->title}}</h3>
                     <img src="{{$place->place_img}}" alt="{{$place->title}}">

@@ -1,6 +1,9 @@
 @include('shared.header')
 <div id="app">
-    @include('shared.navbar')
+    <header>
+        @include('shared.navbar')
+    </header>
+    
     <main class="py-4">
         @yield('content')
     </main>

@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Access without login
-Route::get('/', 'HomeController@index')->name('home');
+//View Places in Homepage
+Route::get('/', 'GuestController@index')->name('home.index');
+
+// View Single Place
+Route::get('/place/{slug}', 'GuestController@show')-> name('place.show');
+
+// Send message to User
+Route::post('/message/{id}', 'GuestController@sendMessage') -> name('message.send');
 
 //Auth routes
 Auth::routes();
