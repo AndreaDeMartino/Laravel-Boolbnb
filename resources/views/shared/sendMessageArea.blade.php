@@ -2,10 +2,10 @@
     <form action="{{route('message.send', $place->id)}}" method="post">
         @csrf
         @method('POST')
-    
+        
         <div class="form-group">
             <label for="guest_name">Nome e cognome</label>
-            <input type="text" name="guest_name" value="">
+            <input type="text" name="guest_name" value="@auth {{ Auth::user()->name }} {{ Auth::user()->last_name }} @endauth">
         </div>
 
         <div class="form-group">
@@ -15,7 +15,11 @@
     
         <div class="form-group">
             <label for="mail_address">Email</label>
-            <input type="email" name="mail_address" value="">
+            <input type="email" name="mail_address" value="
+            @auth
+                {{ Auth::user()->email }}
+            @endauth
+            ">
         </div>
     
         <div class="form-group">

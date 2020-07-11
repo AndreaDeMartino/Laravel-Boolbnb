@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if (session('message'))
+        <div class="alert alert-success">
+            <p>Messaggio {{ session('message') }} Inviato</p>
+        </div>
+    @endif
+
     <div class="places-group container">
         @foreach ($places as $place)
             <a href="{{route('place.show', $place->slug)}}">
