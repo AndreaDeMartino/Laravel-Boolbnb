@@ -23,7 +23,7 @@ class PlaceTableSeeder extends Seeder
             $newPlace = new Place();
             $newPlace->user_id = $users->random()->id;
             $newPlace->title = $title;
-            $newPlace->description = $faker->text(500);
+            $newPlace->description = $faker->text(300);
             $newPlace->num_rooms = $faker->numberBetween(1, 10);
             $newPlace->num_beds = $faker->numberBetween(1, 20);
             $newPlace->num_baths = $faker->numberBetween(1, 5);

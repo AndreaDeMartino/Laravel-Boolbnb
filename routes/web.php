@@ -35,4 +35,7 @@ Route::prefix('user') // URI
         // User Home
         Route::get('/home', 'HomeController@index')->name('home'); 
 
+        //Payment
+        Route::get('/payment/{id}', 'PaymentController@index')->name('payment');
+        Route::post('/paymentstore{id}', 'PaymentController@store')->name('store');
     });

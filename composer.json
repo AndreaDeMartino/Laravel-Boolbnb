@@ -15,7 +15,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "mtolhuys/laravel-schematics": "^0.10.3"
+        "mtolhuys/laravel-schematics": "^0.10.3",
+        "braintree/braintree_php" : "5.2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

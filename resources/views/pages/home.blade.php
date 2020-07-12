@@ -8,22 +8,21 @@
         </div>
     @endif
 
-    <div class="places-group container">
+    <div class="cards d-flex flex-wrap justify-content-center mt-4">
         @foreach ($places as $place)
-            <a href="{{route('place.show', $place->slug)}}">
-                <div class="places-group__box mb-4">
-                    <h3>{{$place->title}}</h3>
-                    <img src="{{$place->place_img}}" alt="{{$place->title}}">
-                    <p>Descrizione: {{$place->description}}</p>
-                    <h5>Numero stanze: {{$place->num_rooms}}</h5>
-                    <h5>Posti letto: {{$place->num_beds}}</h5>
-                    <h5>Bagni: {{$place->num_baths}}</h5>
-                    <h5>Dimensioni: {{$place->square_m}}</h5>
-                    <h5>{{$place->address}} - {{$place->city}} - {{$place->country}}</h5>
-                    <h5>€{{$place->price}}</h5>
-                </div>
-            </a>
+        <a class="card m-4" href="{{route('place.show', $place->slug)}}" style="width: 18rem;">
+            <img src="{{$place->place_img}}" class="card-img-top" alt="logo">
+            <div class="card-body">
+            <h5 class="card-title">{{$place->title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{$place->address}} - {{$place->city}} - {{$place->country}}</h6>
+            <p class="card-text text-sm text-muted">{{$place->description}}</p>
+            </div>
+        </a>
         @endforeach
+    </div>
+
+    <div class="pagination d-flex justify-content-end mt-5">
+        {{ $places->links() }}
     </div>
 
 @endsection
