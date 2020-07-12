@@ -41,7 +41,7 @@ class Place extends Model
 
     // Sponsors (many to many)
     public function sponsors(){
-    return $this->belongsToMany('App\Sponsor');
+    return $this->belongsToMany('App\Sponsor','sponsor_place')->withPivot('start', 'end', 'id_transaction');
     }
 
     // Messages (one to many)

@@ -19,6 +19,7 @@ class CreateSponsorPlaceTable extends Migration
             $table->unsignedBigInteger('sponsor_id');
             // Place foreign key
             $table->unsignedBigInteger('place_id');
+            $table->string('id_transaction');
             $table->dateTime('start');
             $table->dateTime('end');
 
