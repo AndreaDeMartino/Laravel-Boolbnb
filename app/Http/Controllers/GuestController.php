@@ -16,7 +16,7 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $places = Place::latest('id', 'desc')->paginate(10);
+        $places = Place::latest('id', 'desc')->paginate(3);
 
         return view('pages.home', compact('places'));
     }

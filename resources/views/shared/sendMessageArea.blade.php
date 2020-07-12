@@ -5,17 +5,17 @@
         
         <div class="form-group">
             <label for="guest_name">Nome e cognome</label>
-            <input type="text" name="guest_name" value="@auth {{ Auth::user()->name }} {{ Auth::user()->last_name }} @endauth">
+            <input class="form-control" type="text" name="guest_name" value="@auth {{ Auth::user()->name }} {{ Auth::user()->last_name }} @endauth">
         </div>
 
         <div class="form-group">
             <label for="subject">Oggetto</label>
-            <input type="text" name="subject" value="">
+            <input class="form-control" type="text" name="subject" value="">
         </div>
     
         <div class="form-group">
             <label for="mail_address">Email</label>
-            <input type="email" name="mail_address" value="
+            <input class="form-control" type="email" name="mail_address" value="
             @auth
                 {{ Auth::user()->email }}
             @endauth
@@ -24,8 +24,8 @@
     
         <div class="form-group">
             <label for="message">Testo del messaggio</label>
-            <textarea name="message" placeholder="Digita un messaggio"></textarea>
-            <button type="submit" name="button">Invia</button>
+            <textarea class="form-control" name="message" placeholder="Digita un messaggio"></textarea>
+            <button class="btn btn-primary my-2" type="submit" name="button">Invia</button>
         </div>
     </form>
 </div>
