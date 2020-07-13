@@ -19,10 +19,13 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  MY Places
     public function index()
     {
         $user = Auth::user();
         $places = Place::all();
+
         return view('user.myPlaces', compact('places', 'user'));
     }
 
@@ -31,6 +34,35 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function visibility(Place $place)
+    {
+
+        $actualValue = $place->visibility;
+
+        if ($actualValue == 1){
+
+            $affected = DB::table('places')
+              ->where('id', $place->id)
+              ->update(['visibility' => 0]);
+            $value = 0;
+        } else{
+            $affected = DB::table('places')
+              ->where('id', $place->id)
+              ->update(['visibility' => 1]); 
+            $value = 1;
+        }
+
+        if($affected){
+            return redirect()->back()->with('hide',$value);
+        } else{
+            abort(404);
+        }
+    }
+    
+
+    //  Create new Places
     public function create()
     {
         $amenities = Amenity::all();
@@ -43,6 +75,8 @@ class PlaceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  Store new Places
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -87,6 +121,8 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //  Edit Place
     public function edit($slug)
     {
         $place = Place::where('slug',$slug)->first();
@@ -106,6 +142,8 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //  Update Place
     public function update(Request $request, Place $place)
     {
         $request->validate([
@@ -152,6 +190,8 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //  Delete Place
     public function destroy($slug)
     {
         $place = Place::where('slug',$slug)->first();
