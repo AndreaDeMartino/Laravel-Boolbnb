@@ -19,7 +19,6 @@
             <h5 class="card-text h6">Posti letto: {{$place->num_beds}}</h5>
             <h5 class="card-text h6">Bagni: {{$place->num_baths}}</h5>
             <h5 class="card-text h6">Dimensioni: {{$place->square_m}}</h5>
-            @auth <a class="btn btn-success" href="{{ route('user.payment',$place->id) }}">Buy Sponsor</a> @endauth
         </div>
         
     </div>

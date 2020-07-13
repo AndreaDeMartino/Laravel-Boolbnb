@@ -12,7 +12,7 @@
             </ul>
         </div>
     @endif
-
+ 
     <div class="new-place">
         <form action="{{route('user.place.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
