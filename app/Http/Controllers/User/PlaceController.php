@@ -153,9 +153,29 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $place = Place::where('slug',$slug)->first();
+
+        if (empty($place)){
+            abort(404);
+        };
+
+        $title = $place->title;
+
+        $place->amenities()->detach();
+        
+        $deleted = $place->delete();
+
+        if ($deleted){
+            
+            // Cancellazione img
+            if(!empty($place->path_img)){
+                Storage::disk('public')->delete($place->path_img);
+            }
+
+            return redirect()->route('user.myplace.index')->with('place-deleted',$title);
+        }
     }
     
 }

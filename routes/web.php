@@ -47,4 +47,6 @@ Route::prefix('user') // URI
         Route::get('/my-places/{slug}/edit/', 'PlaceController@edit')->name('place.edit');
 
         Route::patch('/update/{place}', 'PlaceController@update')->name('place.update');
+
+        Route::delete('/destroy/{place}', 'PlaceController@destroy')->name('place.destroy');
     });
