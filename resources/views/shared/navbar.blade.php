@@ -28,11 +28,11 @@
                 @else
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Place</a>
+                        <a class="nav-link" href="{{ route('user.place.create') }}">Add Place</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">My Places</a>
+                        <a class="nav-link" href="{{ route('user.myplace.index') }}">My Places</a>
                     </li>
 
                     <li class="nav-item">

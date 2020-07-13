@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'GuestController@index')->name('home.index');
 
 // View Single Place
-Route::get('/place/{slug}', 'GuestController@show')-> name('place.show');
+Route::get('/place/{slug}', 'GuestController@show')->name('place.show');
 
 // Send message to User
-Route::post('/message/{id}', 'GuestController@sendMessage') -> name('message.send');
+Route::post('/message/{id}', 'GuestController@sendMessage')->name('message.send');
 
 //Auth routes
 Auth::routes();
@@ -38,4 +38,11 @@ Route::prefix('user') // URI
         //Payment
         Route::get('/payment/{id}', 'PaymentController@index')->name('payment');
         Route::post('/paymentstore{id}', 'PaymentController@store')->name('store');
+
+        //Places
+        Route::get('/my-places', 'PlaceController@index')->name('myplace.index');
+        Route::get('/new-place', 'PlaceController@create')->name('place.create');
+        Route::post('/new-place-store', 'PlaceController@store')->name('place.store');
+        Route::get('/my-places/{slug}/edit/', 'PlaceController@edit')->name('place.edit');
+        Route::patch('/update', 'PlaceController@update')->name('place.update');
     });
