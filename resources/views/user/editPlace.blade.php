@@ -13,6 +13,8 @@
         </div>
     @endif
 
+
+
     <div class="new-place">
         <form action="{{route('user.place.update', $place->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -45,7 +47,7 @@
 
             <div class="form-group">
                 <label for="num_rooms">Numero stanze</label>
-                <input type="num_rooms" name="num_rooms" id="num_rooms" value="{{old('num_rooms', $place->num_roos)}}">
+                <input type="num_rooms" name="num_rooms" id="num_rooms" value="{{old('num_rooms', $place->num_rooms)}}">
             </div>
 
             <div class="form-group">
@@ -60,7 +62,7 @@
 
             <div class="form-group">
                 <label for="square_m">Dimensioni (m²)</label>
-                <input type="square_m" name="square_m" id="square_m" value="{{old('square_m', $place->squadre_m)}}">
+                <input type="square_m" name="square_m" id="square_m" value="{{old('square_m', $place->square_m)}}">
             </div>
             
             <h4>Seleziona servizi aggiuntivi:</h4>

@@ -65,7 +65,8 @@
             
             <h4>Seleziona servizi aggiuntivi:</h4>
             @foreach ($amenities as $amenity)
-                {{$amenity->name}} <input type="checkbox" name="amenities[]" id="amenity-{{$loop->iteration}}" value="{{$amenity->id}}"><br>
+                 <input type="checkbox" name="amenities[]" id="amenity-{{$loop->iteration}}" value="{{$amenity->id}}">
+                <label for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
             @endforeach
 
             <div class="form-group">
