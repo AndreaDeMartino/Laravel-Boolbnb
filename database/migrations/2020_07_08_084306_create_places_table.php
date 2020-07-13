@@ -22,15 +22,15 @@ class CreatePlacesTable extends Migration
             $table->tinyInteger('num_rooms');
             $table->tinyInteger('num_beds');
             $table->tinyInteger('num_baths');
-            $table->smallInteger('square_m');
+            $table->smallInteger('square_m')->nullable();
             $table->string('country');
             $table->string('city');
             $table->string('address');
-            $table->decimal('lat', 6,4);
-            $table->decimal('long', 7,4);
-            $table->string('place_img');
+            $table->decimal('lat', 6,4)->nullable();
+            $table->decimal('long', 7,4)->nullable();
+            $table->string('place_img')->nullable();
             $table->decimal('price', 11, 2);
-            $table->boolean('visibility');
+            $table->boolean('visibility')->default(1);
             $table->string('slug');
             $table->timestamps();
 

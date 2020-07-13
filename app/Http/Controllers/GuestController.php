@@ -41,7 +41,7 @@ class GuestController extends Controller
     //Invia messaggi all'utente proprietario
     public function sendMessage(Request $request, $id)
     {
-        $data = $request -> validate([
+        $data = $request->validate([
             'guest_name' => 'required',
             'subject' => 'required',
             'mail_address' => 'required',
