@@ -5,8 +5,7 @@
 <div class="cards d-flex justify-content-center mt-4">
     <div class="card mb-4 text-center" style="width: 30rem;">
         @if(!empty($place->place_img))
-            {{-- <img src="{{asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo"> --}}
-            <img src="{{$place->place_img}}" class="card-img-top" alt="logo">
+            <img src="{{asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo">
         @else
             <div class="no-image">No image</div>
         @endif
