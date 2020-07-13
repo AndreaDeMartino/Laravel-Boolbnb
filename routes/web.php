@@ -45,4 +45,5 @@ Route::prefix('user') // URI
         Route::post('/new-place-store', 'PlaceController@store')->name('place.store');
         Route::get('/my-places/{slug}/edit/', 'PlaceController@edit')->name('place.edit');
         Route::patch('/update', 'PlaceController@update')->name('place.update');
+        Route::get('/inbox', 'MessageController@index')->name('inbox.index');
     });

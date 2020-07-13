@@ -36,7 +36,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inbox</a>
+                        <a class="nav-link" href="{{ route('user.inbox.index') }}">Inbox</a>
                     </li>
 
                     <li class="nav-item dropdown">
