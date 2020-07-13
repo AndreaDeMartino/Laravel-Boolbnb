@@ -12,8 +12,7 @@
         @foreach ($places as $place)
             <a class="card m-4" href="{{route('place.show', $place->slug)}}" style="width: 18rem;">
                 @if(!empty($place->place_img))
-                    {{-- <img src="{{asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo"> --}}
-                    <img src="{{$place->place_img}}" class="card-img-top" alt="logo">
+                    <img src="{{ asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo">
                 @else
                     <div class="no-image">No image</div>
                 @endif

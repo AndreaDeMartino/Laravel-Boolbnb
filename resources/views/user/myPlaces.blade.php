@@ -15,8 +15,7 @@
                     <div class="card my4 text-center" style="width: 30rem;">
                         <a href="{{route('place.show', $place->slug)}}">
                             @if(!empty($place->place_img))
-                                {{-- <img src="{{asset('storage/' . $place->place_img)}}" alt="{{$place->title}}"> --}}
-                                <img src="{{$place->place_img}}" alt="{{$place->title}}">
+                                <img src="{{asset('storage/' . $place->place_img)}}" alt="{{$place->title}}" style="width: 30rem;">
                             @else
                                 <div class="no-image">No image</div>
                             @endif

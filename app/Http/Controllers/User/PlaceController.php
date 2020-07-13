@@ -129,8 +129,7 @@ class PlaceController extends Controller
         $data['slug'] = Str::slug($data['title'],'-');
 
         if(!empty($data['place_img'])) {
-            $data['place_img'] = '';
-            // $data['place_img'] = Storage::disk('public')->put('images', $data['place_img']);
+            $data['place_img'] = Storage::disk('public')->put('images', $data['place_img']);
         }
         
         // @dump($place, $data);
@@ -170,8 +169,8 @@ class PlaceController extends Controller
         if ($deleted){
             
             // Cancellazione img
-            if(!empty($place->path_img)){
-                Storage::disk('public')->delete($place->path_img);
+            if(!empty($place->place_img)){
+                Storage::disk('public')->delete($place->place_img);
             }
 
             return redirect()->route('user.myplace.index')->with('place-deleted',$title);
