@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Place;
 use App\Amenity;
 use App\Message;
+use Illuminate\Support\Facades\DB;
 
 class GuestController extends Controller
 {
@@ -16,7 +17,7 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $places = Place::latest('id', 'desc')->paginate(3);
+        $places = DB::table('places')->where('visibility', '=', 1)->orderByDesc('id')->paginate(3);
 
         return view('pages.home', compact('places'));
     }

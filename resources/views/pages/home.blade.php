@@ -10,9 +10,9 @@
 
     <div class="cards d-flex flex-wrap justify-content-center mt-4">
         @foreach ($places as $place)
-            <a class="card m-4" href="{{route('place.show', $place->slug)}}" style="width: 18rem;">
+            <a class="card m-4" href="{{route('place.show', $place->slug)}}" style="width: 40%">
                 @if(!empty($place->place_img))
-                    <img src="{{ asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo">
+                    <img src="{{ asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo" style="height: 20rem">
                 @else
                     <div class="no-image">No image</div>
                 @endif

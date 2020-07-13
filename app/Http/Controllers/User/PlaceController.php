@@ -25,7 +25,6 @@ class PlaceController extends Controller
     {
         $user = Auth::user();
         $places = Place::all();
-
         return view('user.myPlaces', compact('places', 'user'));
     }
 
@@ -55,7 +54,7 @@ class PlaceController extends Controller
         }
 
         if($affected){
-            return redirect()->back()->with('hide',$value);
+            return redirect()->back()->with('hide',$value)->with('place',$place->title);
         } else{
             abort(404);
         }
