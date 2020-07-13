@@ -39,14 +39,16 @@ Route::prefix('user') // URI
         Route::get('/payment/{id}', 'PaymentController@index')->name('payment');
         Route::post('/paymentstore{id}', 'PaymentController@store')->name('store');
 
-        //Places
-        Route::get('/my-places', 'PlaceController@index')->name('myplace.index');
+        //Places CRUD
         Route::get('/new-place', 'PlaceController@create')->name('place.create');
         Route::post('/new-place-store', 'PlaceController@store')->name('place.store');
-
         Route::get('/my-places/{slug}/edit/', 'PlaceController@edit')->name('place.edit');
-
         Route::patch('/update/{place}', 'PlaceController@update')->name('place.update');
-
         Route::delete('/destroy/{place}', 'PlaceController@destroy')->name('place.destroy');
+
+        // My Places
+        Route::get('/my-places', 'PlaceController@index')->name('myplace.index');
+
+        // Places Visibilità
+        Route::post('/place/visibility/{place}', 'PlaceController@visibility')->name('place.visibility');
     });
