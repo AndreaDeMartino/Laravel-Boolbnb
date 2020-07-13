@@ -10,6 +10,7 @@ use App\Place;
 use App\Amenity;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class PlaceController extends Controller
 {
@@ -86,10 +87,15 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Place $place)
+    public function edit($slug)
     {
-        $amenities = Amenity::all();
+        $place = Place::where('slug',$slug)->first();
 
+        if (empty($place)) {
+            abort(404);
+        };
+
+        $amenities = Amenity::all();
         return view('user.editPlace', compact('place', 'amenities'));
     }
 
@@ -102,7 +108,7 @@ class PlaceController extends Controller
      */
     public function update(Request $request, Place $place)
     {
-        $data = $request->validate([
+        $request->validate([
             'title'=> 'required',
             'description'=> 'required',
             'country' => 'required',
@@ -113,17 +119,23 @@ class PlaceController extends Controller
             'num_baths'=> 'required',
             'square_m'=> 'required',
             'price' => 'required',
-            'amenities' => [],
+            'amenities.*' => 'exists:amenities,id',
             'place_img'=> 'nullable|image|mimes:jpg,jpeg,png'
         ]);
 
+        
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($data['title'],'-');
+
         if(!empty($data['place_img'])) {
-            $data['place_img'] = Storage::disk('public')->put('images', $data['place_img']);
+            $data['place_img'] = '';
+            // $data['place_img'] = Storage::disk('public')->put('images', $data['place_img']);
         }
-
+        
+        // @dump($place, $data);
+        
         $updated = $place->update($data);
-
-        @dd($updated);
 
         if($updated) {
             if(!empty($data['amenities'])) {
