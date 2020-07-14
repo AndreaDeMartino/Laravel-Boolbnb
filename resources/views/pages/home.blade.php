@@ -9,7 +9,7 @@
     @endif
 
     <div class="cards d-flex flex-wrap justify-content-center mt-4">
-        @foreach ($places as $place)
+        {{-- @foreach ($places as $place)
             <a class="card m-4" href="{{route('place.show', $place->slug)}}" style="width: 40%">
                 @if(!empty($place->place_img))
                     <img src="{{ asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo" style="height: 20rem">
@@ -22,11 +22,48 @@
                     <p class="card-text text-sm text-muted">{{$place->description}}</p>
                 </div>
             </a>
-        @endforeach
+        @endforeach --}}
+
+        <div class="sponsored d-flex flex-wrap justify-content-center mt-5">
+            @foreach ($placesSponsored as $placeSponsored)
+                <div class="card text-center mr-3 bg-primary text-light">
+                    @if(!empty($placeSponsored->place_img))
+                        <img src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}" style="height: 20rem">
+                    @else
+                        <div class="no-image">No image</div>
+                    @endif
+                    <a class="card-title text-light h5 my-3" href="{{ route('place.show', $placeSponsored->slug)}}">{{$placeSponsored->title}}</a>
+                    <h5 class="card-subtitle text-warning mb-3">Città: {{$placeSponsored->city}}</h5>
+                    
+                    <h5 class="card-subtitle text-light h6 mb-2">Indirizzo: {{$placeSponsored->address}}</h5>
+                    <h5 class="card-subtitle text-light h6 mb-2">Descrizione: {{$placeSponsored->description}}</h5>
+                    <h5 class="card-subtitle text-light h6 mb-2">Prezzo: €{{$placeSponsored->price}}</h5>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="unsponsored d-flex flex-wrap justify-content-center mt-5">
+            @foreach ($placesUnsponsored as $placeUnsponsored)
+                <div class="card text-center mr-3">
+                    @if(!empty($placeUnsponsored->place_img))
+                        <img src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}" style="height: 20rem">
+                    @else
+                        <div class="no-image">No image</div>
+                    @endif
+                    <a class="card-title text-primary h5 my-3" href="{{ route('place.show', $placeUnsponsored->slug)}}">{{$placeUnsponsored->title}}</a>
+                    <h5 class="card-subtitle mb-3">Città: {{$placeUnsponsored->city}}</h5>
+                    
+                    <h5 class="card-subtitle text-secondary h6">Indirizzo: {{$placeUnsponsored->address}}</h5>
+                    <h5 class="card-subtitle text-secondary h6 my-2">Descrizione: {{$placeUnsponsored->description}}</h5>
+                    <h5 class="card-subtitle text-secondary h6 my-2">Prezzo: €{{$placeUnsponsored->price}}</h5>
+
+                </div>
+            @endforeach
+        </div>
     </div>
 
-    <div class="pagination d-flex justify-content-end mt-5">
+    {{-- <div class="pagination d-flex justify-content-end mt-5">
         {{ $places->links() }}
-    </div>
+    </div> --}}
 
 @endsection
