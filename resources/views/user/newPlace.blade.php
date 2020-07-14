@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2>Inserisci una nuova casa da affittare</h2>
+    <h2 class="text-center mt-4">Inserisci una nuova casa da affittare</h2>
 
     @if($errors->any())
         <div class="alert alert-danger">
@@ -13,7 +13,7 @@
         </div>
     @endif
  
-    <div class="new-place">
+    <div class="new-place mt-5">
         <form class="message-form" action="{{route('user.place.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
@@ -64,13 +64,14 @@
             </div>
             
             <h4>Seleziona servizi aggiuntivi:</h4>
-            @foreach ($amenities as $amenity)
-            <div class="form-check">
-                <input type="checkbox" name="amenities[]" id="amenity-{{$loop->iteration}}" value="{{$amenity->id}}">
-                <label for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
+            <div class="form-group">
+                @foreach ($amenities as $amenity)
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="amenities[]" id="amenity-{{$loop->iteration}}" value="{{$amenity->id}}">
+                    <label class="form-check-label" for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
+                </div>
+                @endforeach
             </div>
-            @endforeach
-
 
             <div class="form-group">
                 <label for="price">Prezzo</label>
@@ -79,10 +80,10 @@
 
             <div class="form-group my-4">
                 <label for="place_img">Inserisci un'immagine</label>
-                <input class="form-control"type="file" name="place_img" id="place_img" accept="image/*">
+                <input class="form-control-file" type="file" name="place_img" id="place_img" accept="image/*">
             </div>
 
-            <button class="btn btn-success" type="submit">Aggiungi Casa</button>
+            <button class="btn btn-success mt-4" type="submit">Aggiungi Casa</button>
         </form>
     </div>
 @endsection
