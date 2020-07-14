@@ -37,7 +37,7 @@ class PaymentController extends Controller
 
     // Get Place info
     $place_id = $id;
-
+    $place = Place::find($id);
     // Get Sponsor info
     $sponsor_id = $data['amount'];
     $sponsor = DB::table('sponsors')->where('id', '=', $sponsor_id)->get();
@@ -63,24 +63,24 @@ class PaymentController extends Controller
         $deadline = Carbon::now()->addHours($sponsor_durate);
 
         // Get Transaction id
-        $id = $transaction->id; 
+        $transId = $transaction->id; 
         
         // Popolate Pivot Place_Sponsor Tabe
         $newPlace = new Place();    
         $newPlace->sponsors()->attach($place_id,
                                     [
-                                    'start'=> $actualDate ,
+                                    'start'=> $actualDate,
                                     'end'=> $deadline,
-                                    'id_transaction'=> $id,
+                                    'id_transaction'=> $transId,
                                     'place_id' => $place_id,
                                     'sponsor_id' => $sponsor_id
                                     ]);
 
     } else {
-        var_dump('errore nella transazione');
+        abort(404);
       }
-
-    return view('user.checkout', compact('transaction'));
+    
+    return redirect()->route('user.myplace.index')->with('transId',$transId)->with('placeBuy',$place->title);
   }
 
   // Get gateway info from .env

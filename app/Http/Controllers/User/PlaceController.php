@@ -8,8 +8,11 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Place;
 use App\Amenity;
+use App\Message;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class PlaceController extends Controller
 {
@@ -18,6 +21,8 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //  MY Places
     public function index()
     {
         $user = Auth::user();
@@ -30,6 +35,35 @@ class PlaceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function visibility(Place $place)
+    {
+
+        $actualValue = $place->visibility;
+
+        if ($actualValue == 1){
+
+            $affected = DB::table('places')
+              ->where('id', $place->id)
+              ->update(['visibility' => 0]);
+            $value = 0;
+        } else{
+            $affected = DB::table('places')
+              ->where('id', $place->id)
+              ->update(['visibility' => 1]); 
+            $value = 1;
+        }
+
+        if($affected){
+            return redirect()->back()->with('hide',$value)->with('place',$place->title);
+        } else{
+            abort(404);
+        }
+    }
+    
+
+    //  Create new Places
     public function create()
     {
         $amenities = Amenity::all();
@@ -42,6 +76,8 @@ class PlaceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    //  Store new Places
     public function store(Request $request)
     {
         $data = $request->validate([
@@ -86,10 +122,17 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Place $place)
-    {
-        $amenities = Amenity::all();
 
+    //  Edit Place
+    public function edit($slug)
+    {
+        $place = Place::where('slug',$slug)->first();
+
+        if (empty($place)) {
+            abort(404);
+        };
+
+        $amenities = Amenity::all();
         return view('user.editPlace', compact('place', 'amenities'));
     }
 
@@ -100,9 +143,11 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    //  Update Place
     public function update(Request $request, Place $place)
     {
-        $data = $request->validate([
+        $request->validate([
             'title'=> 'required',
             'description'=> 'required',
             'country' => 'required',
@@ -113,17 +158,22 @@ class PlaceController extends Controller
             'num_baths'=> 'required',
             'square_m'=> 'required',
             'price' => 'required',
-            'amenities' => [],
+            'amenities.*' => 'exists:amenities,id',
             'place_img'=> 'nullable|image|mimes:jpg,jpeg,png'
         ]);
+
+        
+        $data = $request->all();
+
+        $data['slug'] = Str::slug($data['title'],'-');
 
         if(!empty($data['place_img'])) {
             $data['place_img'] = Storage::disk('public')->put('images', $data['place_img']);
         }
-
+        
+        // @dump($place, $data);
+        
         $updated = $place->update($data);
-
-        @dd($updated);
 
         if($updated) {
             if(!empty($data['amenities'])) {
@@ -141,9 +191,80 @@ class PlaceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    //  Delete Place
+    public function destroy($slug)
     {
-        //
+        $place = Place::where('slug',$slug)->first();
+
+        if (empty($place)){
+            abort(404);
+        };
+
+        $title = $place->title;
+
+        $place->amenities()->detach();
+        
+        $deleted = $place->delete();
+
+        if ($deleted){
+            
+            // Cancellazione img
+            if(!empty($place->place_img)){
+                Storage::disk('public')->delete($place->place_img);
+            }
+
+            return redirect()->route('user.myplace.index')->with('place-deleted',$title);
+        }
     }
-    
+
+    public function getStats($slug)
+    {
+        $user = Auth::user();
+        $place = Place::where('slug', $slug)->first();
+        $allMessages = $place->messages; 
+        $totMessages = count($allMessages); 
+        
+        $allMessagesMonth = [];
+        foreach($allMessages as $message) {
+            $messageDate = $message['created_at']; 
+            $messageMonth = date("F", strtotime($messageDate));
+            $allMessagesMonth[] = $messageMonth;
+        }
+
+        function getGraphData($items) {
+            $monthCounters = [
+                'January' => 0,
+                'February' => 0,
+                'March' => 0,
+                'April' => 0,
+                'May' => 0,
+                'June' => 0,
+                'July' => 0,
+                'August' => 0,
+                'September' => 0,
+                'October' => 0,
+                'November' => 0,
+                'December' => 0
+            ];
+
+            foreach($monthCounters as $singleMonth=>$val) {
+                foreach($items as $month) {
+                    if($singleMonth == $month) {
+                        $val++;
+                        $monthCounters[$month] = $val;
+                    }
+                }
+            }
+            return $monthCounters;
+        }
+
+        $messagesGraph = getGraphData($allMessagesMonth);
+
+        if ($place->user_id === $user->id) {
+            return view('pages.stats', compact('messagesGraph', 'totMessages'));
+        } else {
+            die('Error!');
+        }
+    }
 }
