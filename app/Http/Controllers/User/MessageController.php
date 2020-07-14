@@ -17,9 +17,8 @@ class MessageController extends Controller
     {
         $user = Auth::user();
         $messages = DB::table('messages')
-            ->join('places', 'places.id', '=', 'messages.place_id')
-            ->join('users', 'users.id', '=', 'places.user_id')
-            ->where('messages.place_id', '=', 'places.id')
+            ->join('places', 'messages.place_id', '=', 'places.id')
+            ->join('users', 'places.user_id', '=', 'users.id')
             ->where('places.user_id', '=', $user->id)
             ->select(
                 'users.name', 
@@ -30,9 +29,7 @@ class MessageController extends Controller
                 'messages.message', 
                 'messages.created_at')
             ->get();
-
-            dd($messages);
-
+            
         return view('user.inbox', compact('messages', 'user'));
     }
 }
