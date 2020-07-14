@@ -58,6 +58,8 @@
                         </form>
                         {{-- Sponsorizza --}}
                         <a class="btn btn-warning btn-sm ml-2" href="{{ route('user.payment',$place->id) }}">Sponosorizza</a>
+                        {{-- Pagina --}}
+                        <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$place->slug) }}">Visualizza Statistiche</a>
                         {{-- Nascondi --}}
                         <form class="ml-2" action="{{route('user.place.visibility', $place->id)}}" method="POST">
                             @csrf
