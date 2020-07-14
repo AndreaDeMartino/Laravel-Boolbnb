@@ -25,9 +25,22 @@ class PlaceController extends Controller
     //  MY Places
     public function index()
     {
+        // Get Actual DataTime
+        $actualDate = Carbon::now();
+        
         $user = Auth::user();
-        $places = Place::all();
-        return view('user.myPlaces', compact('places', 'user'));
+        $allPlaces = Place::all();
+
+        //  Sponsored Places
+        $placesSponsored = Place::whereHas('sponsors', 
+                                    function($q) use ($actualDate,$user){
+                                        $q->where('end', '>', $actualDate)->where('places.user_id', '=', $user->id);
+                                    })->get();
+
+        //  Unponsored Places
+        $placesUnsponsored = $allPlaces->diff($placesSponsored);
+                                    
+        return view('user.myPlaces', compact('placesSponsored', 'placesUnsponsored', 'user'));
     }
 
     /**

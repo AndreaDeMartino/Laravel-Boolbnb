@@ -7,6 +7,7 @@ use App\Place;
 use App\Amenity;
 use App\Message;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class GuestController extends Controller
 {
@@ -17,9 +18,23 @@ class GuestController extends Controller
      */
     public function index()
     {
-        $places = DB::table('places')->where('visibility', '=', 1)->orderByDesc('id')->paginate(3);
+        // $places = DB::table('places')->where('visibility', '=', 1)->orderByDesc('id')->paginate(3);
 
-        return view('pages.home', compact('places'));
+        // Get Actual DataTime
+        $actualDate = Carbon::now();
+        
+        $allPlaces = Place::where('visibility', '=', '1')->get();
+
+        //  Sponsored Places
+        $placesSponsored = Place::whereHas('sponsors', 
+                                    function($q) use ($actualDate){
+                                        $q->where('end', '>', $actualDate)->where('places.visibility', 1);
+                                    })->get();
+
+        // //  Unponsored Places
+        $placesUnsponsored = $allPlaces->diff($placesSponsored);
+
+        return view('pages.home', compact('placesUnsponsored','placesSponsored'));
     }
 
     /**

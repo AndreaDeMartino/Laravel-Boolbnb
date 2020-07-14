@@ -21,10 +21,10 @@ class MessageController extends Controller
             ->join('users', 'places.user_id', '=', 'users.id')
             ->where('places.user_id', '=', $user->id)
             ->select(
-                'users.name', 
-                'places.title', 
                 'messages.guest_name', 
-                'messages.mail_address', 
+                'messages.place_id', 
+                'places.title',
+                'messages.mail_address',
                 'messages.subject', 
                 'messages.message', 
                 'messages.created_at')
