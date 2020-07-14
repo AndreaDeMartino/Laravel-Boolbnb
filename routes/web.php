@@ -51,4 +51,7 @@ Route::prefix('user') // URI
 
         // Places Visibilità
         Route::post('/place/visibility/{place}', 'PlaceController@visibility')->name('place.visibility');
+
+        // Statistiche
+        Route::get('/get-stats/{slug}', 'PlaceController@getStats')->name('place.stats');
     });
