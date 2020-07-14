@@ -8,7 +8,7 @@
             <div class="message-card border p-2 mb-4 border-info rounded bg-white">
                 <h3 class="card-title text-right text-primary mb-3">
                     Messaggio da: {{ $message->guest_name }}
-                    per il place {{ $message->place_id }}
+                    per {{ $message->title }}
                 </h3>
                 <h4 class="card-subtitle text-right mb-3 text-secondary">{{ $message->mail_address }}</h4>
                 <h2 class="card-subtitle mb-2 text-muted">{{ $message->subject }}</h2>
