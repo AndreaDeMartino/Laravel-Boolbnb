@@ -20,7 +20,7 @@
     </div>
 </div>
 
-
+<canvas id="myChart"></canvas>
 
 <h2>Contatta il venditore!</h2>
 @include('shared.sendMessageArea')

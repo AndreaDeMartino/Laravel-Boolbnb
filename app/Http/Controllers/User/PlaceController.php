@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Place;
 use App\Amenity;
+use App\Message;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -216,5 +218,54 @@ class PlaceController extends Controller
             return redirect()->route('user.myplace.index')->with('place-deleted',$title);
         }
     }
-    
+
+    public function getStats($slug)
+    {
+        $user = Auth::user();
+        $place = Place::where('slug', $slug)->first();
+        $allMessages = $place->messages; 
+        $totMessages = count($allMessages); 
+        
+        $allMessagesMonth = [];
+        foreach($allMessages as $message) {
+            $messageDate = $message['created_at']; 
+            $messageMonth = date("F", strtotime($messageDate));
+            $allMessagesMonth[] = $messageMonth;
+        }
+
+        function getGraphData($items) {
+            $monthCounters = [
+                'January' => 0,
+                'February' => 0,
+                'March' => 0,
+                'April' => 0,
+                'May' => 0,
+                'June' => 0,
+                'July' => 0,
+                'August' => 0,
+                'September' => 0,
+                'October' => 0,
+                'November' => 0,
+                'December' => 0
+            ];
+
+            foreach($monthCounters as $singleMonth=>$val) {
+                foreach($items as $month) {
+                    if($singleMonth == $month) {
+                        $val++;
+                        $monthCounters[$month] = $val;
+                    }
+                }
+            }
+            return $monthCounters;
+        }
+
+        $messagesGraph = getGraphData($allMessagesMonth);
+
+        if ($place->user_id === $user->id) {
+            return view('pages.stats', compact('messagesGraph', 'totMessages'));
+        } else {
+            die('Error!');
+        }
+    }
 }
