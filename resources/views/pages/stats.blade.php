@@ -19,7 +19,7 @@
                         data: {
                             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                             datasets: [{
-                                label: 'Stats Messaggi',
+                                label: 'Stats Messaggi', 
                                 data: [
                                     messagesGraph.January,
                                     messagesGraph.February,
@@ -80,3 +80,4 @@
         </div>
     @endauth
 @endsection
+
