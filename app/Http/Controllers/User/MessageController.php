@@ -23,6 +23,7 @@ class MessageController extends Controller
             ->select(
                 'messages.guest_name', 
                 'messages.place_id', 
+                'places.title',
                 'messages.mail_address',
                 'messages.subject', 
                 'messages.message', 
