@@ -54,5 +54,7 @@ Route::prefix('user') // URI
 
         // Statistiche
         Route::get('/get-stats/{slug}', 'PlaceController@getStats')->name('place.stats');
+        
+        // Inbox
         Route::get('/inbox', 'MessageController@index')->name('inbox.index');
     });
