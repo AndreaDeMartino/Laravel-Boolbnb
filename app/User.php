@@ -43,12 +43,24 @@ class User extends Authenticatable
     ];
 
 
-  /****************************************************
-  * Relations
-  ****************************************************/
+    /****************************************************
+     * Relations
+    ****************************************************/
 
-  public function places(){
-      return $this->hasMany('App\Place');
-  }
+    public function messages()
+    {
+        return $this->hasManyThrough(
+            'App\Message', // Final Model
+            'App\Place', // Intermediary Model
+            'user_id', // Intermediary Model Foreign Key
+            'place_id', // Final Model Foreign Key
+            'id', // User Model Primary Key
+            'id' // Intermediary Model Primary Key
+        );  
+    }
+
+    public function places(){
+        return $this->hasMany('App\Place');
+    }
 
 }

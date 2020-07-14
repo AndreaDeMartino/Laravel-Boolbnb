@@ -15,11 +15,7 @@
     
         <div class="form-group">
             <label for="mail_address">Email</label>
-            <input class="form-control" type="email" name="mail_address" value="
-            @auth
-                {{ Auth::user()->email }}
-            @endauth
-            ">
+            <input class="form-control" type="email" name="mail_address" value="@auth {{ Auth::user()->email }} @endauth">
         </div>
     
         <div class="form-group">
