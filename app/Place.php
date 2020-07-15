@@ -49,4 +49,8 @@ class Place extends Model
     return $this->hasMany('App\Message');
     }
 
+    public function visits()
+    {
+        return $this->hasMany('App\Visit');
+    }
 }

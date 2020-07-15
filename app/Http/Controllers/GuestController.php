@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Place;
 use App\Amenity;
 use App\Message;
+use App\Visit;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
@@ -49,6 +51,13 @@ class GuestController extends Controller
 
         if(empty($place)) {
             abort(404);
+        }
+
+        if((Auth::id() !== $place->user_id) || !Auth::check()) { // se l'id dello user che sta visitando è diverso dallo user_id della stanza OPPURE trattasi di semplice guest
+            Visit::create([ //aggiungo un record alla tabella visits
+                'place_id' => $place->id,
+                'date' => Carbon::now()
+            ]);
         }
 
         return view('pages.placeShow', compact('place'));
