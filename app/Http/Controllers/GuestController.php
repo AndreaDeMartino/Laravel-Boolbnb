@@ -58,10 +58,10 @@ class GuestController extends Controller
     public function sendMessage(Request $request, $id)
     {
         $data = $request->validate([
-            'guest_name' => 'required',
-            'subject' => 'required',
-            'mail_address' => 'required',
-            'message' => 'required',
+            'guest_name' => 'required|min:5|max:30',
+            'subject' => 'required|min:5|max:20',
+            'mail_address' => 'required|email',
+            'message' => 'required|min:20|max:200',
         ]);
 
         $data['place_id'] = $id;

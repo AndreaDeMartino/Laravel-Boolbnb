@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    
+    <h2 class="text-center mt-4">Messaggi ricevuti</h2>
+
     <div class="container">
         <div class="message-cards pt-5">
         @foreach ($messages as $message)
