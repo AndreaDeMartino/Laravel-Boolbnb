@@ -29,8 +29,17 @@
             </div>
 
             <div class="form-group">
+                <label for="form-address">Indirizzo</label>
+                <input class="form-control"type="text" name="address" id="form-address" value="{{old('address')}}">
+            </div>
+
+            <div class="form-group">
                 <label for="country">Nazione</label>
                 <input class="form-control"type="text" name="country" id="country" value="{{old('country')}}">
+            </div>
+            <div class="form-group">
+                <label for="region">Regione</label>
+                <input class="form-control"type="text" name="region" id="region" value="{{old('region')}}">
             </div>
 
             <div class="form-group">
@@ -38,10 +47,6 @@
                 <input class="form-control"type="text" name="city" id="city" value="{{old('city')}}">
             </div>
 
-            <div class="form-group">
-                <label for="address">Indirizzo</label>
-                <input class="form-control"type="text" name="address" id="address" value="{{old('address')}}">
-            </div>
 
             <div class="form-group">
                 <label for="num_rooms">Numero stanze</label>
@@ -83,7 +88,15 @@
                 <input class="form-control-file" type="file" name="place_img" id="place_img" accept="image/*">
             </div>
 
+            <input type="hidden" name="lat" id="lat">
+            <input type="hidden" name="long" id="long">
+            <input type="hidden" name="apikey" id="apikey" value="{{ $algoliaPlace[0] }}">
+            <input type="hidden" name="adminid" id="adminid" value="{{ $algoliaPlace[1] }}">
+
             <button class="btn btn-success mt-4" type="submit">Aggiungi Casa</button>
         </form>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+
+    <script src="{{ asset('js/search.js') }}"></script>
 @endsection
