@@ -95,20 +95,21 @@ class PlaceController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'title'=> 'required',
-            'description'=> 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'address'=> 'required',
-            'num_rooms'=> 'required',
-            'num_beds'=> 'required',
-            'num_baths'=> 'required',
-            'square_m'=> 'required',
+
+            'title'=> 'required|string|min:5|max:30',
+            'description'=> 'required|string|min:20|max:200',
+            'country' => 'required|min:1',
+            'city' => 'required|min:1',
+            'address'=> 'required|min:1',
+            'num_rooms'=> 'required|numeric|min:1',
+            'num_beds'=> 'required|numeric|min:1',
+            'num_baths'=> 'required|numeric',
+            'square_m'=> 'required|numeric|min:10',
             'lat'=> 'required',
             'long'=> 'required',
-            'price' => 'required',
+            'price' => 'required|numeric|min:1',
             'amenities' => [],
-            'place_img'=> 'nullable|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'nullable|max:350|image|mimes:jpg,jpeg,png'
         ]);
 
         //id utente
@@ -164,18 +165,18 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         $request->validate([
-            'title'=> 'required',
-            'description'=> 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'address'=> 'required',
-            'num_rooms'=> 'required',
-            'num_beds'=> 'required',
-            'num_baths'=> 'required',
-            'square_m'=> 'required',
-            'price' => 'required',
+            'title'=> 'required|string|min:5|max:30',
+            'description'=> 'required|string|min:20|max:200',
+            'country' => 'required|min:1',
+            'city' => 'required|min:1',
+            'address'=> 'required|min:1',
+            'num_rooms'=> 'required|numeric|min:1',
+            'num_beds'=> 'required|numeric|min:1',
+            'num_baths'=> 'required|numeric',
+            'square_m'=> 'required|numeric|min:10',
+            'price' => 'required|numeric|min:1',
             'amenities.*' => 'exists:amenities,id',
-            'place_img'=> 'nullable|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'nullable|max:350|image|mimes:jpg,jpeg,png'
         ]);
 
         
