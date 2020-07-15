@@ -56,12 +56,12 @@ class GuestController extends Controller
 
     //Invia messaggi all'utente proprietario
     public function sendMessage(Request $request, $id)
-    {
+    {   
         $data = $request->validate([
-            'guest_name' => 'required|min:5|max:30',
-            'subject' => 'required|min:5|max:20',
-            'mail_address' => 'required|email',
-            'message' => 'required|min:20|max:200',
+            'guest_name' => 'required|string|min:5|max:30',
+            'subject' => 'required|string|min:5|max:20',
+            'mail_address' => 'required|email|string|max:50',
+            'message' => 'required|string|min:20|max:400',
         ]);
 
         $data['place_id'] = $id;
@@ -72,7 +72,7 @@ class GuestController extends Controller
 
         //return redirect('place/' . $slug);
         $subject = $newMessage->subject;
-
+        
         return redirect()->route('home.index')->with('message', $subject);
     }
 }

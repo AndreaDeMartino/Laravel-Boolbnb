@@ -130,9 +130,118 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
+        /*'attribute-name' => [
             'rule-name' => 'custom-message',
+        ],*/
+        'guest_name' => [
+            'required' => 'Nome e cognome sono richiesti.',
+            'string' => 'Nome e cognome devono avere valore testuale.',
+            'min' => 'Il campo "Nome e cognome" deve contenere almeno :min caratteri.',
+            'max' => 'Il campo "Nome e cognome" non può contenere più di :max caratteri.'
         ],
+        'subject' => [
+            'required' => 'L\'oggetto del messaggio è richiesto.',
+            'string' => 'L\'oggetto del messaggio deve avere valore testuale.',
+            'min' => 'Il campo "Oggetto" deve contenere almeno :min caratteri.',
+            'max' => 'Il campo "Oggetto" non può contenere più di :max caratteri.'
+        ],
+        'mail_address' => [
+            'required' => 'L\'indirizzo email è richiest0.',
+            'email' => 'L\'indirizzo email inserito non è valido.',
+            'string' => 'L\'indirizzo email deve avere valore testuale.',
+            'max' => 'L\'indirizzo email non può contenere più di :max caratteri.'
+        ],
+        'message' => [
+            'required' => 'Il testo del messaggio è richiesto.',
+            'string' => 'Il testo del messaggio deve avere valore testuale.',
+            'min' => 'Il testo del messaggio deve contenere almeno :min caratteri.',
+            'max' => 'Il testo del messaggio non può contenere più di :max caratteri.'
+        ],
+        'name' => [
+            'required' => 'Il nome è richiesto.',
+            'string' => 'Il nome deve avere valore testuale.',
+            'max' => 'Il nome non può contenere più di :max caratteri.'
+        ],
+        'last_name' => [
+            'required' => 'Il cognome è richiesto.',
+            'string' => 'Il cognome deve avere valore testuale.',
+            'max' => 'Il cognome non può contenere più di :max caratteri.'
+        ],
+        'birth_date' => [
+            'required' => 'La data di nascita è richiesta.',
+            'date' => 'La data inserita non ha valore valido.',
+            'after' => 'La data di nascita deve essere successiva a :date.',
+            'before' => 'La data di nascita deve essere precedente a :date.'
+        ],
+        'email' => [
+            'required' => 'L\'indirizzo email è richiest0.',
+            'email' => 'L\'indirizzo email inserito non è valido.',
+            'string' => 'L\'indirizzo email deve avere valore testuale.',
+            'max' => 'L\'indirizzo email non può contenere più di :max caratteri.',
+            'unique' => 'L\'indirizzo email è già in uso da un altro utente.'
+        ],
+        'password' => [
+            'required' => 'La password è richiesta.',
+            'string' => 'La password deve avere valore testuale.',
+            'min' => 'La password deve contenere almeno :min caratteri.',
+            'confirmed' => 'La password di conferma non corrisponde.'
+        ],
+        'title'=> [
+            'required' => 'Il titolo è richiesto.',
+            'string' => 'Il titolo deve avere valore testuale.',
+            'min' => 'Il titolo deve contenere almeno :min caratteri.',
+            'max' => 'Il titolo non può contenere più di :max caratteri.'
+        ],
+        'description'=> [
+            'required' => 'La descrizione è richiesta.',
+            'string' => 'La descrizione deve avere valore testuale.',
+            'min' => 'La descrizione deve contenere almeno :min caratteri.',
+            'max' => 'La descrizione non può contenere più di :max caratteri.'
+        ],
+        'country' => [
+            'required' => 'La nazione è richiesta.',
+            'string' => 'Il campo "Nazione" deve avere valore testuale.',
+            'min' => 'Il campo "Nazione" deve contenere almeno :min caratteri.'
+        ],
+        'city' => [
+            'required' => 'La città è richiesta.',
+            'string' => 'Il campo "Città" deve avere valore testuale.',
+            'min' => 'Il campo "Città" deve contenere almeno :min caratteri.'
+        ],
+        'address'=> [
+            'required' => 'Il campo "Indirizzo" è richiesto.',
+            'string' => 'Il campo "Indirizzo" deve avere valore testuale.',
+            'min' => 'Il campo "Indirizzo" deve contenere almeno :min caratteri.'
+        ],
+        'num_rooms'=> [
+            'required' => 'Il numero delle stanze è richiesto.',
+            'numeric' => 'Il campo "Numero stanze" deve avere valore numerico.',
+            'min' => 'L\'abitazione deve contenere almeno :min stanza.'
+        ],
+        'num_beds'=> [
+            'required' => 'Il numero dei posti letto è richiesto.',
+            'numeric' => 'Il campo "Posti letto" deve avere valore numerico.',
+            'min' => 'L\'abitazione deve contenere almeno :min posto letto.'
+        ],
+        'num_baths'=> [
+            'required' => 'Il numero dei bagni è richiesto.',
+            'numeric' => 'Il campo "Bagni" deve avere valore numerico.'
+        ],
+        'square_m'=> [
+            'required' => 'Le dimensioni dell\'abitazione sono richieste.',
+            'numeric' => 'Il campo "Dimensioni" deve avere valore numerico.',
+            'min' => 'L\'abitazione deve essere grande almeno :min metri quadri.'
+        ],
+        'price' => [
+            'required' => 'Il prezzo è richiesto.',
+            'numeric' => 'Il campo "Prezzo" deve avere valore numerico.',
+            'min' => 'Il prezzo deve ammontare almeno a 1,00.'
+        ],
+        'place_img'=> [
+            'max' => 'L\'immagine inserita non deve superare i :max kb.',
+            'image' => 'L\'immagine inserita deve essere di un formato immagine.',
+            'mimes' => 'L\'immagine inserita deve essere dei seguenti formati: :values.',
+        ]
     ],
 
     /*
