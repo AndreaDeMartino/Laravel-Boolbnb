@@ -50,7 +50,3 @@ function generateGraph(graphId, json, bgColor, bordColor) {
         }
     });
 }
-
-
-
-

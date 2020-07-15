@@ -37227,10 +37227,6 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-$(document).ready(function () {
-  console.log('prova');
-});
-
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
