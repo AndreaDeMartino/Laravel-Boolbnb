@@ -58,8 +58,8 @@ class PlaceController extends Controller
         if ($actualValue == 1){
 
             $affected = DB::table('places')
-              ->where('id', $place->id)
-              ->update(['visibility' => 0]);
+                ->where('id', $place->id)
+                ->update(['visibility' => 0]);
             $value = 0;
         } else{
             $affected = DB::table('places')
@@ -79,8 +79,9 @@ class PlaceController extends Controller
     //  Create new Places
     public function create()
     {
+        $algoliaPlace = $this->algoPlace();
         $amenities = Amenity::all();
-        return view('user.newPlace', compact('amenities'));
+        return view('user.newPlace', compact('amenities','algoliaPlace'));
     }
 
     /**
@@ -103,6 +104,8 @@ class PlaceController extends Controller
             'num_beds'=> 'required',
             'num_baths'=> 'required',
             'square_m'=> 'required',
+            'lat'=> 'required',
+            'long'=> 'required',
             'price' => 'required',
             'amenities' => [],
             'place_img'=> 'nullable|image|mimes:jpg,jpeg,png'
@@ -280,4 +283,12 @@ class PlaceController extends Controller
             die('Error!');
         }
     }
+
+    private function algoPlace(){
+        $algoData = [
+            getenv('PLACES_APP_ID'),
+            getenv('PLACES_API_KEY')
+        ];
+        return $algoData;
+      }
 }
