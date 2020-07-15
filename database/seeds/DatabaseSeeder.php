@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             PlaceTableSeeder::class,
             AmenityTableSeeder::class,
             MessageTableSeeder::class,
-            SponsorTableSeeder::class
+            SponsorTableSeeder::class,
+            VisitTableSeeder::class
         ]);
     }
 }

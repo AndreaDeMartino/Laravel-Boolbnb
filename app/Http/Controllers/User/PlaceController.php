@@ -235,14 +235,25 @@ class PlaceController extends Controller
     {
         $user = Auth::user();
         $place = Place::where('slug', $slug)->first();
+        
+        //Messaggi
         $allMessages = $place->messages; 
         $totMessages = count($allMessages); 
-        
         $allMessagesMonth = [];
         foreach($allMessages as $message) {
             $messageDate = $message['created_at']; 
             $messageMonth = date("F", strtotime($messageDate));
             $allMessagesMonth[] = $messageMonth;
+        }
+
+        //Visite
+        $allVisits = $place->visits;
+        $totVisits = count($allVisits);
+        $allVisitsMonth = [];
+        foreach($allVisits as $visit) {
+            $visitDate = $visit['date'];
+            $visitMonth = date("F", strtotime($visitDate));
+            $allVisitsMonth[] = $visitMonth;
         }
 
         function getGraphData($items) {
@@ -273,9 +284,10 @@ class PlaceController extends Controller
         }
 
         $messagesGraph = getGraphData($allMessagesMonth);
+        $visitsGraph = getGraphData($allVisitsMonth);
 
         if ($place->user_id === $user->id) {
-            return view('pages.stats', compact('messagesGraph', 'totMessages'));
+            return view('pages.stats', compact('messagesGraph', 'totMessages', 'visitsGraph', 'totVisits'));
         } else {
             die('Error!');
         }
