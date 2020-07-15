@@ -97,10 +97,10 @@ class PlaceController extends Controller
         $data = $request->validate([
 
             'title'=> 'required|string|min:5|max:30',
-            'description'=> 'required|string|min:20|max:200',
-            'country' => 'required|min:1',
-            'city' => 'required|min:1',
-            'address'=> 'required|min:1',
+            'description'=> 'required|string|min:30|max:400',
+            'country' => 'required|min:2',
+            'city' => 'required|min:2',
+            'address'=> 'required|min:2',
             'num_rooms'=> 'required|numeric|min:1',
             'num_beds'=> 'required|numeric|min:1',
             'num_baths'=> 'required|numeric',
@@ -109,7 +109,7 @@ class PlaceController extends Controller
             'long'=> 'required',
             'price' => 'required|numeric|min:1',
             'amenities' => [],
-            'place_img'=> 'nullable|max:350|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'nullable|max:4096|image|mimes:jpg,jpeg,png'
         ]);
 
         //id utente
@@ -166,17 +166,17 @@ class PlaceController extends Controller
     {
         $request->validate([
             'title'=> 'required|string|min:5|max:30',
-            'description'=> 'required|string|min:20|max:200',
-            'country' => 'required|min:1',
-            'city' => 'required|min:1',
-            'address'=> 'required|min:1',
+            'description'=> 'required|string|min:30|max:400',
+            'country' => 'required|min:2',
+            'city' => 'required|min:2',
+            'address'=> 'required|min:2',
             'num_rooms'=> 'required|numeric|min:1',
             'num_beds'=> 'required|numeric|min:1',
             'num_baths'=> 'required|numeric',
             'square_m'=> 'required|numeric|min:10',
             'price' => 'required|numeric|min:1',
             'amenities.*' => 'exists:amenities,id',
-            'place_img'=> 'nullable|max:350|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'nullable|max:4096|image|mimes:jpg,jpeg,png'
         ]);
 
         

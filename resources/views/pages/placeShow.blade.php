@@ -3,6 +3,16 @@
 @section('content')
 
 <div class="container">
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <div class="card my-4 d-flex align-items-center">
         @if(!empty($place->place_img))
             <img src="{{asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo" style="width: 18rem; height: 20rem;">
