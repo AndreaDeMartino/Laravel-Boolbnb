@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h2 class="text-center mt-4">Le mie inserzioni</h2>
 
     {{-- Place Cancellato --}}
     @if (session('place-deleted'))
@@ -23,9 +24,9 @@
     </div>
     @endif
 
-    <div class="cards d-flex flex-wrap justify-content-center mt-4">
+    <div class="cards d-flex flex-wrap justify-content-center">
 
-        <div class="sponsored d-flex flex-wrap justify-content-center mt-5">
+        <div class="sponsored d-flex flex-wrap justify-content-center">
             @foreach ($placesSponsored as $placeSponsored)
                 @if ($placeSponsored->user_id == $user->id)
                     <div class="card text-center mr-3 bg-primary text-light">
