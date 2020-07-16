@@ -26,8 +26,8 @@ class CreatePlacesTable extends Migration
             $table->string('country');
             $table->string('city');
             $table->string('address');
-            $table->decimal('lat', 6,4)->nullable();
-            $table->decimal('long', 7,4)->nullable();
+            $table->decimal('lat', 9,6);
+            $table->decimal('long', 9,6);
             $table->string('place_img')->nullable();
             $table->decimal('price', 11, 2);
             $table->boolean('visibility')->default(1);
