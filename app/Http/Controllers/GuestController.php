@@ -67,13 +67,17 @@ class GuestController extends Controller
     public function sendMessage(Request $request, $id)
     {   
         $data = $request->validate([
-            'guest_name' => 'required|string|min:5|max:30',
-            'subject' => 'required|string|min:5|max:20',
+            'guest_name' => 'required|string|min:4|max:50',
+            'subject' => 'required|string|min:5|max:50',
             'mail_address' => 'required|email|string|max:50',
-            'message' => 'required|string|min:20|max:400',
+            'message' => 'required|string|min:20|max:600'
         ]);
 
         $data['place_id'] = $id;
+
+        // Get Actual DateTime to display in message
+        $actualDate = Carbon::now();
+        $data['created_at'] = $actualDate;
 
         $newMessage = new Message();
         $newMessage->fill($data);

@@ -7,6 +7,7 @@
         <div class="message-cards pt-5">
         @foreach ($messages as $message)
             <div class="message-card border p-2 mb-4 border-info rounded bg-white">
+                <p class="text-right text-info"><small>{{ $message->created_at }}</small></p>
                 <h3 class="card-title text-right text-primary mb-3">
                     Messaggio da: {{ $message->guest_name }}
                     per {{ $message->title }}
