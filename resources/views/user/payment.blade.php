@@ -6,6 +6,15 @@
       @csrf
       @method("POST")
 
+      <h2 class="text-center mt-4">Scegli la sponsorship per la tua inserzione</h2>
+      
+      {{-- Error message for empty sponsorship field --}}
+      @if (session('sponsorshipError'))
+      <div class="alert alert-danger">
+          <p>{{ session('sponsorshipError') }}</p>
+      </div>
+      @endif
+
       <!-- IMPORTO INPUT -->
       <label for="amount">
         <span class="input-label">Sponsor</span>
@@ -35,7 +44,7 @@
 
       <!-- SUBMIT -->
       <input id="nonce" name="payment_method_nonce" type="hidden" />
-      <button class="button" type="submit">Compra</button>
+      <button class="btn btn-success" type="submit">Compra</button>
     </form>
 
 

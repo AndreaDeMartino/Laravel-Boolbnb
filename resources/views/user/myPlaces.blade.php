@@ -26,10 +26,10 @@
 
     <div class="cards d-flex flex-wrap justify-content-center">
 
-        <div class="sponsored d-flex flex-wrap justify-content-center">
+        <div class="sponsored d-flex flex-wrap justify-content-center mt-3">
             @foreach ($placesSponsored as $placeSponsored)
                 @if ($placeSponsored->user_id == $user->id)
-                    <div class="card text-center mr-3 bg-primary text-light">
+                    <div class="card text-center mr-3 bg-primary text-light {{ !$loop->last ? 'mb-4' : '' }}">
                         @if(!empty($placeSponsored->place_img))
                             <img src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}" style="height: 20rem">
                         @else
@@ -78,7 +78,7 @@
         <div class="unsponsored d-flex flex-wrap justify-content-center mt-5">
             @foreach ($placesUnsponsored as $placeUnsponsored)
                 @if ($placeUnsponsored->user_id == $user->id)
-                    <div class="card text-center mr-3">
+                    <div class="card text-center {{ !$loop->last ? 'mb-4' : '' }}">
                         @if(!empty($placeUnsponsored->place_img))
                             <img src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}" style="height: 20rem">
                         @else

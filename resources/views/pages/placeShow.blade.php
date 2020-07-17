@@ -31,6 +31,17 @@
         <input type="hidden" name="long" id="long" value="{{ $place->long }}">
         <div class="card-text" id="mapid" style=" width: 300px;"></div>
     </div>
+
+    {{-- Servizi --}}
+    <div class="mb-3">
+    <h5>Servizi inclusi</h5>
+
+    @forelse ( $place->amenities as $amenity )
+    <span class="badge badge-pill badge-success">{{ $amenity->name }}</span>
+    @empty
+    <p class="badge badge-pill badge-info">Nessun servizio incluso</p>
+    @endforelse
+    </div>
 </div>
 
 <h2>Contatta il venditore!</h2>
