@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+    <h2 class="text-center mt-4">Tutti gli appartamenti</h2>
 
     @if (session('message'))
         <div class="alert alert-success">
@@ -24,9 +25,9 @@
             </a>
         @endforeach --}}
 
-        <div class="sponsored d-flex flex-wrap justify-content-center mt-5">
+        <div class="sponsored d-flex flex-wrap justify-content-center mt-3">
             @foreach ($placesSponsored as $placeSponsored)
-                <div class="card text-center mr-3 bg-primary text-light">
+                <div class="card text-center bg-primary text-light {{ !$loop->last ? 'mb-4' : '' }}">
                     @if(!empty($placeSponsored->place_img))
                         <img src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}" style="height: 20rem">
                     @else
@@ -44,7 +45,7 @@
 
         <div class="unsponsored d-flex flex-wrap justify-content-center mt-5">
             @foreach ($placesUnsponsored as $placeUnsponsored)
-                <div class="card text-center mr-3">
+                <div class="card text-center {{ !$loop->last ? 'mb-4' : '' }}">
                     @if(!empty($placeUnsponsored->place_img))
                         <img src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}" style="height: 20rem">
                     @else

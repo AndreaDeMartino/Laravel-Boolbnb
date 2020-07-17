@@ -13,6 +13,7 @@ use App\Sponsor;
 use Illuminate\Support\Facades\DB;
 // BrainTree
 use Braintree;
+use Illuminate\Support\Session;
 
 
 class PaymentController extends Controller
@@ -35,6 +36,12 @@ class PaymentController extends Controller
     // Get data from payment form
     $data = $request->all();
 
+    // Error message if no sponsorship has been selected 
+    $sponsorshipError = 'Nessuna sponsorship selezionata.';
+    if(empty($data['amount'])){
+      return redirect()->back()->with('sponsorshipError', $sponsorshipError);
+    }
+
     // Get Place info
     $place_id = $id;
     $place = Place::find($id);
@@ -43,6 +50,8 @@ class PaymentController extends Controller
     $sponsor = DB::table('sponsors')->where('id', '=', $sponsor_id)->get();
     $sponsor_durate = $sponsor[0]->duration;
     $sponsor_price = $sponsor[0]->price;
+
+    
 
     // Config Transaction
     $result = $this->gateway()->transaction()->sale([
