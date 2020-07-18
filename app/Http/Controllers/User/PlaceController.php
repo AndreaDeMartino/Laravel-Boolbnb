@@ -96,8 +96,8 @@ class PlaceController extends Controller
     {
         $data = $request->validate([
 
-            'title'=> 'required|string|min:5|max:30',
-            'description'=> 'required|string|min:30|max:400',
+            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:100'],
+            'description'=> ['required', 'not_regex:/[<>]/', 'string', 'min:50', 'max:800'],
             'country' => 'required|min:2',
             'city' => 'required|min:2',
             'address'=> 'required|min:2',
@@ -165,8 +165,8 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         $request->validate([
-            'title'=> 'required|string|min:5|max:30',
-            'description'=> 'required|string|min:30|max:400',
+            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:100'],
+            'description'=> ['required', 'not_regex:/[<>]/', 'string', 'min:50', 'max:800'],
             'country' => 'required|min:2',
             'city' => 'required|min:2',
             'address'=> 'required|min:2',

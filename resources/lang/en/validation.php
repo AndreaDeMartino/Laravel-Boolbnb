@@ -135,12 +135,14 @@ return [
         ],*/
         'guest_name' => [
             'required' => 'Nome e cognome sono richiesti.',
+            'not_regex' => 'Il formato del testo inserito in "Nome e Cognome" non è valido.',
             'string' => 'Nome e cognome devono avere valore testuale.',
             'min' => 'Il campo "Nome e cognome" deve contenere almeno :min caratteri.',
             'max' => 'Il campo "Nome e cognome" non può contenere più di :max caratteri.'
         ],
         'subject' => [
             'required' => 'L\'oggetto del messaggio è richiesto.',
+            'not_regex' => 'Il formato del testo inserito in "Oggetto" non è valido.',
             'string' => 'L\'oggetto del messaggio deve avere valore testuale.',
             'min' => 'Il campo "Oggetto" deve contenere almeno :min caratteri.',
             'max' => 'Il campo "Oggetto" non può contenere più di :max caratteri.'
@@ -153,6 +155,7 @@ return [
         ],
         'message' => [
             'required' => 'Il testo del messaggio è richiesto.',
+            'not_regex' => 'Il formato del testo inserito in "Messaggio" non è valido.',
             'string' => 'Il testo del messaggio deve avere valore testuale.',
             'min' => 'Il testo del messaggio deve contenere almeno :min caratteri.',
             'max' => 'Il testo del messaggio non può contenere più di :max caratteri.'
@@ -188,12 +191,14 @@ return [
         ],
         'title'=> [
             'required' => 'Il titolo è richiesto.',
+            'not_regex' => 'Il formato del Titolo non è valido.',
             'string' => 'Il titolo deve avere valore testuale.',
             'min' => 'Il titolo deve contenere almeno :min caratteri.',
             'max' => 'Il titolo non può contenere più di :max caratteri.'
         ],
         'description'=> [
             'required' => 'La descrizione è richiesta.',
+            'not_regex' => 'Il formato della Descrizione non è valido.',
             'string' => 'La descrizione deve avere valore testuale.',
             'min' => 'La descrizione deve contenere almeno :min caratteri.',
             'max' => 'La descrizione non può contenere più di :max caratteri.'
