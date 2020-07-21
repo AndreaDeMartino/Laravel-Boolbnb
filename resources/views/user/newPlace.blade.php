@@ -12,7 +12,6 @@
             </ul>
         </div>
     @endif
- 
     <div class="new-place mt-5">
         <form class="message-form" action="{{route('user.place.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -88,15 +87,16 @@
                 <input class="form-control-file" type="file" name="place_img" id="place_img" accept="image/*">
             </div>
 
-            <input type="hidden" name="lat" id="lat">
-            <input type="hidden" name="long" id="long">
+            <input type="hidden" name="lat" id="lat" value="{{old('lat')}}">
+            <input type="hidden" name="long" id="long" value="{{old('long')}}">
             <input type="hidden" name="apikey" id="apikey" value="{{ $algoliaPlace[0] }}">
             <input type="hidden" name="adminid" id="adminid" value="{{ $algoliaPlace[1] }}">
 
             <button class="btn btn-success mt-4" type="submit">Aggiungi Casa</button>
         </form>
     </div>
+    
+                        {{-- Autocomplete --}}
     <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-
     <script src="{{ asset('js/search.js') }}"></script>
 @endsection

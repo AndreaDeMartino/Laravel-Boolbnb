@@ -143,6 +143,7 @@ class PlaceController extends Controller
     //  Edit Place
     public function edit($slug)
     {
+        $algoliaPlace = $this->algoPlace();
         $place = Place::where('slug',$slug)->first();
 
         if (empty($place)) {
@@ -150,7 +151,7 @@ class PlaceController extends Controller
         };
 
         $amenities = Amenity::all();
-        return view('user.editPlace', compact('place', 'amenities'));
+        return view('user.editPlace', compact('place', 'amenities', 'algoliaPlace'));
     }
 
     /**
