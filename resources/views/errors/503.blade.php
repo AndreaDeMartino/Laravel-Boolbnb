@@ -1,5 +1,17 @@
-@extends('errors::minimal')
+@extends('errors::errorsLayout')
 
-@section('title', __('Service Unavailable'))
-@section('code', '503')
-@section('message', __($exception->getMessage() ?: 'Service Unavailable'))
+@section('title')
+Authorization required
+@endsection
+
+@section('code')
+503
+@endsection
+
+@section('subtitle')
+Errore interno al server
+@endsection
+
+@section('description')
+<p>La causa è interna al server.</p>
+@endsection

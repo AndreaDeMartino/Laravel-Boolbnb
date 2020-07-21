@@ -1,5 +1,17 @@
-@extends('errors::minimal')
+@extends('errors::errorsLayout')
 
-@section('title', __('Server Error'))
-@section('code', '500')
-@section('message', __('Server Error'))
+@section('title')
+Authorization required
+@endsection
+
+@section('code')
+500
+@endsection
+
+@section('subtitle')
+Errore interno al server
+@endsection
+
+@section('description')
+<p>La causa è interna al server.</p>
+@endsection
