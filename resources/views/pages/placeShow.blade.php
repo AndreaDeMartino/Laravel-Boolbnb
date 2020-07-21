@@ -29,8 +29,10 @@
         <h5 class="card-text h6">Dimensioni: {{$place->square_m}}</h5>
         <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
         <input type="hidden" name="long" id="long" value="{{ $place->long }}">
-        <div class="card-text" id="mapid" style=" width: 300px;"></div>
     </div>
+    <div class="col-12">
+        <div id="mapid" class="rounded-lg" style="height: 300px"></div>
+    </div> 
 
     {{-- Servizi --}}
     <div class="mb-3">
