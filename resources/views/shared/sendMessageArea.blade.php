@@ -21,7 +21,7 @@
         <div class="form-group">
             <label for="message">Testo del messaggio</label>
             <textarea class="form-control" name="message" placeholder="Digita un messaggio">{{old('message')}}</textarea>
-            <button class="btn btn-primary my-2" type="submit" name="button">Invia</button>
+            <button class="btn btn-primary my-3 col-12" type="submit" name="button">Invia</button>
         </div>
     </form>
 </div>
