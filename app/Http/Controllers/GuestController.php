@@ -20,23 +20,22 @@ class GuestController extends Controller
      */
     public function index()
     {
-        // $places = DB::table('places')->where('visibility', '=', 1)->orderByDesc('id')->paginate(3);
 
+        $algoName = getenv('ALGOLIA_APP_ID');
+        $algoKey = getenv('ALGOLIA_SECRET');
         // Get Actual DataTime
         $actualDate = Carbon::now();
         
-        $allPlaces = Place::where('visibility', '=', '1')->get();
+        // Get all amenities
+        $amenities = Amenity::all();
 
         //  Sponsored Places
         $placesSponsored = Place::whereHas('sponsors', 
                                     function($q) use ($actualDate){
                                         $q->where('end', '>', $actualDate)->where('places.visibility', 1);
                                     })->get();
-
-        // //  Unponsored Places
-        $placesUnsponsored = $allPlaces->diff($placesSponsored);
-
-        return view('pages.home', compact('placesUnsponsored','placesSponsored'));
+        
+        return view('pages.home', compact('placesSponsored','amenities','algoName','algoKey'));
     }
 
     /**
