@@ -12,42 +12,62 @@
             </ul>
         </div>
     @endif
+
+    <div class="place-show">
+        <div class="container mt-5">
+            <div class="row d-flex align-items-center mb-4">
+                <div class="col-lg-6 col-md-12 col-sm-12 order-2 order-lg-1">
+                    <h3 class="text-center">{{$place->title}}</h3>
+                    <h5 class="text-center">{{$place->address}} - {{$place->city}}</h5>
+                    <p class="place-show__description">{{$place->description}}</p>
+                    <hr>
+                    <h6>Caratteristiche:</h6>
+                    <ul class="">
+                        <li class="place-show__list-info">Numero stanze: {{$place->num_rooms}}</li>
+                        <li class="place-show__list-info">Posti letto: {{$place->num_beds}}</li>
+                        <li class="place-show__list-info">Bagni: {{$place->num_baths}}</li>
+                        <li class="place-show__list-info">Dimensioni: {{$place->square_m}}m²</li>
+                    </ul>
+                    <hr>
+                    {{-- Servizi --}}
+                    <div class="d-flex align-items-center">
+                        <span class="d-inline-block mr-2">Servizi inclusi</span>
+                        @forelse ( $place->amenities as $amenity )
+                            <span class="badge badge-pill badge-primary mr-1">{{ $amenity->name }}</span>
+                        @empty
+                            <span class="badge badge-pill badge-info">Nessun servizio incluso</span>
+                        @endforelse
+                    </div>
+                    <h5 class="text-lg-right text-md-right text-center my-3 my-3-lg my-3-md h3 font-weight-bold" style="color: #e141b9">{{round($place->price)}}€ a notte</h5>
+                    <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
+                    <input type="hidden" name="long" id="long" value="{{ $place->long }}">
+                </div>
     
-    <div class="card my-4 d-flex align-items-center">
-        @if(!empty($place->place_img))
-            <img src="{{asset('storage/' . $place->place_img)}}" class="card-img-top" alt="logo" style="width: 18rem;">
-        @else
-            <div class="no-image text-danger">No image</div>
-        @endif
-        <h3 class="card-title">{{$place->title}}</h3>
-        <h5 class="card-subtitle text-muted text-sm">{{$place->address}} - {{$place->city}} - {{$place->country}}</h5>
-        <h5 class="card-text h3 text-primary my-3">€{{$place->price}}</h5>
-        <p>Descrizione: {{$place->description}}</p>
-        <h5 class="card-text h6">Numero stanze: {{$place->num_rooms}}</h5>
-        <h5 class="card-text h6">Posti letto: {{$place->num_beds}}</h5>
-        <h5 class="card-text h6">Bagni: {{$place->num_baths}}</h5>
-        <h5 class="card-text h6">Dimensioni: {{$place->square_m}}</h5>
-        <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
-        <input type="hidden" name="long" id="long" value="{{ $place->long }}">
+                <div class="col-lg-6 col-md-12 col-sm-12 order-1 order-lg-2 mb-3 mb-lg-0">
+                    @if(!empty($place->place_img))
+                        <img src="{{asset('storage/' . $place->place_img)}}" class="img-fluid rounded" alt="immaginecasa" style="max-width: 100%; height: auto;">
+                    @else
+                        <div class="no-image text-danger">No image</div>
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-12">
-        <div id="mapid" class="rounded-lg" style="height: 300px"></div>
-    </div> 
-
-    {{-- Servizi --}}
-    <div class="mb-3">
-    <h5>Servizi inclusi</h5>
-
-    @forelse ( $place->amenities as $amenity )
-    <span class="badge badge-pill badge-success">{{ $amenity->name }}</span>
-    @empty
-    <p class="badge badge-pill badge-info">Nessun servizio incluso</p>
-    @endforelse
+    
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
+                <div id="mapid" class="rounded-lg" style="height: 300px"></div>
+            </div> 
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <h5 class="text-center">Contatta il venditore</h5>
+                @include('shared.sendMessageArea')
+            </div> 
+            
+        </div>
     </div>
 </div>
 
-<h2>Contatta il venditore!</h2>
-@include('shared.sendMessageArea')
 
 
 <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"

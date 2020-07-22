@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.0 (https://getbootstrap.com/)
@@ -10926,5 +10926,23 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.navbar {
+  color: royalblue;
+  font-weight: bold;
+}
+
+.fas.fa-bars {
+  color: royalblue;
+}
+
+.place-show {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.place-show__description,
+.place-show__list-info {
+  font-size: 14px;
 }
 
