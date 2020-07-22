@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
+        "dotenv": "^8.2.0",
         "leaflet": "^1.6.0",
         "places.js": "^1.19.0"
     }

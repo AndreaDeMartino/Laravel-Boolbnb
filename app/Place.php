@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class Place extends Model
 {
+    use Searchable;
+
     protected $fillable = [
         'user_id',
         'title',
@@ -52,5 +55,20 @@ class Place extends Model
     public function visits()
     {
         return $this->hasMany('App\Visit');
+    }
+
+    public function toSearchableArray()
+    {
+        $record = $this->toArray();
+
+        $record['_geoloc'] = [
+            'lat' => $record['lat'],
+            'lng' => $record['long'],
+        ];
+
+        unset($record['created_at'], $record['updated_at']); // Remove unrelevant data
+        unset($record['lat'], $record['long']);
+
+        return $record;
     }
 }
