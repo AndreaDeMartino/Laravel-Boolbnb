@@ -4,7 +4,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
+//Partials
 @import 'partials/common';
+@import 'partials/breakpoints';
 @import 'partials/navbar';
 @import 'partials/show-place';
+@import 'partials/footer';

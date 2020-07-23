@@ -2,15 +2,20 @@
 
 @section('content')
     @auth
-        <h2>Statistiche</h2>
-        <div class="stats-container">
-            <h3 class="text-center">Totale messaggi ricevuti: {{$totMessages}}</h3>
-            <canvas id="messages" class="col-sm-8 offset-sm-2"></canvas>
-        </div>
-
-        <div class="stats-container">
-            <h3 class="text-center">Totale visite: {{$totVisits}}</h3>
-            <canvas id="visits" class="col-sm-8 offset-sm-2"></canvas>
+        <h2 class="text-center" style="opacity: 0.7">Area Statistiche <i class="fas fa-chart-line"></i></h2><hr>
+        <div class="stats" style="background-color: #e4f2ed">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="stats-total col-lg-4 col-md-4 col-sm-12">
+                        <h3 class="text-lg-right text-md-right text-sm-center" style="color: #b56da8; ">Totale messaggi ricevuti:<br><span class="h2 d-flex align-items-center justify-content-end" style="font-size: 50px; font-weight: 700;"><i class="far fa-envelope" style="margin-right: 25px; font-size: 30px"></i>{{$totMessages}}</span></h3>
+                        <hr>
+                        <h3 class="text-lg-right text-md-right text-sm-center" style="color: #FFA58D;">Totale visite:<br><span class="h2 d-flex align-items-center justify-content-end" style="font-size: 50px; font-weight: 700;"><i class="far fa-eye" style="margin-right: 25px; font-size: 30px"></i>{{$totVisits}}</span></h3>
+                    </div>
+                    <div class="stats-graph col-lg-8 col-md-8 col-sm-12">
+                        <canvas id="graph" class=""></canvas>
+                    </div>
+                </div>
+            </div>
         </div>
     @endauth
     

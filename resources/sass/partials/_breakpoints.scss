@@ -1,0 +1,24 @@
+/* Phones (landscape phones, 576px and up) */
+@mixin mobile {
+    @media (min-width: 576px) {
+    @content;
+    }
+}
+/* Tablets (tablets, 768px and up) */
+@mixin tablet {
+    @media (min-width: 768px) {
+    @content;
+    }
+}
+/* Desktops (desktops, 992px and up) */
+@mixin desktop {
+    @media (min-width: 992px) {
+    @content;
+    }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@mixin large-desktop {
+    @media (min-width: 1200px) {
+    @content;
+    }
+}
