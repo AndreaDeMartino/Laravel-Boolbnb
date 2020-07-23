@@ -3,38 +3,60 @@
  ********************************/
 
 //Genera grafici
-generateGraph('messages', messagesGraph, 'rgba(255, 99, 132, 0.2)', 'rgba(255, 99, 132, 1)');
-generateGraph('visits', visitsGraph, 'rgba(0, 127, 255, 0.2)', 'rgba(0, 127, 255, 1)');
+generateGraph('graph', 'line');
 
 //Funzione grafico
-function generateGraph(graphId, json, bgColor, bordColor) {
+function generateGraph(graphId, graphType) {
     var ctx = document.getElementById(graphId).getContext('2d');
 
     var graph = new Chart(ctx, {
-        type: 'line',
+        type: graphType,
         data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
-                label: 'Stats Messaggi', 
+                label: 'Statistiche Messaggi', 
                 data: [
-                    json.January,
-                    json.February,
-                    json.March,
-                    json.April,
-                    json.May,
-                    json.June,
-                    json.July,
-                    json.August,
-                    json.September,
-                    json.October,
-                    json.November,
-                    json.December
+                    messagesGraph.January,
+                    messagesGraph.February,
+                    messagesGraph.March,
+                    messagesGraph.April,
+                    messagesGraph.May,
+                    messagesGraph.June,
+                    messagesGraph.July,
+                    messagesGraph.August,
+                    messagesGraph.September,
+                    messagesGraph.October,
+                    messagesGraph.November,
+                    messagesGraph.December
                 ],
                 backgroundColor: [
-                    bgColor
+                    '#b56da8'
                 ],
                 borderColor: [
-                    bordColor
+                    '#b56da8'
+                ],
+                borderWidth: 1
+            }, {
+                label: 'Statistiche Visite', 
+                data: [
+                    visitsGraph.January,
+                    visitsGraph.February,
+                    visitsGraph.March,
+                    visitsGraph.April,
+                    visitsGraph.May,
+                    visitsGraph.June,
+                    visitsGraph.July,
+                    visitsGraph.August,
+                    visitsGraph.September,
+                    visitsGraph.October,
+                    visitsGraph.November,
+                    visitsGraph.December
+                ],
+                backgroundColor: [
+                    '#FFA58D'
+                ],
+                borderColor: [
+                    '#FFA58D'
                 ],
                 borderWidth: 1
             }]
@@ -46,7 +68,8 @@ function generateGraph(graphId, json, bgColor, bordColor) {
                         beginAtZero: true
                     }
                 }]
-            }
+            },
+            responsive: true,
         }
     });
 }
