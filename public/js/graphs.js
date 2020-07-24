@@ -30,10 +30,10 @@ function generateGraph(graphId, graphType) {
                     messagesGraph.December
                 ],
                 backgroundColor: [
-                    '#b56da8'
+                    '#664b87'
                 ],
                 borderColor: [
-                    '#b56da8'
+                    '#664b87'
                 ],
                 borderWidth: 1
             }, {
@@ -53,10 +53,10 @@ function generateGraph(graphId, graphType) {
                     visitsGraph.December
                 ],
                 backgroundColor: [
-                    '#FFA58D'
+                    '#fea58d'
                 ],
                 borderColor: [
-                    '#FFA58D'
+                    '#fea58d'
                 ],
                 borderWidth: 1
             }]

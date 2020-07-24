@@ -236,68 +236,6 @@ class PlaceController extends Controller
         }
     }
 
-    public function getStats($slug)
-    {
-        $user = Auth::user();
-        $place = Place::where('slug', $slug)->first();
-        
-        //Messaggi
-        $allMessages = $place->messages; 
-        $totMessages = count($allMessages); 
-        $allMessagesMonth = [];
-        foreach($allMessages as $message) {
-            $messageDate = $message['created_at']; 
-            $messageMonth = date("F", strtotime($messageDate));
-            $allMessagesMonth[] = $messageMonth;
-        }
-
-        //Visite
-        $allVisits = $place->visits;
-        $totVisits = count($allVisits);
-        $allVisitsMonth = [];
-        foreach($allVisits as $visit) {
-            $visitDate = $visit['date'];
-            $visitMonth = date("F", strtotime($visitDate));
-            $allVisitsMonth[] = $visitMonth;
-        }
-
-        function getGraphData($items) {
-            $monthCounters = [
-                'January' => 0,
-                'February' => 0,
-                'March' => 0,
-                'April' => 0,
-                'May' => 0,
-                'June' => 0,
-                'July' => 0,
-                'August' => 0,
-                'September' => 0,
-                'October' => 0,
-                'November' => 0,
-                'December' => 0
-            ];
-
-            foreach($monthCounters as $singleMonth=>$val) {
-                foreach($items as $month) {
-                    if($singleMonth == $month) {
-                        $val++;
-                        $monthCounters[$month] = $val;
-                    }
-                }
-            }
-            return $monthCounters;
-        }
-
-        $messagesGraph = getGraphData($allMessagesMonth);
-        $visitsGraph = getGraphData($allVisitsMonth);
-
-        if ($place->user_id === $user->id) {
-            return view('pages.stats', compact('messagesGraph', 'totMessages', 'visitsGraph', 'totVisits'));
-        } else {
-            die('Error!');
-        }
-    }
-
     private function algoPlace(){
         $algoData = [
             getenv('PLACES_APP_ID'),

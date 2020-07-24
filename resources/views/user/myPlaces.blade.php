@@ -60,7 +60,7 @@
                                 <input class="btn btn-danger btn-sm" type="submit" value="Cancella">
                             </form>
                             {{-- Pagina Statistiche --}}
-                            <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeSponsored->slug) }}">Visualizza Statistiche</a>
+                            {{-- <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeSponsored->slug) }}">Visualizza Statistiche</a> --}}
                             {{-- Nascondi --}}
                             <form class="ml-2" action="{{route('user.place.visibility', $placeSponsored->id)}}" method="POST">
                                 @csrf
@@ -111,7 +111,7 @@
                             {{-- Sponsorizza --}}
                             <a class="btn btn-warning btn-sm ml-2" href="{{ route('user.payment',$placeUnsponsored->id) }}">Sponosorizza</a>
                             {{-- Pagina Statistiche --}}
-                            <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeUnsponsored->slug) }}">Visualizza Statistiche</a>
+                            {{-- <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeUnsponsored->slug) }}">Visualizza Statistiche</a> --}}
                             {{-- Nascondi --}}
                             <form class="ml-2" action="{{route('user.place.visibility', $placeUnsponsored->id)}}" method="POST">
                                 @csrf

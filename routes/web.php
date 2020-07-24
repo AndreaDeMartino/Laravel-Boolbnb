@@ -53,7 +53,7 @@ Route::prefix('user') // URI
         Route::post('/place/visibility/{place}', 'PlaceController@visibility')->name('place.visibility');
 
         // Statistiche
-        Route::get('/get-stats/{slug}', 'PlaceController@getStats')->name('place.stats');
+        //Route::get('/get-stats/{slug}', 'PlaceController@getStats')->name('place.stats');
         
         // Inbox
         Route::get('/inbox', 'MessageController@index')->name('inbox.index');

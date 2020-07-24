@@ -10942,24 +10942,6 @@ a.text-dark:focus {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.navbar {
-  color: royalblue;
-  font-weight: bold;
-  background-color: #dfd68b;
-}
-
-.navbar a {
-  color: #664b87;
-}
-
-.navbar a:hover {
-  color: rgba(102, 75, 135, 0.8);
-}
-
-.fas.fa-bars {
-  color: royalblue;
-}
-
 .place-show {
   color: rgba(0, 0, 0, 0.7);
 }
