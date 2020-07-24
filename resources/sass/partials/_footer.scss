@@ -1,0 +1,14 @@
+footer {
+    color: $u-green;
+    font-weight: bold;
+    background-color: $u-purple;
+    a {
+        color:$u-green;
+    }
+    a:hover {
+        color: $u-green-a;
+    }
+    .nav {
+        line-height: 14px;
+    }
+}

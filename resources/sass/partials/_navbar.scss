@@ -1,0 +1,15 @@
+.navbar {
+    color: $main-color;
+    font-weight: bold;
+    background-color: $u-green;
+    a {
+        color: $u-purple;
+    }
+    a:hover {
+        color: $u-purple-a;
+    }
+}
+
+.fas.fa-bars {
+    color: $main-color;
+}

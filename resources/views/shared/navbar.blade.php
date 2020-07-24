@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-white shadow-sm">
+<nav class="navbar navbar-expand-md shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="img-fluid" width="150" style="max-width: 100%" src="{{asset('images/logoBB.svg')}}" alt="boolbnb logo">
