@@ -11227,3 +11227,97 @@ footer .nav {
   background-color: #dfd68b;
 }
 
+/* Login and Registration variables */
+
+/* Login and Register Commons */
+
+.login,
+.register {
+  font-family: "Titillium Web", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* Login page */
+
+.login .login__description {
+  font-size: 18px;
+}
+
+.login .login__card {
+  background-color: #fea58d;
+}
+
+.login .login__btn {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #664b87;
+  color: #dfd68b;
+  transition: background-color 0.3s linear;
+}
+
+.login .login__btn:hover {
+  background-color: #8c78a5;
+}
+
+.login .login__link {
+  text-decoration: none;
+  color: #664b87;
+}
+
+.login .login__link:hover {
+  color: #8c78a5;
+}
+
+.login .login__input {
+  background-color: #ece9f0;
+  border: 1px solid #8c78a5;
+  transition: background-color 0.1s linear, box-shadow 0.1s linear;
+}
+
+.login .login__input:focus {
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem #8c78a5;
+}
+
+.social-login {
+  border: 1px solid #664b87;
+  transition: background-color 0.3s linear;
+}
+
+.social-login:hover {
+  background-color: #dfd68b;
+}
+
+.social-login .social-login__img {
+  max-width: 28px;
+}
+
+.or {
+  position: relative;
+  z-index: 1;
+}
+
+.or > small {
+  font-size: 14px;
+  padding: 0 15px;
+  background-color: #fea58d;
+  color: #664b87;
+}
+
+.or:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 95%;
+  margin: 0 auto;
+  z-index: -1;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Register page */
+
+/* Inbox page */
+

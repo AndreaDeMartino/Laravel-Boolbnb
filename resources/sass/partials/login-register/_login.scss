@@ -1,0 +1,85 @@
+/* Login page */
+.login {
+   .login__description {
+      font-size: 18px;
+   }
+
+   .login__card {
+      background-color: $u-orange;
+   }
+
+   .login__btn {
+      font-size: 16px;
+      font-weight: 600;
+      background-color: $u-purple;
+      color: $u-green;
+      transition: 
+         background-color .3s linear;
+
+      &:hover {
+         background-color: $fa-light-purple;
+      }
+   }
+
+   .login__link {
+      text-decoration: none;
+      color: $u-purple;
+
+      &:hover {
+         color: $fa-light-purple;
+      }
+   }
+
+   .login__input {
+      background-color: $fa-grey-purple;
+      border: 1px solid $fa-light-purple;
+      transition: 
+         background-color .1s linear,
+         box-shadow .1s linear;
+
+      &:focus {
+         background-color: $u-white;
+         box-shadow: 0 0 0 0.2rem $fa-light-purple;
+      }
+   }
+}
+
+
+// Social login buttons
+.social-login {
+   border: 1px solid $u-purple;
+   transition: background-color .3s linear;
+   
+   &:hover {
+      background-color: $u-green;
+   }
+
+   .social-login__img {
+   max-width: 28px;
+   }
+}
+
+.or {
+   position: relative;
+   z-index: 1;
+
+   & > small {
+      font-size: 14px;
+      padding: 0 15px;
+      background-color: $u-orange;
+      color: $u-purple;
+   }
+   &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 95%;
+      margin: 0 auto;
+      z-index: -1;
+      border-top: 2px solid $fa-grey;
+   }
+}
+

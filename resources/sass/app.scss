@@ -8,9 +8,18 @@
 @import 'partials/common';
 @import 'partials/breakpoints';
 @import 'partials/navbar';
-@import 'partials/show-place';
+@import 'partials/show-place/show-place';
 @import 'partials/footer';
 
 // Home
 @import 'partials/home/home';
 @import 'partials/create/new-place';
+
+// Login and Register
+@import 'partials/login-register/log-reg__variables';
+@import 'partials/login-register/log-reg__common';
+@import 'partials/login-register/login';
+@import 'partials/login-register/register';
+
+// Inbox
+@import 'partials/inbox/inbox';
