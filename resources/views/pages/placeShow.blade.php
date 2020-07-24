@@ -15,20 +15,20 @@
     <div class="container mt-5">
         <div class="row d-flex align-items-center mb-4">
             <div class="col-lg-6 col-md-12 col-sm-12 order-2 order-lg-1">
-                <h3 class="text-center">{{$place->title}}</h3>
-                <h5 class="text-center">{{$place->address}} - {{$place->city}}</h5>
+                <h3 class="place-show__title text-center">{{$place->title}}</h3>
+                <h5 class="place-show__position text-center">{{$place->address}} - {{$place->city}}</h5>
                 <p class="place-show__description">{{$place->description}}</p>
                 <hr>
                 <h6>Caratteristiche:</h6>
-                <ul class="">
-                    <li class="place-show__list-info">Numero stanze: {{$place->num_rooms}}</li>
-                    <li class="place-show__list-info">Posti letto: {{$place->num_beds}}</li>
-                    <li class="place-show__list-info">Bagni: {{$place->num_baths}}</li>
-                    <li class="place-show__list-info">Dimensioni: {{$place->square_m}}m²</li>
+                <ul class="place-show__list">
+                    <li class="place-show__list__info">Numero stanze: {{$place->num_rooms}}</li>
+                    <li class="place-show__list__info">Posti letto: {{$place->num_beds}}</li>
+                    <li class="place-show__list__info">Bagni: {{$place->num_baths}}</li>
+                    <li class="place-show__list__info">Dimensioni: {{$place->square_m}}m²</li>
                 </ul>
                 <hr>
                 {{-- Servizi --}}
-                <div class="d-flex align-items-center">
+                <div class="place-show__amenities d-flex align-items-center">
                     <span class="d-inline-block mr-2">Servizi inclusi</span>
                     @forelse ( $place->amenities as $amenity )
                         <span class="badge badge-pill badge-primary mr-1">{{ $amenity->name }}</span>
