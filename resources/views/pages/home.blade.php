@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center mt-4">Tutti gli appartamenti</h2>
-
 
     {{-- Errori --}}
     @if (session('message'))
@@ -11,17 +9,51 @@
         </div>
     @endif
 
+    <main class="home">
+
+        <section class="jumbo d-flex flex-wrap justify-content-center align-content-center">
+            <div class="jumbo__title col-12 text-center">
+                <label class="h1 d-block" for="city">TROVA LA TUA CASA</label>
+            </div>
+            <div class="jumbo__search col-6 d-flex align-content-center">
+                <input class="search__input d-inline" type="text" name="city" id="city" placeholder="Ricerca il tuo appartamento">
+                <div class="search__btn btn">CERCA</div>
+            </div>
+
+            <input type="hidden" name="lat" id="lat">
+            <input type="hidden" name="long" id="long">
+            <input type="hidden" name="algoName" id="algoName" value="{{ $algoName }}">
+            <input type="hidden" name="algoKey" id="algoKey" value="{{ $algoKey }}">
+        </section>
+    
+        <section class="container sponsored">
+            <h2 class="sponsored__title">Esclusive</h2>
+            <div class="row">
+                @foreach ($placesSponsored as $placeSponsored)
+                <div class="sponsor-card col-3 mr-4 mb-4">
+                    <img class="card__img" src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}">
+                    <div class="img__wrapper"></div>
+                    <div class="card__info">
+                        <h5 class="card__price">€{{$placeSponsored->price}}</h5>
+                        <h5 class="card__address mb-2">{{$placeSponsored->address}}</h5>
+                        <div class="info__footer d-flex justify-content-between align-items-top">
+                            <h5 class="card__city">{{$placeSponsored->city}}</h5>
+                            <div class="card__amenities d-flex">
+                                <h5><i class="fas fa-couch"></i>{{$placeSponsored->num_rooms}}</h5>
+                                <h5><i class="fas fa-bed"></i>{{$placeSponsored->num_beds}}</h5>
+                                <h5 class="mr-1"><i class="fas fa-toilet"></i>{{$placeSponsored->num_baths}}</h5>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+                @endforeach
+            </div>
+        </section>
+    </main>
+
 
     {{-- Ricerca --}}
-    <div class="search">
-        <form class="message-form" action="#" method="GET" enctype="multipart/form-data">
-            @csrf
-            @method('GET')
-
-            <div class="form-group">
-                <label for="city">Città</label>
-                <input class="form-control"type="text" name="city" id="city" value="{{old('city')}}">
-            </div>
+    {{-- <div class="search-prov mt-5">
            
             <div class="form-group">
                 <label for="num_rooms">Numero Minimo stanze</label>
@@ -43,50 +75,52 @@
                 @endforeach
             </div>
 
-            <input type="hidden" name="lat" id="lat">
-            <input type="hidden" name="long" id="long">
-            <input type="hidden" name="algoName" id="algoName" value="{{ $algoName }}">
-            <input type="hidden" name="algoKey" id="algoKey" value="{{ $algoKey }}">
+    </div> --}}
+        
+    <section class="search d-flex">
+        <div class="search__sidebar">
+            <h5 class="sidebar__title text-center mt-3">Filtra i tuoi risultati</h5>
+            <div class="search__item-box d-flex justify-content-between">
+                <div class="sidebar__item d-flex flex-column align-items-center flex-wrap justify-content-center">
+                    <label class="d-block" for="num_rooms"><i class="fas fa-couch pr-2"></i>Stanze</label>
+                    <input class="text-center" type="number" name="num_rooms" id="num_rooms" value="{{old('num_rooms',1)}}">
+                </div>
 
-            <div class="btn btn-info text-white mb-4" id="ricerca">Ricerca</div>
-        </form>
-    </div>
-
-    {{-- Places Sponsorizzati --}}
-    <div class="cards ">
-        <div class="container sponsored">
-            <div class="row d-flex flex-wrap justify-content-center mt-4">
-
-                @foreach ($placesSponsored as $placeSponsored)
-                    <div class="card text-center col-4 mr-3 bg-primary text-light">
-                        @if(!empty($placeSponsored->place_img))
-                            <img class="p-2" src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}" style="height: 20rem">
-                        @else
-                            <div class="no-image">No image</div>
-                        @endif
-                        <a class="card-title text-light h5 my-3" href="{{ route('place.show', $placeSponsored->slug)}}">{{$placeSponsored->title}}</a>
-                        <h5 class="card-subtitle text-warning mb-3">Città: {{$placeSponsored->city}}</h5>
-                        
-                        <h5 class="card-subtitle text-light h6 mb-2">Indirizzo: {{$placeSponsored->address}}</h5>
-                        <h5 class="card-subtitle text-light h6 mb-2">Descrizione: {{$placeSponsored->description}}</h5>
-                        <h5 class="card-subtitle text-light h6 mb-2">Prezzo: €{{$placeSponsored->price}}</h5>
+                <div class="sidebar__item d-flex flex-column align-items-center flex-wrap justify-content-center">
+                    <label class="d-block" for="num_beds"><i class="fas fa-bed pr-2"></i>Posti Letto</label>
+                    <input class="text-center" type="number" name="num_beds" id="num_beds" value="{{old('num_beds',1)}}">
+                </div>
+            </div>
+           
+            <div class="amenities container mt-5 d-flex flex-column align-items-center">
+                <h5 class="amenities__title text-center">Seleziona i servizi aggiuntivi</h5>
+                <div class="amenties__list">
+                    @foreach ($amenities as $amenity)
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="checkbox" name="amenities[]" id="amenity-{{$loop->iteration}}" value="{{$amenity->id}}">
+                        <label class="form-check-label" for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
                     </div>
                 @endforeach
-        
+                </div>
+                
+                <div class="search__btn btn mt-3 w-75">CERCA</div>
+            </div>
+            
+        </div>
+        <div class="search__content">
+            <div class="row d-flex flex-wrap justify-content-center mt-4">
+                <div id="place-container" class="container mt-3"></div>
             </div>
         </div>
-        
-    {{-- Risultati Ricerca --}}
-    <div class="container sponsored">
-        <div class="row d-flex flex-wrap justify-content-center mt-4">
-            <div id="place-container" class="container mt-3"></div>
-        </div>
-    </div>    
-    
+    </section>
+
+
+
+
 
 
     {{-- Handlebars Template --}}
-    <script id="places-tempalte" type="text/x-handlebars-template">
+    <script id="places-template" type="text/x-handlebars-template">
         <div class="card text-center mb-2">
 
             <img src="http://127.0.0.1:8000/storage/@{{place_img}}" alt="img"" style="height: 20rem">

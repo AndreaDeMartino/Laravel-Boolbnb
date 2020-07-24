@@ -12,16 +12,16 @@ $(document).ready(function () {
   // Api Url
   var apiUrl = window.location.protocol + '//' + window.location.host + '/api/Search';
   // Dom Variables
-  var input = $('#searchbox').val();
   var container = $('#place-container');
   // Handlebars Setup
-  var source = $('#places-tempalte').html();
+  var source = $('#places-template').html();
   var template = Handlebars.compile(source);
 
 
   // Search click
-  $( "#ricerca" ).click(function() {
+  $( ".search__btn" ).click(function() {
 
+    $(".search").css("visibility","visible");
     // Variables Dom
     var rooms = $('#num_rooms').val();
     var beds = $('#num_beds').val();
