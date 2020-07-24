@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\View;
 use App\Place;
+use App\User;
 use App\Amenity;
 use App\Message;
 use App\Visit;
@@ -59,7 +61,60 @@ class GuestController extends Controller
             ]);
         }
 
-        return view('pages.placeShow', compact('place'));
+        // Statistiche
+        $user = Auth::user();
+        
+        //Messaggi
+        $allMessages = $place->messages; 
+        $totMessages = count($allMessages); 
+        $allMessagesMonth = [];
+        foreach($allMessages as $message) {
+            $messageDate = $message['created_at']; 
+            $messageMonth = date("F", strtotime($messageDate));
+            $allMessagesMonth[] = $messageMonth;
+        }
+
+        //Visite
+        $allVisits = $place->visits;
+        $totVisits = count($allVisits);
+        $allVisitsMonth = [];
+        foreach($allVisits as $visit) {
+            $visitDate = $visit['date'];
+            $visitMonth = date("F", strtotime($visitDate));
+            $allVisitsMonth[] = $visitMonth;
+        }
+
+        function getGraphData($items) {
+            $monthCounters = [
+                'January' => 0,
+                'February' => 0,
+                'March' => 0,
+                'April' => 0,
+                'May' => 0,
+                'June' => 0,
+                'July' => 0,
+                'August' => 0,
+                'September' => 0,
+                'October' => 0,
+                'November' => 0,
+                'December' => 0
+            ];
+
+            foreach($monthCounters as $singleMonth=>$val) {
+                foreach($items as $month) {
+                    if($singleMonth == $month) {
+                        $val++;
+                        $monthCounters[$month] = $val;
+                    }
+                }
+            }
+            return $monthCounters;
+        }
+
+        $messagesGraph = getGraphData($allMessagesMonth);
+        $visitsGraph = getGraphData($allVisitsMonth);
+
+        return view('pages.placeShow', compact('user', 'place', 'messagesGraph', 'totMessages', 'visitsGraph', 'totVisits'));
     }
 
     //Invia messaggi all'utente proprietario
