@@ -26,7 +26,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="min-vh-100 d-flex flex-column">
         <header>
             @include('shared.navbar')
         </header>
