@@ -1,11 +1,14 @@
 .home{
   font-family: $font-family-primary;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #af97cc 0%, #876161 44%, #DFD68B 100%);
   .jumbo{
     height: 600px;
     background-image: url('/images/jumbo-home.jpg');
     background-position:center;
     background-size: cover;
     background-repeat: no-repeat;
+    border-bottom: 1px solid #ece7bb;
     &__title{
       label{
         font-size: 50px;
@@ -20,10 +23,12 @@
       }
     }
     &__search{
+      min-width: 35vh;
       .search__input{
         height: 40px;
         background: #e0e0d8;
         border-radius: 3px 0px 0 3px !important;
+        min-width: 25vh;
       }
       .search__btn{
         height: 40px;
@@ -37,7 +42,7 @@
   .sponsored{
     &__title{
       position: relative;
-      color: $u-purple !important;
+      color: $u-green;
       font-size: 30px;
       font-weight: 300;
       margin: 30px 0;
@@ -47,9 +52,9 @@
         left: 0;
         bottom: -3%;
         width: 100%;
-        background: linear-gradient(90deg, rgba(102,75,135,1) 20%, rgba(223,214,139,1) 48%);
+        background: linear-gradient(90deg, #dfd68b 10%, #fff0c6 60%);
         height: 2px;
-        border-radius: 30px;
+        border-radius: 50px;
       }
     }
     color: white;
@@ -59,6 +64,7 @@
       border: 2px solid $u-green;
       border-radius: 10px;
       box-shadow: -1px 0px 10px 0px #664b87;
+      cursor: pointer;
       i{
         color: white;
         padding: 0 8px;
@@ -75,8 +81,9 @@
         height: calc(100% - 22px);
         background: rgba(0,0,0, 0.5);
         opacity: 0.7;
-        transition: opacity 0.3s ease-in-out;
+        transition: opacity 0.3s;
         margin: 12px;
+        
         &:hover{
           opacity: 0.4;
         }
@@ -111,14 +118,12 @@
 }
 
 .search{
-  height: 400px;
+  min-height: 400px;
   width: 100%;
   color: white;
-  visibility: hidden;
+  display: none;
   &__sidebar{
-    background: $u-purple;
-    width: 20%;
-    height: 400px;
+    height: 100%;
     &__title{
       color: $u-orange;
     }
@@ -136,7 +141,7 @@
     }
     .sidebar__item{
         input{
-          width: 30%;
+          width: 20%;
           background: $u-orange;
           border-radius: 3px;
           border: 0;
@@ -146,9 +151,65 @@
       }
     }
   &__content{
-    background: $u-green;
-    width: 80%;
-    height: 400px;
+    height: 100%;
+    .cards{
+      color: white;
+      .card{
+        position: relative;
+        padding: 4px !important;
+        border: 1px solid white;
+        border-radius: 10px;
+        cursor: pointer;
+        i{
+          color: white;
+          padding: 0 8px;
+        }
+        &__img{
+          max-width: 100%;
+          position: relative;
+        }
+        .img__wrapper{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0,0,0, 0.5);
+          opacity: 0.6;
+          transition: opacity 0.3s;
+          border-radius: 10px;
+          
+          &:hover{
+            opacity: 0.2;
+          }
+        }
+        &__info{
+          position: absolute;
+          width: calc(100% - 30px);
+          bottom: 15px;
+          left: 20px;
+  
+          h5{
+            font-size: 14px;
+            color: white;
+          }
+          &__price{
+            position: relative;
+            font-size: 30px;
+            color: $u-green;
+            &::after{
+              position: absolute;
+              content: '';
+              left: 0;
+              bottom: -3%;
+              width: 40%;
+              background: #fff;
+              height: 0.5px;
+            }
+          }
+        }
+      }
+    }
   }
   .amenities{
     &__title{
@@ -157,5 +218,12 @@
     .search__btn{
       background: $u-orange;
     }
+  }
+}
+
+.banner{
+  background: white;
+  h4{
+    color: $u-purple;
   }
 }

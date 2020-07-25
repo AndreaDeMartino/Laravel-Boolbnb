@@ -1,0 +1,127 @@
+.my-places{
+  font-family: $font-family-primary;
+  min-height: 100vh;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,1) 34%, rgba(221,223,232,1) 93%);
+  .my-places__title{
+    font-size: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    background: #664B87;
+    background: -moz-linear-gradient(45deg, #664B87 0%, #876161 44%, #DFD68B 100%);
+    background: -webkit-linear-gradient(45deg, #664B87 0%, #876161 44%, #DFD68B 100%);
+    background: linear-gradient(45deg, #664B87 0%, #876161 44%, #DFD68B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .button{
+    outline: none;
+  }
+  .sponsored__title{
+      position: relative;
+      color: #664b87;
+      font-size: 30px;
+      font-weight: 300;
+      margin: 30px 0;
+      &::after{
+        position: absolute;
+        content: '';
+        left: 0;
+        bottom: -3%;
+        width: 100%;
+        background: linear-gradient(90deg, #dfd68b 10%, #9c7e6b 60%);
+        height: 2px;
+        border-radius: 50px;
+      }
+  }
+  .sponsored{
+    margin-bottom: 100px !important;
+    .card__info{
+      background: rgb(255,255,255);
+      background: linear-gradient(0deg, rgba(255,255,255,1) 57%, rgba(250,235,121,1) 90%);
+    }
+  }
+  .card{
+    border-radius: 20%;
+    padding: 0;
+    box-shadow: 1px 3px 2px 3px #b1afaf;
+    margin-bottom: 100px !important;
+    &__logo{
+      position: relative;
+      .card__img{
+        width: 100%;
+        height: 100%;
+        border-radius: 20%;
+      }
+    }
+
+    &__info{
+      position: absolute;
+      height: 125px;
+      bottom: -81px;
+      left: 9%;
+      font-size: 12px;
+      background: #fff;
+      border-radius: 10%;
+      width: 85%;
+      padding: 10px;
+      box-shadow: 1px 3px 2px 3px #b1afaf;
+      .btn{
+        padding: 5px !important;
+        width: 35px !important;
+      }
+      .card__title{
+        font-size: 18px;
+        font-weight: 700;
+        color: #635e5d;
+      }
+      .card__price{
+        padding-left: 8px;
+        font-size: 20px;
+        font-weight: 600;
+        color: $u-purple;
+      }
+      .card__visibility-badge{
+        font-size: 18px;
+      }
+      .btn-info{
+        background: $u-orange;
+        font-size: 12px;
+        font-weight: 300;
+      }
+      .btn-visibility{
+        background: #6bc17e;
+        .in_vis{
+          border: 0;
+          background: #6bc17e;
+          color: white;
+        }
+      }
+      .modifica{
+        background: #e67e22;
+        font-size: 12px;
+      }
+      .cancella{
+        background: #e74c3c;
+        .in_cancella{
+          border: 0;
+          background: #e74c3c;
+          color: white;
+        }
+      }
+      .sponsorizza{
+        background: $u-purple-a;
+      }
+      .card__cta{
+        margin-top: 15px;
+      }
+    }
+  }
+  .banner{
+    margin-top: 100px;
+    background: $u-green-a;
+    img{
+      margin-bottom: 10px;
+    }
+  }
+}
