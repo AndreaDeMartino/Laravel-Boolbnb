@@ -58,7 +58,7 @@
         
                     <div class="form-group col-lg-3">
                         <label for="num_beds"></label>
-                        <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Posti letto*"  value="{{old('num_beds')}}">
+                        <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Letti*"  value="{{old('num_beds')}}">
                     </div>
         
                     <div class="form-group col-lg-3">
@@ -77,7 +77,8 @@
                         <h4>Seleziona servizi:</h4>
                     <div class="form-group col-lg-12">
                         @foreach ($amenities as $amenity)
-                        <div class="form-check pr-4">
+
+<div class="form-check pr-4">
                             <input class="form-check-input" type="checkbox" name="amenities[]" id="amenity->{{$loop->iteration}}" value="{{$amenity->id}}">
                             <label class="form-check-label" for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
                         </div>

@@ -1,11 +1,11 @@
 .new_place {
-    margin-left: 200px;
-    padding-top: 20px;
+    margin-left: 20px;
     h2 {
         font-size: 30px;
         font-weight: 600;
         color: #664b87;
     }
+
     input:hover,textarea:hover {
         border-bottom: 3px solid #fea58d;
     }
@@ -16,6 +16,12 @@
     }
 }
 
+@include desktop {
+    .new_place {
+        margin-left: 200px;
+        padding-top: 20px;
+    }
+}
 .second_part {
     button {
         border: 1px solid #664b87;

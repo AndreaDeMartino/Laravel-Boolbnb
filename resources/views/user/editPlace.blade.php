@@ -37,7 +37,7 @@
                     <label for="city text-lg-center">Città</label>
                     <input class="form-control border-fix"type="text" name="city" id="city" placeholder="Città*" value="{{old('city', $place->city)}}">
                 </div>
-                <div class="col-lg-12 d-flex mt-20 pl-0 pr-0">
+                <div class="col-lg-12 d-flex mt-20 pl-0 pr-0 mt-3">
                     <div class="col-lg-5  pl-0 pr-0">
                         <label for="region">Regione</label>
                         <input class="form-control border-fix"type="text" name="region" id="region" placeholder="Regione*" value="{{old('region', $place->region)}}">
@@ -50,15 +50,15 @@
                 
     
     
-                <div class="col-lg-12 d-flex pl-0 pr-0">
+                <div class="col-lg-12 d-flex pl-0 pr-0 mt-3">
                     <div class="form-group col-lg-3">
                         <label for="num_rooms">Stanze</label>
                         <input class="form-control border-fix"type="num_rooms" name="num_rooms" id="num_rooms" placeholder="Stanze*"  value="{{old('num_rooms', $place->num_rooms)}}">
                     </div>
         
                     <div class="form-group col-lg-3">
-                        <label for="num_beds">Posti letto</label>
-                        <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Posti letto*"  value="{{old('num_beds', $place->num_beds)}}">
+                        <label for="num_beds">Letti</label>
+                        <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Letti*"  value="{{old('num_beds', $place->num_beds)}}">
                     </div>
         
                     <div class="form-group col-lg-3">
@@ -73,7 +73,8 @@
                 </div>
     
                 <div class="second_part">
-                    <div class="services col-lg-6 offset-lg-4">
+
+<div class="services col-lg-6 offset-lg-4">
                         <h4>Seleziona servizi:</h4>
                     <div class="form-group col-lg-12">
                         @foreach ($amenities as $amenity)
