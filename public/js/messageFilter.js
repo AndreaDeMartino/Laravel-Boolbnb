@@ -4,12 +4,12 @@ $(document).ready(function(){
    **************************/
 
    // Hide Messages
-   $('.inbox__messages').hide();
    $('.message-card').hide();
 
    // Show Messages Buttons by clicking Incoming Button
    $('.incoming').on('click', function(){
       $('.inbox__btns').show();
+      $('.message-card').hide();
    });
 
    // Show Message by clicking his Button
@@ -17,7 +17,6 @@ $(document).ready(function(){
       $('.inbox__btns').hide();
       var panel = $(this).attr('data-message');
       $('.message-card').hide();
-      $('.inbox__messages').show();
       $('.message-card[data-message="' + panel + '"]').show();
    });
 

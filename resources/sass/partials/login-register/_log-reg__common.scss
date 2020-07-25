@@ -1,4 +1,12 @@
 /* Login and Register Commons */
+
+// General Background
+.log-reg__wall {
+   background-image: url('/images/bg_wall.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
 .log-reg {
    font-family: $font-family-primary;
    color: $u-black;

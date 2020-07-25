@@ -11465,6 +11465,12 @@ footer .nav {
 
 /* Login and Register Commons */
 
+.log-reg__wall {
+  background-image: url("/images/bg_wall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .log-reg {
   font-family: "Titillium Web", sans-serif;
   color: rgba(0, 0, 0, 0.7);
@@ -11556,12 +11562,70 @@ footer .nav {
 
 /* Inbox Page */
 
+/* Utilities */
+
+.pointer {
+  cursor: pointer;
+}
+
+.inbox-wall {
+  background-image: url("/images/bg_wall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .inbox {
   font-family: "Titillium Web", sans-serif;
   color: rgba(0, 0, 0, 0.7);
 }
 
-.inbox > i {
-  font-family: "Arial", sans-serif;
+.inbox li {
+  border: 1px solid #664b87;
+  background-color: #8c78a5;
+  color: #dfd68b;
+}
+
+.inbox li:hover {
+  background-color: #664b87;
+}
+
+.inbox .message-card {
+  border: 1px solid #fea58d;
+  background-color: white;
+  position: relative;
+}
+
+.inbox .message-card .left-icons {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+}
+
+.message-btn__opt:hover {
+  color: #c3bb7a;
+}
+
+.message-card__opt {
+  color: #664b87;
+}
+
+.message-card__opt:hover {
+  color: #8c78a5;
+}
+
+.paginate .page-link {
+  background-color: #dfd68b;
+  color: #664b87;
+}
+
+.paginate .page-item.active .page-link {
+  background-color: #664b87;
+  color: #dfd68b;
+  border-color: #8c78a5;
+}
+
+.paginate .page-item.disabled .page-link {
+  background-color: #c3bb7a;
+  color: #8c78a5;
 }
 
