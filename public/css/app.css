@@ -11391,8 +11391,7 @@ footer .nav {
 }
 
 .new_place {
-  margin-left: 200px;
-  padding-top: 20px;
+  margin-left: 20px;
 }
 
 .new_place h2 {
@@ -11411,6 +11410,13 @@ footer .nav {
   outline: none !important;
   border-color: #664b87;
   box-shadow: 0 0 10px #664b87;
+}
+
+@media (min-width: 992px) {
+  .new_place {
+    margin-left: 200px;
+    padding-top: 20px;
+  }
 }
 
 .second_part button {
