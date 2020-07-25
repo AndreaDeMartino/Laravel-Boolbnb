@@ -96,8 +96,6 @@
             </div>
         </section>
 
-    
-    
         <section class="banner">
             <div class="container">
                 <div class="row d-flex justify-content-between align-items-center p-5">
