@@ -28,7 +28,7 @@ class MessageController extends Controller
                 'messages.subject', 
                 'messages.message', 
                 'messages.created_at')
-            ->get();
+            ->paginate(10);
             
         return view('user.inbox', compact('messages', 'user'));
     }

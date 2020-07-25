@@ -1,9 +1,80 @@
 /* Inbox Page */
+
+/* Utilities */
+.pointer {
+   cursor: pointer;
+}
+
+// Variables
+$fa-green: #c3bb7a;
+
+// General Background
+.inbox-wall {
+   background-image: url('/images/bg_wall.png');
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+// Inbox
 .inbox {
    font-family: $font-family-primary;
    color: $u-black;
 
-   & > i {
-      font-family: 'Arial', sans-serif;
+   li {
+      border: 1px solid $u-purple;
+      background-color: $fa-light-purple;
+      color: $u-green;
+
+      &:hover {
+         background-color: $u-purple;
+      }
+   }
+
+   // Message
+   .message-card {
+      border: 1px solid $u-orange;
+      background-color: $u-white;
+      position: relative;
+
+      .left-icons {
+         position: absolute;
+         top: 8px;
+         left: 8px;
+      }
+   }
+}
+
+// Messages Previews
+.message-btn__opt {
+   &:hover {
+      color: $fa-green;
+   }
+}
+
+// Message Options
+.message-card__opt {
+   color: $u-purple;
+
+   &:hover {
+      color: $fa-light-purple;
+   }
+}
+
+// Pagination
+.paginate {
+   .page-link {
+      background-color: $u-green;
+      color: $u-purple;
+   }
+
+   .page-item.active .page-link{
+      background-color: $u-purple;
+      color: $u-green;
+      border-color: $fa-light-purple;
+   }
+
+   .page-item.disabled .page-link{
+      background-color: $fa-green;
+      color: $fa-light-purple;
    }
 }
