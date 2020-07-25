@@ -1,4 +1,5 @@
 <div class="message-form">
+    <h5 class="place-show__bottom__infos__title text-center">Contatta il venditore</h5>
     <form action="{{route('message.send', $place->id)}}" method="post">
         @csrf
         @method('POST')

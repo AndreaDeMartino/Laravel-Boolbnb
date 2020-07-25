@@ -1,7 +1,97 @@
 .place-show {
     color: $u-black;
-    &__description,
-    &__list-info {
-        font-size: 14px;
+    &__top {
+        //background: #f7f7f7;
+        padding: 80px 0 30px;
+        border-bottom: 1px solid $u-green;
+        &__info {
+            &__description,
+            &__list {
+                padding-bottom: 15px;
+                border-bottom: 1px solid $u-green;
+                font-size: 14px;
+            }
+            &__list {
+                list-style-position: inside;
+            }
+            &__amenities {
+                & .badge-info {
+                    background-color: $u-purple;
+                    color: $u-green;
+                }
+            }
+        }
+        &__price {
+            color: $u-orange;
+        }
+    }
+    &__bottom {
+        &__infos {
+            padding: 50px 0;
+            &__title {
+                font-size: 24px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                @include mobile {
+                    padding-top: 130px;
+                }
+                @include tablet {
+                    padding-top: 30px;
+                }
+            }
+        }
+    }
+    &__stats {
+        padding: 50px 0 50px;
+        border-top: 1px solid $u-orange;
+        border-bottom: 1px solid $u-orange;
+        background: $u-green-a;
+        &__totals__msg {
+            color: $u-purple;
+            &__title {
+                font-size: 40px;
+                font-weight: 700;
+                & i {
+                    margin-right: 25px;
+                    font-size: 30px;
+                }
+            }
+        }
+        &__totals__visits {
+            color: $u-orange;
+            &__title {
+                font-size: 40px;
+                font-weight: 700;
+                & i {
+                    margin-right: 25px;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
+
+.place-show__top__img {
+    max-width: 100%;
+    height: auto;
+    @include mobile {
+        margin-bottom: 30px;
+    }
+    @include tablet {
+        margin-bottom: 30px;
+    }
+    @include desktop {
+        margin-bottom: 30px;
+    }
+    @include large-desktop {
+        margin-bottom: 30px;
+    }
+}
+
+.message-form {
+    & .btn {
+        background: $u-purple;
+        border: 1px solid $u-green;
+        color: $u-green;
     }
 }
