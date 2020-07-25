@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="text-center mt-4">Le mie inserzioni</h2>
+    
 
     {{-- Place Cancellato --}}
     @if (session('place-deleted'))
-    <div class="alert alert-danger">
+    <div class="alert alert-danger m-0">
         <p>Appartamento {{ session('place-deleted') }} Eliminato</p>
     </div>
     @endif
 
     {{-- Place Visibility --}}
     @if (session('hide'))
-        <div class="alert alert-success">
+        <div class="alert alert-success m-0">
             <p>L'appartamento <span class="text-primary">{{ session('place') }}</span> è stato reso visibile</p>
         </div>
     @endif
@@ -24,106 +24,172 @@
     </div>
     @endif
 
-    <div class="cards d-flex flex-wrap justify-content-center">
+    <main class="my-places">
+        <h1 class="my-places__title text-center pt-4">LE MIE INSERZIONI</h1>
 
-        <div class="sponsored d-flex flex-wrap justify-content-center mt-3">
-            @foreach ($placesSponsored as $placeSponsored)
-                @if ($placeSponsored->user_id == $user->id)
-                    <div class="card text-center mr-3 bg-primary text-light {{ !$loop->last ? 'mb-4' : '' }}">
-                        @if(!empty($placeSponsored->place_img))
-                            <img src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}" style="height: 20rem">
-                        @else
-                            <div class="no-image">No image</div>
-                        @endif
-                        <a class="card-title text-light h5 my-3" href="{{ route('place.show', $placeSponsored->slug)}}">{{$placeSponsored->title}}</a>
-                        <h5 class="card-subtitle text-warning">Città: {{$placeSponsored->city}}</h5>
+        <div class="my-places__cards d-flex flex-wrap align-items-center justify-content-center container">
 
-                        <h5>
-                            @if($placeSponsored->visibility)
-                            <span class="badge badge-success my-2">Visibile</span> 
-                            @else
-                            <span class="badge badge-light my-2">Nascosto</span> 
-                            @endif
-                        </h5>
-                        
-                        <h5 class="card-subtitle text-light h6 mb-2">Indirizzo: {{$placeSponsored->address}}</h5>
-                        <h5 class="card-subtitle text-light h6 mb-2">Descrizione: {{$placeSponsored->description}}</h5>
-                        <h5 class="card-subtitle text-light h6 mb-2">Prezzo: €{{$placeSponsored->price}}</h5>
+            <h2 class="sponsored__title">Esclusive</h2>
+            <div class="sponsored row d-flex flex-wrap align-items-center justify-content-center container">
+                
+                @foreach ($placesSponsored as $placeSponsored)
+                    @if ($placeSponsored->user_id == $user->id)
+                        <div class="card col-lg-3 m-2">
+                            <div class="card__logo">
+                                @if(!empty($placeSponsored->place_img))
+                                    <img class="card__img"src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}">
+                                @else
+                                    <div class="no-image">No image</div>
+                                @endif
+                            </div>
+                            
+                            <div class="card__info">
 
-                        <div class="my-place-box__actions d-flex justify-content-center my-2 p-3">
-                            {{-- Modifica --}}
-                            <a class="btn btn-secondary btn-sm" href="{{route('user.place.edit', $placeSponsored->slug)}}">Modifica</a>
-                            {{-- Elimina --}}
-                            <form class="ml-2" action="{{ route('user.place.destroy',$placeSponsored->slug) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input class="btn btn-danger btn-sm" type="submit" value="Cancella">
-                            </form>
-                            {{-- Pagina Statistiche --}}
-                            {{-- <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeSponsored->slug) }}">Visualizza Statistiche</a> --}}
-                            {{-- Nascondi --}}
-                            <form class="ml-2" action="{{route('user.place.visibility', $placeSponsored->id)}}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <input class="btn btn-light btn-sm" type="submit" 
-                                value="@if ($placeSponsored->visibility) Nascondi @else Mostra @endif ">
-                            </form>
+                                <div class="card__top d-flex justify-content-between align-items-center">
+                                    <h5 class="card__title white" href="{{ route('place.show', $placeSponsored->slug)}}"><i class="fas fa-bullhorn mr-1"></i>{{$placeSponsored->title}}</h5>
+
+                                <h5 class="card__visibility-badge">
+                                    @if($placeSponsored->visibility)
+                                    <span class="badge badge-success my-2"><i class="far fa-eye"></i></span> 
+                                    @else
+                                    <span class="badge badge-danger my-2"><i class="far fa-eye-slash"></i></span> 
+                                    @endif
+                                </h5>
+                                </div>
+                                
+
+                                <h5 class="card__price">€ {{$placeSponsored->price}}</h5>
+
+                                <div class="card__cta d-flex justify-content-center">
+                                    {{-- Modifica --}}
+                                    <a class="btn btn-info btn-sm modifica d-flex justify-content-center align-items-center" href="{{route('user.place.edit', $placeSponsored->slug)}}"><i class="fas fa-edit"></i></a>
+                                    {{-- Elimina --}}
+                                    <form class="ml-2 btn btn-info btn-sm cancella d-flex justify-content-center align-items-center" action="{{ route('user.place.destroy',$placeSponsored->slug) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="in_cancella" type="submit">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                    {{-- Nascondi --}}
+                                    <form class="ml-2 btn btn-info btn-sm btn-visibility d-flex justify-content-center align-items-center" action="{{route('user.place.visibility', $placeSponsored->id)}}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        @if ($placeSponsored->visibility) 
+                                        <button class="in_vis" type="submit"><i class="far fa-eye"></i></button>
+                                        @else
+                                        <button class="in_vis" type="submit"><i class="far fa-eye-slash"></i></button>
+                                        @endif
+                                    </form>
+                                </div>
+                            </div> 
                         </div>
+                    @endif
+                @endforeach
+                
 
-                    </div>
-                @endif
-            @endforeach
+                
+            </div> 
+
+            <h2 class="unsponsored__title mt-3">Standard</h2>
+            <div class="unsponsored row d-flex flex-wrap align-items-center justify-content-center container">
+                @foreach ($placesUnsponsored  as $placeUnsponsored)
+                    @if ($placeUnsponsored->user_id == $user->id)
+                        <div class="card col-lg-3 m-2">
+                            <div class="card__logo">
+                                @if(!empty($placeUnsponsored->place_img))
+                                    <img class="card__img"src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}">
+                                @else
+                                    <div class="no-image">No image</div>
+                                @endif
+                            </div>
+                            
+                            <div class="card__info">
+
+                                <div class="card__top d-flex justify-content-between align-items-center">
+                                    <h5 class="card__title" href="{{ route('place.show', $placeUnsponsored->slug)}}">{{$placeUnsponsored->title}}</h5>
+
+                                <h5 class="card__visibility-badge">
+                                    @if($placeUnsponsored->visibility)
+                                    <span class="badge badge-success my-2"><i class="far fa-eye"></i></span> 
+                                    @else
+                                    <span class="badge badge-danger my-2"><i class="far fa-eye-slash"></i></span> 
+                                    @endif
+                                </h5>
+                                </div>
+                                
+
+                                <h5 class="card__price">€ {{$placeUnsponsored->price}}</h5>
+
+                                <div class="card__cta d-flex justify-content-center">
+                                    {{-- Modifica --}}
+                                    <a class="btn btn-info btn-sm modifica d-flex justify-content-center align-items-center" href="{{route('user.place.edit', $placeUnsponsored->slug)}}"><i class="fas fa-edit"></i></a>
+                                    {{-- Elimina --}}
+                                    <form class="ml-2 btn btn-info btn-sm cancella d-flex justify-content-center align-items-center" action="{{ route('user.place.destroy',$placeUnsponsored->slug) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="in_cancella" type="submit">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+                                    {{-- Nascondi --}}
+                                    <form class="ml-2 btn btn-info btn-sm btn-visibility d-flex justify-content-center align-items-center" action="{{route('user.place.visibility', $placeUnsponsored->id)}}" method="POST">
+                                        @csrf
+                                        @method('POST')
+                                        @if ($placeUnsponsored->visibility) 
+                                        <button class="in_vis" type="submit"><i class="far fa-eye"></i></button>
+                                        @else
+                                        <button class="in_vis" type="submit"><i class="far fa-eye-slash"></i></button>
+                                        @endif
+                                    </form>
+                                    <a class="ml-2 btn btn-info btn-sm sponsorizza d-flex justify-content-center align-items-center" href="{{ route('user.payment',$placeUnsponsored->id) }}"><i class="fas fa-shopping-cart"></i></a>
+                                </div>
+                            </div> 
+                        </div>
+                    @endif
+                @endforeach
+                
+
+                
+            </div> 
         </div>
 
-        <div class="unsponsored d-flex flex-wrap justify-content-center mt-5">
-            @foreach ($placesUnsponsored as $placeUnsponsored)
-                @if ($placeUnsponsored->user_id == $user->id)
-                    <div class="card text-center {{ !$loop->last ? 'mb-4' : '' }}">
-                        @if(!empty($placeUnsponsored->place_img))
-                            <img src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}" style="height: 20rem">
-                        @else
-                            <div class="no-image">No image</div>
-                        @endif
-                        <a class="card-title text-primary h5 my-3" href="{{ route('place.show', $placeUnsponsored->slug)}}">{{$placeUnsponsored->title}}</a>
-                        <h5 class="card-subtitle">Città: {{$placeUnsponsored->city}}</h5>
+        <section class="banner">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center p-5">
 
-                        <h5>
-                            @if($placeUnsponsored->visibility)
-                            <span class="badge badge-success my-2">Visibile</span> 
-                            @else
-                            <span class="badge badge-secondary my-2">Nascosto</span> 
-                            @endif
-                        </h5>
-                        
-                        <h5 class="card-subtitle text-secondary h6 mb-2">Indirizzo: {{$placeUnsponsored->address}}</h5>
-                        <h5 class="card-subtitle text-secondary h6 mb-2">Descrizione: {{$placeUnsponsored->description}}</h5>
-                        <h5 class="card-subtitle text-secondary h6 mb-2">Prezzo: €{{$placeUnsponsored->price}}</h5>
-
-                        <div class="my-place-box__actions d-flex justify-content-center my-2 p-3">
-                            {{-- Modifica --}}
-                            <a class="btn btn-primary btn-sm" href="{{route('user.place.edit', $placeUnsponsored->slug)}}">Modifica</a>
-                            {{-- Elimina --}}
-                            <form class="ml-2" action="{{ route('user.place.destroy',$placeUnsponsored->slug) }}" method="post">
-                                @csrf
-                                @method('delete')
-                                <input class="btn btn-danger btn-sm" type="submit" value="Cancella">
-                            </form>
-                            {{-- Sponsorizza --}}
-                            <a class="btn btn-warning btn-sm ml-2" href="{{ route('user.payment',$placeUnsponsored->id) }}">Sponosorizza</a>
-                            {{-- Pagina Statistiche --}}
-                            {{-- <a class="btn btn-info btn-sm ml-2" href="{{ route('user.place.stats',$placeUnsponsored->slug) }}">Visualizza Statistiche</a> --}}
-                            {{-- Nascondi --}}
-                            <form class="ml-2" action="{{route('user.place.visibility', $placeUnsponsored->id)}}" method="POST">
-                                @csrf
-                                @method('POST')
-                                <input class="btn btn-secondary btn-sm" type="submit" 
-                                value="@if ($placeUnsponsored->visibility) Nascondi @else Mostra @endif ">
-                            </form>
+                    <div class="bannner-search col-lg-3 text-center">
+                        <div class="bannner-search__img">
+                            <img class="wall" src="{{ asset('images/pay1.svg') }}" alt="search">
+                        </div>
+                        <div class="banner-search__text">
+                            <h4>Crea un annuncio</h4>
+                            <p>Pubblicizza i tuoi alloggi con il minimo sforzo: puoi creare annunci manualmente in pochi minuti o importandoli con un'integrazione.</p>
                         </div>
                     </div>
-                @endif
-            @endforeach
-        </div>
-        
-    </div>
+
+                    <div class="bannner-chat col-lg-3 text-center">
+                        <div class="bannner-chat__img">
+                            <img class="wall" src="{{ asset('images/pay2.svg') }}" alt="chat">
+                        </div>
+                        <div class="banner-chat__text">
+                            <h4>Trova e seleziona inquilini di qualità</h4>
+                            <p>Offri le tue proprietà a migliaia di utenti verificati da tutto il mondo.</p>
+                        </div>
+                    </div>
+
+                    <div class="bannner-buy col-lg-3 text-center">
+                        <div class="bannner-buy__img">
+                            <img class="wall" src="{{ asset('images/pay3.svg') }}" alt="buy">
+                        </div>
+                        <div class="banner-buy__text">
+                            <h4>Ricevi l'affitto</h4>
+                            <p>Assicurati un reddito costante per tutto l'anno grazie al sistema di pagamento sicuro e alle richieste di pagamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
 @endsection

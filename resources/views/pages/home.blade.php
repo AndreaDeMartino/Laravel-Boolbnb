@@ -201,3 +201,7 @@
     <script src="{{ asset('js/searchHome.js') }}"></script>
     <script src="{{ asset('js/filtersearch.js') }}"></script>
 @endsection
+
+
+
+
