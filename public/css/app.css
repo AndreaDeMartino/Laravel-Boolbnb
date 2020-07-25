@@ -10942,6 +10942,24 @@ a.text-dark:focus {
 
 /* Large desktops (large desktops, 1200px and up) */
 
+.navbar {
+  color: royalblue;
+  font-weight: bold;
+  background-color: #dfd68b;
+}
+
+.navbar a {
+  color: #664b87;
+}
+
+.navbar a:hover {
+  color: rgba(102, 75, 135, 0.8);
+}
+
+.fas.fa-bars {
+  color: royalblue;
+}
+
 .place-show {
   color: rgba(0, 0, 0, 0.7);
 }
@@ -10971,6 +10989,8 @@ footer .nav {
 
 .home {
   font-family: "Titillium Web", sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #af97cc 0%, #876161 44%, #DFD68B 100%);
 }
 
 .home .jumbo {
@@ -10979,6 +10999,7 @@ footer .nav {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  border-bottom: 1px solid #ece7bb;
 }
 
 .home .jumbo__title label {
@@ -10991,10 +11012,15 @@ footer .nav {
   -webkit-text-fill-color: transparent;
 }
 
+.home .jumbo__search {
+  min-width: 35vh;
+}
+
 .home .jumbo__search .search__input {
   height: 40px;
   background: #e0e0d8;
   border-radius: 3px 0px 0 3px !important;
+  min-width: 25vh;
 }
 
 .home .jumbo__search .search__btn {
@@ -11011,7 +11037,7 @@ footer .nav {
 
 .home .sponsored__title {
   position: relative;
-  color: #664b87 !important;
+  color: #dfd68b;
   font-size: 30px;
   font-weight: 300;
   margin: 30px 0;
@@ -11023,9 +11049,9 @@ footer .nav {
   left: 0;
   bottom: -3%;
   width: 100%;
-  background: linear-gradient(90deg, #664b87 20%, #dfd68b 48%);
+  background: linear-gradient(90deg, #dfd68b 10%, #fff0c6 60%);
   height: 2px;
-  border-radius: 30px;
+  border-radius: 50px;
 }
 
 .home .sponsored .sponsor-card {
@@ -11034,6 +11060,7 @@ footer .nav {
   border: 2px solid #dfd68b;
   border-radius: 10px;
   box-shadow: -1px 0px 10px 0px #664b87;
+  cursor: pointer;
 }
 
 .home .sponsored .sponsor-card i {
@@ -11054,7 +11081,7 @@ footer .nav {
   height: calc(100% - 22px);
   background: rgba(0, 0, 0, 0.5);
   opacity: 0.7;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s;
   margin: 12px;
 }
 
@@ -11091,16 +11118,14 @@ footer .nav {
 }
 
 .search {
-  height: 400px;
+  min-height: 400px;
   width: 100%;
   color: white;
-  visibility: hidden;
+  display: none;
 }
 
 .search__sidebar {
-  background: #664b87;
-  width: 20%;
-  height: 400px;
+  height: 100%;
 }
 
 .search__sidebar__title {
@@ -11122,7 +11147,7 @@ footer .nav {
 }
 
 .search__sidebar .sidebar__item input {
-  width: 30%;
+  width: 20%;
   background: #fea58d;
   border-radius: 3px;
   border: 0;
@@ -11131,9 +11156,73 @@ footer .nav {
 }
 
 .search__content {
-  background: #dfd68b;
-  width: 80%;
-  height: 400px;
+  height: 100%;
+}
+
+.search__content .cards {
+  color: white;
+}
+
+.search__content .cards .card {
+  position: relative;
+  padding: 4px !important;
+  border: 1px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.search__content .cards .card i {
+  color: white;
+  padding: 0 8px;
+}
+
+.search__content .cards .card__img {
+  max-width: 100%;
+  position: relative;
+}
+
+.search__content .cards .card .img__wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.6;
+  transition: opacity 0.3s;
+  border-radius: 10px;
+}
+
+.search__content .cards .card .img__wrapper:hover {
+  opacity: 0.2;
+}
+
+.search__content .cards .card__info {
+  position: absolute;
+  width: calc(100% - 30px);
+  bottom: 15px;
+  left: 20px;
+}
+
+.search__content .cards .card__info h5 {
+  font-size: 14px;
+  color: white;
+}
+
+.search__content .cards .card__info__price {
+  position: relative;
+  font-size: 30px;
+  color: #dfd68b;
+}
+
+.search__content .cards .card__info__price::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -3%;
+  width: 40%;
+  background: #fff;
+  height: 0.5px;
 }
 
 .search .amenities__title {
@@ -11142,6 +11231,14 @@ footer .nav {
 
 .search .amenities .search__btn {
   background: #fea58d;
+}
+
+.banner {
+  background: white;
+}
+
+.banner h4 {
+  color: #664b87;
 }
 
 .new_place {

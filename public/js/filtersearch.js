@@ -13,6 +13,8 @@ $(document).ready(function () {
   var apiUrl = window.location.protocol + '//' + window.location.host + '/api/Search';
   // Dom Variables
   var container = $('#place-container');
+  var sponsored = $('.sponsored');
+  var search = $('.search');
   // Handlebars Setup
   var source = $('#places-template').html();
   var template = Handlebars.compile(source);
@@ -21,7 +23,10 @@ $(document).ready(function () {
   // Search click
   $( ".search__btn" ).click(function() {
 
-    $(".search").css("visibility","visible");
+    sponsored.fadeOut();
+    search.fadeIn();
+    search.css("visibility","visible");
+    // sponsored.toggle();
     // Variables Dom
     var rooms = $('#num_rooms').val();
     var beds = $('#num_beds').val();
@@ -99,6 +104,9 @@ $(document).ready(function () {
               description: item.description,
               price: item.price,
               place_img: item.place_img,
+              num_rooms: item.num_rooms,
+              num_beds: item.num_beds,
+              num_baths: item.num_baths,
             }
             var output = template(context);
             container.append(output);
