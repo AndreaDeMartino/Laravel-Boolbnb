@@ -14,7 +14,7 @@ function generateGraph(graphId, graphType) {
         data: {
             labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
             datasets: [{
-                label: 'Statistiche Messaggi', 
+                label: 'Messaggi', 
                 data: [
                     messagesGraph.January,
                     messagesGraph.February,
@@ -37,7 +37,7 @@ function generateGraph(graphId, graphType) {
                 ],
                 borderWidth: 1
             }, {
-                label: 'Statistiche Visite', 
+                label: 'Visite', 
                 data: [
                     visitsGraph.January,
                     visitsGraph.February,

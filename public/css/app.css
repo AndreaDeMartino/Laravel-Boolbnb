@@ -10964,9 +10964,121 @@ a.text-dark:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.place-show__description,
-.place-show__list-info {
+.place-show__top {
+  padding: 80px 0 30px;
+  border-bottom: 1px solid #dfd68b;
+}
+
+.place-show__top__info__description,
+.place-show__top__info__list {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dfd68b;
   font-size: 14px;
+}
+
+.place-show__top__info__list {
+  list-style-position: inside;
+}
+
+.place-show__top__info__amenities .badge-info {
+  background-color: #664b87;
+  color: #dfd68b;
+}
+
+.place-show__top__price {
+  color: #fea58d;
+}
+
+.place-show__bottom__infos {
+  padding: 50px 0;
+}
+
+.place-show__bottom__infos__title {
+  font-size: 24px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 576px) {
+  .place-show__bottom__infos__title {
+    padding-top: 130px;
+  }
+}
+
+@media (min-width: 768px) {
+  .place-show__bottom__infos__title {
+    padding-top: 30px;
+  }
+}
+
+.place-show__stats {
+  padding: 50px 0 50px;
+  border-top: 1px solid #fea58d;
+  border-bottom: 1px solid #fea58d;
+  background: rgba(223, 214, 139, 0.8);
+}
+
+.place-show__stats__totals__msg {
+  color: #664b87;
+}
+
+.place-show__stats__totals__msg__title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.place-show__stats__totals__msg__title i {
+  margin-right: 25px;
+  font-size: 30px;
+}
+
+.place-show__stats__totals__visits {
+  color: #fea58d;
+}
+
+.place-show__stats__totals__visits__title {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.place-show__stats__totals__visits__title i {
+  margin-right: 25px;
+  font-size: 30px;
+}
+
+.place-show__top__img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .place-show__top__img {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .place-show__top__img {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .place-show__top__img {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .place-show__top__img {
+    margin-bottom: 30px;
+  }
+}
+
+.message-form .btn {
+  background: #664b87;
+  border: 1px solid #dfd68b;
+  color: #dfd68b;
 }
 
 footer {

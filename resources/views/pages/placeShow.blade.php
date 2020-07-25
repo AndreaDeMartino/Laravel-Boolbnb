@@ -12,77 +12,108 @@
         </div>
     @endif
 
-    <div class="container mt-5">
-        <div class="row d-flex align-items-center mb-4">
-            <div class="col-lg-6 col-md-12 col-sm-12 order-2 order-lg-1">
-                <h3 class="place-show__title text-center">{{$place->title}}</h3>
-                <h5 class="place-show__position text-center">{{$place->address}} - {{$place->city}}</h5>
-                <p class="place-show__description">{{$place->description}}</p>
-                <hr>
-                <h6>Caratteristiche:</h6>
-                <ul class="place-show__list">
-                    <li class="place-show__list__info">Numero stanze: {{$place->num_rooms}}</li>
-                    <li class="place-show__list__info">Posti letto: {{$place->num_beds}}</li>
-                    <li class="place-show__list__info">Bagni: {{$place->num_baths}}</li>
-                    <li class="place-show__list__info">Dimensioni: {{$place->square_m}}m²</li>
-                </ul>
-                <hr>
-                {{-- Servizi --}}
-                <div class="place-show__amenities d-flex align-items-center">
-                    <span class="d-inline-block mr-2">Servizi inclusi</span>
-                    @forelse ( $place->amenities as $amenity )
-                        <span class="badge badge-pill badge-primary mr-1">{{ $amenity->name }}</span>
-                    @empty
-                        <span class="badge badge-pill badge-info">Nessun servizio incluso</span>
-                    @endforelse
+    <div class="place-show__top">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="place-show__top__info col-lg-6 order-2 order-lg-1">
+                    <h3 class="place-show__top__info__title text-center mt-3">{{$place->title}}</h3>
+                    <h5 class="place-show__top__info__position text-center">{{$place->address}} - {{$place->city}}</h5>
+                    <p class="place-show__top__info__description">{{$place->description}}</p>
+                    <h6>Caratteristiche:</h6>
+                    <ul class="place-show__top__info__list">
+                        <li class="place-show__top__info__list__item">Numero stanze: {{$place->num_rooms}}</li>
+                        <li class="place-show__top__info__list__item">Posti letto: {{$place->num_beds}}</li>
+                        <li class="place-show__top__info__list__item">Bagni: {{$place->num_baths}}</li>
+                        <li class="place-show__top__info__list__item">Dimensioni: {{$place->square_m}}m²</li>
+                    </ul>
+                    {{-- Servizi --}}
+                    <div class="place-show__top__info__amenities d-flex align-items-center">
+                        <span class="d-inline-block mr-2">Servizi inclusi</span>
+                        @forelse ( $place->amenities as $amenity )
+                            <span class="badge badge-pill badge-info mr-1">{{ $amenity->name }}</span>
+                        @empty
+                            <span class="badge badge-pill badge-info">Nessun servizio incluso</span>
+                        @endforelse
+                    </div>
+                    <h5 class="place-show__top__price text-lg-right text-md-right text-center mt-3 h3 font-weight-bold">{{round($place->price)}}€ a notte</h5>
+                    <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
+                    <input type="hidden" name="long" id="long" value="{{ $place->long }}">
                 </div>
-                <h5 class="text-lg-right text-md-right text-center my-3 my-3-lg my-3-md h3 font-weight-bold" style="color: #e141b9">{{round($place->price)}}€ a notte</h5>
-                <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
-                <input type="hidden" name="long" id="long" value="{{ $place->long }}">
-            </div>
-
-            <div class="col-lg-6 col-md-12 col-sm-12 order-1 order-lg-2 mb-3 mb-lg-0">
-                @if(!empty($place->place_img))
-                    <img src="{{asset('storage/' . $place->place_img)}}" class="img-fluid rounded" alt="immaginecasa" style="max-width: 100%; height: auto;">
-                @else
-                    <div class="no-image text-danger">No image</div>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
-
-@auth
-    @if ($place->user_id === $user->id)
-        <h2 class="text-center" style="opacity: 0.7">Area Statistiche <i class="fas fa-chart-line"></i></h2><hr>
-        <div class="stats" style="background-color: #e4f2ed">
-            <div class="container">
-                <div class="row d-flex align-items-center">
-                    <div class="stats-total col-lg-4 col-md-4 col-sm-12">
-                        <h3 class="text-lg-right text-md-right text-sm-center" style="color: #b56da8; ">Totale messaggi ricevuti:<br><span class="h2 d-flex align-items-center justify-content-end" style="font-size: 50px; font-weight: 700;"><i class="far fa-envelope" style="margin-right: 25px; font-size: 30px"></i>{{$totMessages}}</span></h3>
-                        <hr>
-                        <h3 class="text-lg-right text-md-right text-sm-center" style="color: #FFA58D;">Totale visite:<br><span class="h2 d-flex align-items-center justify-content-end" style="font-size: 50px; font-weight: 700;"><i class="far fa-eye" style="margin-right: 25px; font-size: 30px"></i>{{$totVisits}}</span></h3>
-                    </div>
-                    <div class="stats-graph col-lg-8 col-md-8 col-sm-12">
-                        <canvas id="graph" class=""></canvas>
-                    </div>
+    
+                <div class="place-show__top__img col-lg-6 order-1 order-lg-2 text-center">
+                    @if(!empty($place->place_img))
+                        <img src="{{asset('storage/' . $place->place_img)}}" class="img-fluid rounded" alt="immaginecasa">
+                    @else
+                        <div class="no-image text-danger">No image</div>
+                    @endif
                 </div>
             </div>
         </div>
-    @endif
-@endauth
-
-<div class="container">
-    <div class="row d-flex align-items-center">
-        <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
-            <div id="mapid" class="rounded-lg" style="height: 300px"></div>
-        </div> 
-        <div class="col-lg-6 col-md-12 col-sm-12">
-            <h5 class="text-center">Contatta il venditore</h5>
-            @include('shared.sendMessageArea')
-        </div> 
-        
     </div>
+
+    <div class="place-show__bottom">
+        @auth
+            @if ($place->user_id === $user->id)
+                <div id="mapid" style="height: 350px"></div>
+            @else
+                <div class="place-show__bottom__infos">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 place-show__bottom__infos__leafmap " style="min-height: 200px">
+                                <div id="mapid" style="height: 100%"></div>
+                            </div> 
+                            <div class="col-lg-6">
+                                @include('shared.sendMessageArea')
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endauth
+
+        @guest
+            <div class="place-show__bottom__infos">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 place-show__bottom__infos__leafmap" style="min-height: 200px">
+                            <div id="mapid" style="height: 100%"></div>
+                        </div> 
+                        <div class="col-lg-6">
+                            @include('shared.sendMessageArea')
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endguest
+    </div>
+
+    @auth
+        @if ($place->user_id === $user->id)
+            <div class="place-show__stats">
+                <div class="container">
+                    <h2 class="place-show__stats__title text-center">Area Statistiche <i class="fas fa-chart-line"></i></h2><hr>
+                    <div class="row d-flex align-items-center">
+                        <div class="place-show__stats__totals col-lg-3 col-md-3">
+                            <h3 class="place-show__stats__totals__msg text-lg-right text-md-right text-sm-center">Totale contatti:<br>
+                                <span class="place-show__stats__totals__msg__title d-flex align-items-center justify-content-end">
+                                    <i class="far fa-envelope"></i>{{$totMessages}}
+                                </span>
+                            </h3>
+                            <hr>
+                            <h3 class="place-show__stats__totals__visits text-lg-right text-md-right text-sm-center">Totale visite:<br>
+                                <span class="place-show__stats__totals__visits__title d-flex align-items-center justify-content-end">
+                                    <i class="far fa-eye"></i>{{$totVisits}}
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="place-show__stats__graph col-lg-9 col-md-9">
+                            <canvas id="graph" class=""></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @endauth
 </div>
 
 
