@@ -8,7 +8,6 @@
             <p>Messaggio "{{ session('message') }}" Inviato</p>
         </div>
     @endif
-
     <main class="home">
 
         <section class="jumbo d-flex flex-wrap justify-content-center align-content-center">
@@ -48,6 +47,28 @@
                         </div>
                     </div>  
                 </div>
+
+                        {{-- Handlebars Template --}}
+        <script id="places-template" type="text/x-handlebars-template">
+            
+            <div class="card col-lg-4 col-md-10 mx-2 mb-4">
+                <img class="card__img" src="http://127.0.0.1:8000/storage/@{{place_img}}" alt="{{$placeSponsored->title}}">
+                <div class="img__wrapper"></div>
+                <div class="card__info">
+                    <h5 class="card__price">€@{{price}}</h5>
+                    <h5 class="card__address mb-2">@{{address}}</h5>
+                    <div class="info__footer d-flex justify-content-between align-items-top">
+                        <h5 class="card__city">@{{city}}</h5>
+                        <div class="card__amenities d-flex">
+                            <h5><i class="fas fa-couch"></i>@{{num_rooms}}</h5>
+                            <h5><i class="fas fa-bed"></i>@{{num_beds}}</h5>
+                            <h5 class="mr-1"><i class="fas fa-toilet"></i>@{{num_baths}}</h5>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+        </script>
                 @endforeach
             </div>
         </section>
@@ -135,27 +156,7 @@
         </section>
     
     
-        {{-- Handlebars Template --}}
-        <script id="places-template" type="text/x-handlebars-template">
-            
-            <div class="card col-lg-4 col-md-10 mx-2 mb-4">
-                <img class="card__img" src="http://127.0.0.1:8000/storage/@{{place_img}}" alt="{{$placeSponsored->title}}">
-                <div class="img__wrapper"></div>
-                <div class="card__info">
-                    <h5 class="card__price">€@{{price}}</h5>
-                    <h5 class="card__address mb-2">@{{address}}</h5>
-                    <div class="info__footer d-flex justify-content-between align-items-top">
-                        <h5 class="card__city">@{{city}}</h5>
-                        <div class="card__amenities d-flex">
-                            <h5><i class="fas fa-couch"></i>@{{num_rooms}}</h5>
-                            <h5><i class="fas fa-bed"></i>@{{num_beds}}</h5>
-                            <h5 class="mr-1"><i class="fas fa-toilet"></i>@{{num_baths}}</h5>
-                        </div>
-                    </div>
-                </div>  
-            </div>
 
-        </script>
     
     </main>
 
