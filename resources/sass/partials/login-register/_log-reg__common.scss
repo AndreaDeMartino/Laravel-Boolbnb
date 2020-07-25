@@ -1,6 +1,99 @@
 /* Login and Register Commons */
-.login,
-.register {
+.log-reg {
    font-family: $font-family-primary;
    color: $u-black;
+
+   // Form card
+   .log-reg__card {
+      background-color: $u-white;
+      border: 1px solid $u-orange;
+
+      // Form card Title
+      .log-reg__title {
+         font-weight: 600;
+         color: $u-purple;
+      }
+
+      // Form card Description
+      .log-reg__description {
+         font-size: 18px;
+      }
+
+      // Buttons to Access with Social
+      .social-log-reg {
+         border: 1px solid $u-purple;
+         transition: background-color .3s linear;
+         
+         &:hover {
+            background-color: $u-green;
+         }
+
+         .social-log-reg__img {
+         max-width: 28px;
+         }
+      }
+
+      // Line between Access with Social and Access with Credentials
+      .or {
+         position: relative;
+         z-index: 1;
+
+         & > small {
+            font-size: 14px;
+            padding: 0 15px;
+            background-color: $u-white;
+            color: $u-purple;
+         }
+         &:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 95%;
+            margin: 0 auto;
+            z-index: -1;
+            border-top: 2px solid $fa-grey-purple;
+         }
+      }
+
+      // Credentials Inputs
+      .log-reg__input {
+         background-color: $fa-grey-purple;
+         border: 1px solid $fa-light-purple;
+         transition: 
+            background-color .1s linear,
+            box-shadow .1s linear;
+
+         &:focus {
+            background-color: $u-white;
+            box-shadow: 0 0 0 0.2rem $fa-light-purple;
+         }
+      }
+
+      // Submit Buttons
+      .log-reg__btn {
+         font-size: 16px;
+         font-weight: 600;
+         background-color: $u-purple;
+         color: $u-green;
+         transition: 
+            background-color .3s linear;
+
+         &:hover {
+            background-color: $fa-light-purple;
+         }
+      }
+
+      // Links to Login and Register Pages
+      .log-reg__link {
+         text-decoration: none;
+         color: $u-purple;
+
+         &:hover {
+            color: $fa-light-purple;
+         }
+      }
+   }
 }

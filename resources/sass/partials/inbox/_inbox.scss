@@ -1,4 +1,9 @@
-/* Inbox page */
+/* Inbox Page */
 .inbox {
-   
+   font-family: $font-family-primary;
+   color: $u-black;
+
+   & > i {
+      font-family: 'Arial', sans-serif;
+   }
 }

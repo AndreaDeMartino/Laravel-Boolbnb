@@ -11461,84 +11461,55 @@ footer .nav {
   background-color: #dfd68b;
 }
 
-/* Login and Registration variables */
+/* Login and Registration Variables */
 
 /* Login and Register Commons */
 
-.login,
-.register {
+.log-reg {
   font-family: "Titillium Web", sans-serif;
   color: rgba(0, 0, 0, 0.7);
 }
 
-/* Login page */
-
-.login .login__description {
-  font-size: 18px;
+.log-reg .log-reg__card {
+  background-color: white;
+  border: 1px solid #fea58d;
 }
 
-.login .login__card {
-  background-color: #fea58d;
-}
-
-.login .login__btn {
-  font-size: 16px;
+.log-reg .log-reg__card .log-reg__title {
   font-weight: 600;
-  background-color: #664b87;
-  color: #dfd68b;
-  transition: background-color 0.3s linear;
-}
-
-.login .login__btn:hover {
-  background-color: #8c78a5;
-}
-
-.login .login__link {
-  text-decoration: none;
   color: #664b87;
 }
 
-.login .login__link:hover {
-  color: #8c78a5;
+.log-reg .log-reg__card .log-reg__description {
+  font-size: 18px;
 }
 
-.login .login__input {
-  background-color: #ece9f0;
-  border: 1px solid #8c78a5;
-  transition: background-color 0.1s linear, box-shadow 0.1s linear;
-}
-
-.login .login__input:focus {
-  background-color: white;
-  box-shadow: 0 0 0 0.2rem #8c78a5;
-}
-
-.social-login {
+.log-reg .log-reg__card .social-log-reg {
   border: 1px solid #664b87;
   transition: background-color 0.3s linear;
 }
 
-.social-login:hover {
+.log-reg .log-reg__card .social-log-reg:hover {
   background-color: #dfd68b;
 }
 
-.social-login .social-login__img {
+.log-reg .log-reg__card .social-log-reg .social-log-reg__img {
   max-width: 28px;
 }
 
-.or {
+.log-reg .log-reg__card .or {
   position: relative;
   z-index: 1;
 }
 
-.or > small {
+.log-reg .log-reg__card .or > small {
   font-size: 14px;
   padding: 0 15px;
-  background-color: #fea58d;
+  background-color: white;
   color: #664b87;
 }
 
-.or:before {
+.log-reg .log-reg__card .or:before {
   content: "";
   position: absolute;
   top: 50%;
@@ -11548,10 +11519,49 @@ footer .nav {
   width: 95%;
   margin: 0 auto;
   z-index: -1;
-  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px solid #ece9f0;
 }
 
-/* Register page */
+.log-reg .log-reg__card .log-reg__input {
+  background-color: #ece9f0;
+  border: 1px solid #8c78a5;
+  transition: background-color 0.1s linear, box-shadow 0.1s linear;
+}
 
-/* Inbox page */
+.log-reg .log-reg__card .log-reg__input:focus {
+  background-color: white;
+  box-shadow: 0 0 0 0.2rem #8c78a5;
+}
+
+.log-reg .log-reg__card .log-reg__btn {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #664b87;
+  color: #dfd68b;
+  transition: background-color 0.3s linear;
+}
+
+.log-reg .log-reg__card .log-reg__btn:hover {
+  background-color: #8c78a5;
+}
+
+.log-reg .log-reg__card .log-reg__link {
+  text-decoration: none;
+  color: #664b87;
+}
+
+.log-reg .log-reg__card .log-reg__link:hover {
+  color: #8c78a5;
+}
+
+/* Inbox Page */
+
+.inbox {
+  font-family: "Titillium Web", sans-serif;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.inbox > i {
+  font-family: "Arial", sans-serif;
+}
 
