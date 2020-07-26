@@ -124,6 +124,7 @@
   display: none;
   &__sidebar{
     height: 100%;
+    width: 30%;
     &__title{
       color: $u-orange;
     }
@@ -152,6 +153,8 @@
     }
   &__content{
     height: 100%;
+    min-width: 70%;
+    max-width: 70%;
     .cards{
       color: white;
       .card{

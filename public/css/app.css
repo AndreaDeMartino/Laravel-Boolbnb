@@ -11238,6 +11238,7 @@ footer .nav {
 
 .search__sidebar {
   height: 100%;
+  width: 30%;
 }
 
 .search__sidebar__title {
@@ -11269,6 +11270,8 @@ footer .nav {
 
 .search__content {
   height: 100%;
+  min-width: 70%;
+  max-width: 70%;
 }
 
 .search__content .cards {
@@ -11356,8 +11359,9 @@ footer .nav {
 .my-places {
   font-family: "Titillium Web", sans-serif;
   min-height: 100vh;
-  background: white;
-  background: linear-gradient(0deg, white 34%, #dddfe8 93%);
+  background-image: url("/images/bg_wall.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .my-places .my-places__title {
@@ -11398,8 +11402,7 @@ footer .nav {
 }
 
 .my-places .sponsored .card__info {
-  background: white;
-  background: linear-gradient(0deg, white 57%, #faeb79 90%);
+  background: #fff586;
 }
 
 .my-places .card {

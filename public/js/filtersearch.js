@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   /****************************************************
   * Setup and Variables
   ****************************************************/
@@ -22,7 +21,6 @@ $(document).ready(function () {
 
   // Search click
   $( ".search__btn" ).click(function() {
-
     sponsored.fadeOut();
     search.fadeIn();
     search.css("visibility","visible");
@@ -69,7 +67,7 @@ $(document).ready(function () {
 
       success: function (res) {
         var resArray = [];
-
+        
         // Fix res if it isn't an array
         if(!Array.isArray(res)){
           for (const property in res) {
@@ -84,7 +82,7 @@ $(document).ready(function () {
           aroundLatLng: lat + ',' + long,
           aroundRadius: 20 * 1000
         }).then(({ hits }) => {
-
+          console.log(hits);
           // Get Api Real Result
           var finalResult = [];
           for (var i = 0; i <hits.length; i++){
@@ -97,6 +95,7 @@ $(document).ready(function () {
           // Handlebars to print data
           for(var i = 0; i < finalResult.length; i++) {
             var item = hits[i];
+            console.log(item.slug);
             var context = {
               title: item.title,
               city: item.city,
@@ -107,6 +106,7 @@ $(document).ready(function () {
               num_rooms: item.num_rooms,
               num_beds: item.num_beds,
               num_baths: item.num_baths,
+              slug: item.slug,
             }
             var output = template(context);
             container.append(output);
