@@ -64,21 +64,21 @@
                                     {{-- Modifica --}}
                                     <a class="btn btn-info btn-sm modifica d-flex justify-content-center align-items-center" href="{{route('user.place.edit', $placeSponsored->slug)}}"><i class="fas fa-edit"></i></a>
                                     {{-- Elimina --}}
-                                    <form class="ml-2 btn btn-info btn-sm cancella d-flex justify-content-center align-items-center" action="{{ route('user.place.destroy',$placeSponsored->slug) }}" method="post">
+                                    <form id="delete-form{{ $placeSponsored->id }}" class="ml-2 btn btn-info btn-sm cancella d-flex justify-content-center align-items-center" action="{{ route('user.place.destroy',$placeSponsored->slug) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button class="in_cancella" type="submit">
+                                        <a class="in_cancella" href="javascript:{}" onclick="document.getElementById('delete-form{{ $placeSponsored->id }}').submit();">
                                             <i class="fas fa-trash-alt"></i>
-                                        </button>
+                                        </a>
                                     </form>
                                     {{-- Nascondi --}}
-                                    <form class="ml-2 btn btn-info btn-sm btn-visibility d-flex justify-content-center align-items-center" action="{{route('user.place.visibility', $placeSponsored->id)}}" method="POST">
+                                    <form id="visibility-form{{ $placeSponsored->id }}" class="ml-2 btn btn-info btn-sm btn-visibility d-flex justify-content-center align-items-center" action="{{route('user.place.visibility', $placeSponsored->id)}}" method="POST">
                                         @csrf
                                         @method('POST')
                                         @if ($placeSponsored->visibility) 
-                                        <button class="in_vis" type="submit"><i class="far fa-eye"></i></button>
+                                        <a class="in_vis" href="javascript:{}" onclick="document.getElementById('visibility-form{{ $placeSponsored->id }}').submit();"><i class="far fa-eye"></i></a>
                                         @else
-                                        <button class="in_vis" type="submit"><i class="far fa-eye-slash"></i></button>
+                                        <a class="in_vis" href="javascript:{}" onclick="document.getElementById('visibility-form{{ $placeSponsored->id }}').submit();"><i class="far fa-eye-slash"></i></a>
                                         @endif
                                     </form>
                                 </div>

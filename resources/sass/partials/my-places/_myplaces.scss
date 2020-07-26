@@ -1,8 +1,11 @@
 .my-places{
   font-family: $font-family-primary;
   min-height: 100vh;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,1) 34%, rgba(221,223,232,1) 93%);
+  // background: rgb(255,255,255);
+  // background: linear-gradient(0deg, rgba(255,255,255,1) 34%, rgba(221,223,232,1) 93%);
+  background-image: url('/images/bg_wall.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   .my-places__title{
     font-size: 50px;
     font-weight: 600;
@@ -37,8 +40,7 @@
   .sponsored{
     margin-bottom: 100px !important;
     .card__info{
-      background: rgb(255,255,255);
-      background: linear-gradient(0deg, rgba(255,255,255,1) 57%, rgba(250,235,121,1) 90%);
+      background: #fff586;
     }
   }
   .card{
