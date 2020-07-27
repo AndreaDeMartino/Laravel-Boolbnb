@@ -11527,6 +11527,13 @@ footer .nav {
   box-shadow: 0 0 10px #664b87;
 }
 
+.new_place .upload {
+  padding: 6px;
+  border-bottom: 2px solid #664b87;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 @media (min-width: 992px) {
   .new_place {
     margin-left: 200px;
@@ -11540,12 +11547,11 @@ footer .nav {
 }
 
 .inputfile {
-  font-size: 15px;
-  font-weight: 400;
-  border-bottom: 2px solid #fea58d;
-  color: black;
-  background-color: white;
-  display: inline-block;
+  display: none;
+}
+
+.fixed_button i {
+  color: #664b87;
 }
 
 .wall {
