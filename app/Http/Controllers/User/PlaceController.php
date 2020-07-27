@@ -177,7 +177,7 @@ class PlaceController extends Controller
             'square_m'=> 'required|numeric|min:10',
             'price' => 'required|numeric|min:1',
             'amenities.*' => 'exists:amenities,id',
-            'place_img'=> 'required|max:4096|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'nullable|max:4096|image|mimes:jpg,jpeg,png'
         ]);
 
         
