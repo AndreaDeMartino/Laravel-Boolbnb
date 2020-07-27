@@ -11321,14 +11321,14 @@ footer .nav .nav-link {
   width: calc(100% - 20px);
   height: calc(100% - 20px);
   background: rgba(0, 0, 0, 0.5);
-  opacity: 0.3;
+  opacity: 0.7;
   transition: opacity 0.3s;
   margin: 12px;
   border-radius: 10px;
 }
 
-.home .sponsored .sponsor-card:hover {
-  opacity: 0.7;
+.home .sponsored .sponsor-card .img__wrapper:hover {
+  opacity: 0.4;
 }
 
 .home .sponsored .card__info {
@@ -11879,5 +11879,79 @@ footer .nav .nav-link {
 .paginate .page-item.disabled .page-link {
   background-color: #c3bb7a;
   color: #8c78a5;
+}
+
+.payment {
+  padding: 50px 0;
+  text-align: center;
+  min-height: 90vh;
+  background-image: url("/images/bg_wall.png");
+  background-size: cover;
+}
+
+.payment__title {
+  margin-bottom: 50px;
+}
+
+.payment select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: rgba(102, 75, 135, 0.8);
+  background-image: none;
+}
+
+.payment select::-ms-expand {
+  display: none;
+}
+
+.payment select {
+  flex: 1;
+  padding: 0 0.5em;
+  cursor: pointer;
+  color: white;
+}
+
+.payment select option {
+  font-size: 16px;
+  text-transform: capitalize;
+}
+
+.payment .input-wrapper {
+  position: relative;
+  display: flex;
+  width: 20em;
+  height: 3em;
+  line-height: 3;
+  background: rgba(102, 75, 135, 0.8);
+  overflow: hidden;
+  border-radius: 0.25em;
+  margin-bottom: 50px;
+}
+
+.payment .input-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  background: #fea58d;
+  color: #664b87;
+  cursor: pointer;
+  pointer-events: none;
+  transition: 0.25s all ease;
+}
+
+.payment .input-wrapper:hover::after {
+  color: rgba(102, 75, 135, 0.8);
+}
+
+.payment button {
+  color: #dfd68b;
+  background: #664b87;
 }
 
