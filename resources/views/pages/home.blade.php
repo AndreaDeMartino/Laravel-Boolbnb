@@ -160,7 +160,6 @@
     <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch.umd.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CObject.entries%2CObject.assign"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js'></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/searchHome.js') }}"></script>
     <script src="{{ asset('js/filtersearch.js') }}"></script>
 @endsection

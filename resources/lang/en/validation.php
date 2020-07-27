@@ -243,6 +243,7 @@ return [
             'min' => 'Il prezzo deve ammontare almeno a 1,00.'
         ],
         'place_img'=> [
+            'required' => 'L\'immagine è richiesta.',
             'max' => 'L\'immagine inserita non deve superare i :max kb.',
             'image' => 'L\'immagine inserita deve essere di un formato immagine.',
             'mimes' => 'L\'immagine inserita deve essere dei seguenti formati: :values.',

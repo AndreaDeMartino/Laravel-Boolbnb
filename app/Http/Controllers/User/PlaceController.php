@@ -96,7 +96,7 @@ class PlaceController extends Controller
     {
         $data = $request->validate([
 
-            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:100'],
+            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:40'],
             'description'=> ['required', 'not_regex:/[<>]/', 'string', 'min:50', 'max:800'],
             'country' => 'required|min:2',
             'city' => 'required|min:2',
@@ -109,7 +109,7 @@ class PlaceController extends Controller
             'long'=> 'required',
             'price' => 'required|numeric|min:1',
             'amenities' => [],
-            'place_img'=> 'nullable|max:4096|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'required|max:4096|image|mimes:jpg,jpeg,png'
         ]);
 
         //id utente
@@ -166,7 +166,7 @@ class PlaceController extends Controller
     public function update(Request $request, Place $place)
     {
         $request->validate([
-            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:100'],
+            'title'=> ['required', 'not_regex:/[<>]/', 'string', 'min:5', 'max:40'],
             'description'=> ['required', 'not_regex:/[<>]/', 'string', 'min:50', 'max:800'],
             'country' => 'required|min:2',
             'city' => 'required|min:2',
@@ -177,7 +177,7 @@ class PlaceController extends Controller
             'square_m'=> 'required|numeric|min:10',
             'price' => 'required|numeric|min:1',
             'amenities.*' => 'exists:amenities,id',
-            'place_img'=> 'nullable|max:4096|image|mimes:jpg,jpeg,png'
+            'place_img'=> 'required|max:4096|image|mimes:jpg,jpeg,png'
         ]);
 
         

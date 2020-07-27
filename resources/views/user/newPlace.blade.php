@@ -3,8 +3,8 @@
 @section('content')
 <main class="wall">
     @if($errors->any())
-    <div class="alert container mt-5 u-alert-danger">
-        <ul>
+    <div class="alert u-alert-danger">
+        <ul class="pl-3">
             @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
