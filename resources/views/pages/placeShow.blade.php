@@ -48,7 +48,7 @@
                             <span class="badge badge-pill badge-info">Nessun servizio incluso</span>
                         @endforelse
                     </div>
-                    <h5 class="place-show__top__price text-lg-right text-md-right text-center mt-3 h3 font-weight-bold">{{round($place->price)}}€ a notte</h5>
+                    <h5 class="place-show__top__price text-lg-right text-md-right text-center mt-3 h3 font-weight-bold">{{round($place->price)}}€ <small class="text-muted">a notte</small></h5>
                     <input type="hidden" name="lat" id="lat" value="{{ $place->lat }}">
                     <input type="hidden" name="long" id="long" value="{{ $place->long }}">
                 </div>

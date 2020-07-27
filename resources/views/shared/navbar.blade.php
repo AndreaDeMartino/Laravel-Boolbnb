@@ -30,15 +30,15 @@
                 @else
 
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="{{ route('user.place.create') }}"> <img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/addHome.svg')}}" alt="Aggiungi appartamento"></a>
+                        <a class="nav-link px-3" href="{{ route('user.place.create') }}"> <img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/addHome.svg')}}" alt="Aggiungi appartamento"> <span class="d-lg-none d-md-none"> Aggiungi casa</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="{{ route('user.myplace.index') }}"><img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/list.svg')}}" alt="Le tue inserzione"></a>
+                        <a class="nav-link px-3" href="{{ route('user.myplace.index') }}"><img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/list.svg')}}" alt="Le tue inserzione"><span class="d-lg-none d-md-none"> Inserzioni</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link px-3" href="{{ route('user.inbox.index') }}"><img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/message.svg')}}" alt="Messaggi"></a>
+                        <a class="nav-link px-3" href="{{ route('user.inbox.index') }}"><img class="img-fluid" width="20" style="max-width: 100%; display:inline-block;"  src="{{asset('images/message.svg')}}" alt="Messaggi"><span class="d-lg-none d-md-none"> Messaggi</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
