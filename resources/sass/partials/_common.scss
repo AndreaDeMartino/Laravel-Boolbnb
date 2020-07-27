@@ -1,3 +1,4 @@
+// General
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,3 +6,34 @@
 }
 
 $main-color: rgb(65,105,225);
+
+// Alerts
+.u-alert-success {
+    margin-bottom: 0;
+    background-color: $u-alert-success;
+    color: $u-white;
+
+    p {
+        text-align: center;
+    }
+
+    .u-text-success {
+        font-weight: 600;
+        color: $u-alert-danger;
+    }
+}
+ 
+.u-alert-danger {
+    margin-bottom: 0;
+    background-color: $u-alert-danger;
+    color: $u-white;
+
+    p {
+        text-align: center;
+    }
+
+    .u-text-danger {
+        font-weight: 600;
+        color: $u-alert-success;
+    }
+}

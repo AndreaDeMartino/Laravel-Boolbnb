@@ -10,8 +10,8 @@
       
       {{-- Error message for empty sponsorship field --}}
       @if (session('sponsorshipError'))
-      <div class="alert alert-danger">
-          <p>{{ session('sponsorshipError') }}</p>
+      <div class="alert u-alert-danger">
+        <p>{{ session('sponsorshipError') }}</p>
       </div>
       @endif
 

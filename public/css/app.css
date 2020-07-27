@@ -10934,6 +10934,36 @@ a.text-dark:focus {
   padding: 0;
 }
 
+.u-alert-success {
+  margin-bottom: 0;
+  background-color: #8bdfac;
+  color: white;
+}
+
+.u-alert-success p {
+  text-align: center;
+}
+
+.u-alert-success .u-text-success {
+  font-weight: 600;
+  color: #cd594d;
+}
+
+.u-alert-danger {
+  margin-bottom: 0;
+  background-color: #cd594d;
+  color: white;
+}
+
+.u-alert-danger p {
+  text-align: center;
+}
+
+.u-alert-danger .u-text-danger {
+  font-weight: 600;
+  color: #8bdfac;
+}
+
 /* Phones (landscape phones, 576px and up) */
 
 /* Tablets (tablets, 768px and up) */
@@ -11238,7 +11268,7 @@ footer .nav .nav-link {
 }
 
 .home .sponsored .sponsor-card:hover {
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .home .sponsored .card__info {
