@@ -11112,7 +11112,7 @@ footer {
 }
 
 footer a {
-  color: #fea58d;
+  color: white;
   font-weight: 400;
 }
 
@@ -11120,8 +11120,21 @@ footer a:hover {
   color: rgba(254, 165, 141, 0.8);
 }
 
+footer i {
+  color: #fea58d;
+}
+
+footer h5 {
+  padding-bottom: 4px;
+  border-bottom: 1px solid white;
+}
+
 footer .nav {
   line-height: 14px;
+}
+
+footer .nav .nav-link {
+  padding-left: 0;
 }
 
 .home {
@@ -11208,43 +11221,45 @@ footer .nav {
 .home .sponsored .sponsor-card .card__img {
   max-width: 100%;
   position: relative;
+  border-radius: 10px;
 }
 
 .home .sponsored .sponsor-card .img__wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - 22px);
-  height: calc(100% - 22px);
+  top: -2px;
+  left: -2px;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
   background: rgba(0, 0, 0, 0.5);
   opacity: 0.7;
   transition: opacity 0.3s;
   margin: 12px;
+  border-radius: 10px;
 }
 
-.home .sponsored .sponsor-card .img__wrapper:hover {
+.home .sponsored .sponsor-card:hover {
   opacity: 0.4;
 }
 
-.home .sponsored .sponsor-card .card__info {
+.home .sponsored .card__info {
   position: absolute;
   width: calc(100% - 30px);
   bottom: 15px;
   left: 20px;
 }
 
-.home .sponsored .sponsor-card .card__info h5 {
+.home .sponsored .card__info h5 {
   font-size: 14px;
   color: white;
 }
 
-.home .sponsored .sponsor-card .card__info .card__price {
+.home .sponsored .card__info .card__price {
   position: relative;
   font-size: 30px;
   color: #dfd68b;
 }
 
-.home .sponsored .sponsor-card .card__info .card__price::after {
+.home .sponsored .card__info .card__price::after {
   position: absolute;
   content: "";
   left: 0;
@@ -11390,7 +11405,7 @@ footer .nav {
   background-size: cover;
 }
 
-.my-places .my-places__title {
+.my-places__title {
   font-size: 50px;
   font-weight: 600;
   text-transform: uppercase;
@@ -11467,7 +11482,7 @@ footer .nav {
 }
 
 .my-places .card__info .card__title {
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 700;
   color: #635e5d;
 }

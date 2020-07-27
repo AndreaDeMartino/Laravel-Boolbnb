@@ -6,7 +6,7 @@
         
         <div class="form-group">
             <label for="guest_name">Nome e cognome</label>
-            <input class="form-control" type="text" name="guest_name" value="@auth {{ Auth::user()->name }} {{ Auth::user()->last_name }} @endauth {{old('guest_name')}}">
+            <input class="form-control" type="text" name="guest_name" value="@auth {{ Auth::user()->name }} {{ Auth::user()->last_name }} @endauth">
         </div>
 
         <div class="form-group">
@@ -16,7 +16,7 @@
     
         <div class="form-group">
             <label for="mail_address">Email</label>
-            <input class="form-control" type="email" name="mail_address" value="@auth {{ Auth::user()->email }} @endauth {{old('mail_address')}}">
+            <input class="form-control" type="email" name="mail_address" value="@auth {{ Auth::user()->email }} @endauth">
         </div>
     
         <div class="form-group">

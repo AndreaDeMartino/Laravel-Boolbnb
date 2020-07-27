@@ -5,6 +5,10 @@
             <h5>Men&ugrave;</h5>
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Crea un Inserzione</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Contatti</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">I miei Appartamenti</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Statistiche</a></li>
                 
             </ul>
             </div>
@@ -19,7 +23,8 @@
             <h5>Supporto</h5>
             <ul class="nav flex-column">
                 <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contatti</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Dicono di Noi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Chi Siamo</a></li>
             </ul>  
             </div>
 

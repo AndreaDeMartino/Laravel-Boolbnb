@@ -36,7 +36,7 @@ class PlaceController extends Controller
                                     function($q) use ($actualDate,$user){
                                         $q->where('end', '>', $actualDate)->where('places.user_id', '=', $user->id);
                                     })->get();
-
+                                    
         //  Unponsored Places
         $placesUnsponsored = $allPlaces->diff($placesSponsored);
                                     

@@ -3,14 +3,25 @@ footer {
     font-weight: bold;
     background-color: $u-purple;
     a {
-        color:$u-orange;
+        color: white;
         font-weight: 400;
         &:hover {
             color: $u-orange-a;
         }
     }
     
+    i{
+        color: $u-orange;
+    }
+    
+    h5{
+        padding-bottom: 4px;
+        border-bottom: 1px solid white;
+    }
     .nav {
         line-height: 14px;
+        .nav-link{
+            padding-left: 0;
+        }
     }
 }
