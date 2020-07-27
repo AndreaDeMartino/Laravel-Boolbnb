@@ -14,10 +14,10 @@ class VisitTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $counter = 1000;
+        $counter = 18;
         for($i = 1; $i <= $counter; $i++) {
             $visit = new Visit();
-            $visit->place_id = rand(1, 20);
+            $visit->place_id = 36;
             $visit->date = Carbon::create('2020', rand(1,7), rand(1,29));
             $visit->save();
         }
