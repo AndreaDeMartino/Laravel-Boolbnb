@@ -81,14 +81,13 @@
         width: calc(100% - 20px);
         height: calc(100% - 20px);
         background: rgba(0, 0, 0, 0.5);
-        opacity: 0.3;
+        opacity: 0.7;
         transition: opacity 0.3s;
         margin: 12px;
         border-radius: 10px;
-      }
-        
-        &:hover{
-          opacity: 0.7;
+          &:hover{
+            opacity: 0.4;
+          }
         }
       }
       .card__info{

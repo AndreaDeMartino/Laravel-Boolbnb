@@ -1,0 +1,71 @@
+.payment {
+    padding: 50px 0;
+    text-align: center;
+    min-height: 90vh;
+    background-image: url('/images/bg_wall.png');
+    background-size: cover;
+    &__title {
+        margin-bottom: 50px;
+    }
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: 0;
+        box-shadow: none;
+        border: 0 !important;
+        background: $u-purple-a;
+        background-image: none;
+        &::-ms-expand {
+            display: none;
+        }
+    }
+
+    select {
+        flex: 1;
+        padding: 0 .5em;
+        cursor: pointer;
+        color: $u-white;
+        & option {
+            font-size: 16px;
+            text-transform: capitalize;
+        }
+    }
+
+    .input-wrapper {
+        position: relative;
+        display: flex;
+        width: 20em;
+        height: 3em;
+        line-height: 3;
+        background: $u-purple-a;
+        overflow: hidden;
+        border-radius: .25em;
+        margin-bottom: 50px;
+    }
+
+    .input-wrapper::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        background: $u-orange;
+        color: $u-purple;
+        cursor: pointer;
+        pointer-events: none;
+        -webkit-transition: .25s all ease;
+        -o-transition: .25s all ease;
+        transition: .25s all ease;
+    }
+
+    .input-wrapper:hover::after {
+        color: $u-purple-a;
+    }
+
+    button {
+        color: $u-green;
+        background: $u-purple;
+    }
+}

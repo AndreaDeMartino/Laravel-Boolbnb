@@ -19,8 +19,8 @@
 
     {{-- Sponsor Pay --}}
     @if(session('transId'))
-    <div class="alert u-alert-danger">
-        <p>Per l'appartamento {{ session('placeBuy') }} è stato processato correttamente l'ordine {{ session('transId') }}</p>
+    <div class="alert u-alert-success">
+        <p>Per l'appartamento <span class="u-text-success">{{ session('placeBuy') }}</span> è stato processato correttamente l'ordine: {{ session('transId') }}.</p>
     </div>
     @endif
 
