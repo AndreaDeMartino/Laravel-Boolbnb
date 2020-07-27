@@ -6,7 +6,7 @@
   background-image: url('/images/bg_wall.png');
   background-repeat: no-repeat;
   background-size: cover;
-  .my-places__title{
+  &__title{
     font-size: 50px;
     font-weight: 600;
     text-transform: uppercase;
@@ -73,7 +73,7 @@
         width: 35px !important;
       }
       .card__title{
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 700;
         color: #635e5d;
       }

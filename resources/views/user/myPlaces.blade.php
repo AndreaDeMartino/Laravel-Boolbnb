@@ -27,14 +27,14 @@
     <main class="my-places">
         <h1 class="my-places__title text-center pt-4">LE MIE INSERZIONI</h1>
 
-        <div class="my-places__cards d-flex flex-wrap align-items-center justify-content-center container">
+        <div class="my-places__cards d-flex flex-wrap align-items-center justify-content-center container-fluid">
 
             <h2 class="sponsored__title">Esclusive</h2>
-            <div class="sponsored row d-flex flex-wrap align-items-center justify-content-center container">
+            <div class="sponsored row d-flex flex-wrap align-items-center justify-content-center container-fluid">
                 
                 @foreach ($placesSponsored as $placeSponsored)
                     @if ($placeSponsored->user_id == $user->id)
-                        <div class="card col-lg-3 m-2">
+                        <div class="card col-lg-2 m-2">
                             <div class="card__logo">
                                 @if(!empty($placeSponsored->place_img))
                                     <img class="card__img"src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}">
@@ -86,16 +86,16 @@
                         </div>
                     @endif
                 @endforeach
-                
-
-                
+            
             </div> 
 
+           
+ 
             <h2 class="unsponsored__title mt-3">Standard</h2>
-            <div class="unsponsored row d-flex flex-wrap align-items-center justify-content-center container">
+            <div class="unsponsored row d-flex flex-wrap align-items-center justify-content-center container-fluid">
                 @foreach ($placesUnsponsored  as $placeUnsponsored)
                     @if ($placeUnsponsored->user_id == $user->id)
-                        <div class="card col-lg-3 m-2">
+                        <div class="card col-lg-2 m-2">
                             <div class="card__logo">
                                 @if(!empty($placeUnsponsored->place_img))
                                     <img class="card__img"src="{{asset('storage/' . $placeUnsponsored->place_img)}}" alt="{{$placeUnsponsored->title}}">
