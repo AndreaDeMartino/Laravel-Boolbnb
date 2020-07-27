@@ -4,8 +4,8 @@
 
     {{-- Errori --}}
     @if (session('message'))
-        <div class="alert alert-success">
-            <p>Messaggio "{{ session('message') }}" Inviato</p>
+        <div class="alert u-alert-success">
+            <p>Messaggio <span class="u-text-success">"{{ session('message') }}"</span> Inviato</p>
         </div>
     @endif
     <main class="home">

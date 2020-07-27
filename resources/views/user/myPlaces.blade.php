@@ -5,21 +5,21 @@
 
     {{-- Place Cancellato --}}
     @if (session('place-deleted'))
-    <div class="alert alert-danger m-0">
-        <p>Appartamento {{ session('place-deleted') }} Eliminato</p>
+    <div class="alert u-alert-danger">
+        <p>Appartamento <span class="u-text-danger">{{ session('place-deleted') }}</span> Eliminato</p>
     </div>
     @endif
 
     {{-- Place Visibility --}}
     @if (session('hide'))
-        <div class="alert alert-success m-0">
-            <p>L'appartamento <span class="text-primary">{{ session('place') }}</span> è stato reso visibile</p>
+        <div class="alert u-alert-success m-0">
+            <p>L'appartamento <span class="u-text-success">{{ session('place') }}</span> è stato reso visibile</p>
         </div>
     @endif
 
-    {{-- Sponosor Pay --}}
+    {{-- Sponsor Pay --}}
     @if(session('transId'))
-    <div class="alert alert-warning">
+    <div class="alert u-alert-danger">
         <p>Per l'appartamento {{ session('placeBuy') }} è stato processato correttamente l'ordine {{ session('transId') }}</p>
     </div>
     @endif

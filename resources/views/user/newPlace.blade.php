@@ -2,18 +2,19 @@
 
 @section('content')
 <main class="wall">
+    @if($errors->any())
+    <div class="alert container mt-5 u-alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+            @endforeach
+        </ul>   
+    </div>
+    @endif
     <div class="new_place ml-200">
         <h2 class="mt-4">Crea il tuo annuncio</h2>
     
-        @if($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{$error}}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <div class="new-place mt-5 col-lg-6 pl-0">
             <form class="message-form" action="{{route('user.place.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -75,7 +76,7 @@
                         </div>
                     </div>
 
-</div>
+                </div>
     
                 <div class="second_part">
                     <div class="services col-lg-6 offset-lg-4">

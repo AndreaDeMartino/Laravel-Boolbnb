@@ -6,7 +6,7 @@
         <h2 class="mt-4">Modifica Annuncio</h2>
     
         @if($errors->any())
-            <div class="alert alert-danger">
+            <div class="alert u-alert-danger">
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{$error}}</li>
