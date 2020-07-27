@@ -38,11 +38,7 @@
                     <input class="form-control border-fix"type="text" name="city" id="city" placeholder="Città*" value="{{old('city', $place->city)}}">
                 </div>
                 <div class="col-lg-12 d-flex mt-20 pl-0 pr-0 mt-3">
-                    <div class="col-lg-5  pl-0 pr-0">
-                        <label for="region">Regione</label>
-                        <input class="form-control border-fix"type="text" name="region" id="region" placeholder="Regione*" value="{{old('region', $place->region)}}">
-                    </div>
-                    <div class="col-lg-5 offset-lg-2 pl-0 pr-0">
+                    <div class="col-lg-12 pl-0 pr-0">
                         <label for="country">Nazione</label>
                         <input class="form-control border-fix"type="text" name="country" id="country" placeholder="Nazione*" value="{{old('country', $place->country)}}">
                     </div>
@@ -73,13 +69,13 @@
                 </div>
     
                 <div class="second_part">
-
-<div class="services col-lg-6 offset-lg-4">
+                    <div class="services col-lg-6 offset-lg-4">
                         <h4>Seleziona servizi:</h4>
                     <div class="form-group col-lg-12">
                         @foreach ($amenities as $amenity)
                         <div class="form-check pr-4">
-                            <input class="form-check-input" type="checkbox" name="amenities[]" id="amenity->{{$loop->iteration}}" value="{{$amenity->id}}">
+
+<input class="form-check-input" type="checkbox" name="amenities[]" id="amenity->{{$loop->iteration}}" value="{{$amenity->id}}">
                             <label class="form-check-label" for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
                         </div>
                         @endforeach
@@ -91,9 +87,9 @@
                         <input class="form-control border-fix col-lg-4 offset-lg-4"type="price" name="price" id="price" placeholder="Prezzo*" value="{{old('price', $place->price)}}">
                     </div>
         
-                    <div class="form-group my-4 col-lg-6 offset-lg-3">
-                        <label for="place_img">Inserisci un'immagine</label>
+                    <div class="form-group my-4 col-lg-4 offset-lg-4 fixed_button">
                         <input class="form-control-file inputfile" type="file" name="place_img" id="place_img" accept="image/*">
+                        <label class ="input_button" for="place_img">Inserisci un'immagine <i class="fas fa-chevron-circle-up"></i></label>
                     </div>
         
                     <input type="hidden" name="lat" id="lat" value="{{old('lat', $place->lat)}}">

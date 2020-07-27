@@ -14,6 +14,12 @@
         border-color: #664b87;
         box-shadow: 0 0 10px #664b87;
     }
+    .upload{
+        padding: 6px;
+        border-bottom: 2px solid #664b87;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
 
 @include desktop {
@@ -30,14 +36,15 @@
 }
 
     .inputfile {
-        font-size: 15px;
-        font-weight: 400;
-        border-bottom: 2px solid #fea58d;
-        color: black;
-        background-color: white;
-        display: inline-block;
+        display: none;
     }
 
+    .fixed_button {
+        i{
+            color: $u_purple;
+        }
+    }
+    
 
 .wall {
     background-image: url('/images/bg_wall.png');

@@ -38,11 +38,11 @@
                     <input class="form-control border-fix"type="text" name="city" id="city" placeholder="Città*" value="{{old('city')}}">
                 </div>
                 <div class="col-lg-12 d-flex pl-0 pr-0">
-                    <div class="col-lg-5  pl-0 pr-0">
+                    <div class="col-lg-5 col-4  pl-0 pr-0">
                         <label for="region"></label>
                         <input class="form-control border-fix"type="text" name="region" id="region" placeholder="Regione*" value="{{old('region')}}">
                     </div>
-                    <div class="col-lg-5 offset-lg-2 pl-0 pr-0">
+                    <div class="col-lg-5 col-4 offset-4 offset-lg-2 pl-0 pr-0">
                         <label for="country"></label>
                         <input class="form-control border-fix"type="text" name="country" id="country" placeholder="Nazione*" value="{{old('country')}}">
                     </div>
@@ -51,34 +51,38 @@
     
     
                 <div class="col-lg-12 d-flex pl-0 pr-0">
-                    <div class="form-group col-lg-3">
-                        <label for="num_rooms"></label>
-                        <input class="form-control border-fix"type="num_rooms" name="num_rooms" id="num_rooms" placeholder="Stanze*"  value="{{old('num_rooms')}}">
+                    <div class="order-col col-lg-6 col-6">
+                        <div class="form-group col-lg-12 text_dim">
+                            <label for="num_rooms"></label>
+                            <input class="form-control border-fix"type="num_rooms" name="num_rooms" id="num_rooms" placeholder="Stanze*"  value="{{old('num_rooms')}}">
+                        </div>
+            
+                        <div class="form-group col-lg-12 text_dim">
+                            <label for="num_beds"></label>
+                            <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Letti*"  value="{{old('num_beds')}}">
+                        </div>
                     </div>
-        
-                    <div class="form-group col-lg-3">
-                        <label for="num_beds"></label>
-                        <input class="form-control border-fix"type="num_beds" name="num_beds" id="num_beds" placeholder="Letti*"  value="{{old('num_beds')}}">
+                    
+                    <div class="order-col col-lg-6 col-6">
+                        <div class="form-group col-lg-12 text_dim">
+                            <label for="num_baths"></label>
+                            <input class="form-control border-fix"type="num_baths" name="num_baths" id="num_baths" placeholder="Bagni*"  value="{{old('num_baths')}}">
+                        </div>
+            
+                        <div class="form-group col-lg-12 text_dim">
+                            <label for="square_m"></label>
+                            <input class="form-control border-fix"type="square_m" name="square_m" id="square_m" placeholder="(m²)*"  value="{{old('square_m')}}">
+                        </div>
                     </div>
-        
-                    <div class="form-group col-lg-3">
-                        <label for="num_baths"></label>
-                        <input class="form-control border-fix"type="num_baths" name="num_baths" id="num_baths" placeholder="Bagni*"  value="{{old('num_baths')}}">
-                    </div>
-        
-                    <div class="form-group col-lg-3">
-                        <label for="square_m"></label>
-                        <input class="form-control border-fix"type="square_m" name="square_m" id="square_m" placeholder="(m²)*"  value="{{old('square_m')}}">
-                    </div>
-                </div>
+
+</div>
     
                 <div class="second_part">
                     <div class="services col-lg-6 offset-lg-4">
                         <h4>Seleziona servizi:</h4>
                     <div class="form-group col-lg-12">
                         @foreach ($amenities as $amenity)
-
-<div class="form-check pr-4">
+                        <div class="form-check pr-4">
                             <input class="form-check-input" type="checkbox" name="amenities[]" id="amenity->{{$loop->iteration}}" value="{{$amenity->id}}">
                             <label class="form-check-label" for="amenity-{{$loop->iteration}}">{{$amenity->name}}</label>
                         </div>
@@ -91,9 +95,9 @@
                         <input class="form-control border-fix col-lg-4 offset-lg-4"type="price" name="price" id="price" placeholder="Prezzo*" value="{{old('price')}}">
                     </div>
         
-                    <div class="form-group my-4 col-lg-6 offset-lg-3">
-                        <label for="place_img">Inserisci un'immagine</label>
+                    <div class="form-group my-4 col-lg-4 offset-lg-4 fixed_button">
                         <input class="form-control-file inputfile" type="file" name="place_img" id="place_img" accept="image/*">
+                        <label class ="input_button upload" for="place_img">Inserisci un'immagine <i class="fas fa-chevron-circle-up"></i></label>
                     </div>
         
                     <input type="hidden" name="lat" id="lat" value="{{old('lat')}}">
