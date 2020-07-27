@@ -15,6 +15,11 @@
                 list-style-position: inside;
             }
             &__amenities {
+                &__item {
+                    font-size: 20px;
+                    color: $u-purple;
+                    margin-right: 15px;
+                }
                 & .badge-info {
                     background-color: $u-purple;
                     color: $u-green;
@@ -89,6 +94,19 @@
 }
 
 .message-form {
+    input,
+    textarea {
+        border-style: none;
+        border-bottom: 1px solid  #fea58d;
+    }
+    input:hover,textarea:hover {
+        border-bottom: 3px solid $u-orange;
+    }
+    input:focus,textarea:focus { 
+        outline: none !important;
+        border-color: $u-purple;
+        box-shadow: 0 0 10px $u-purple;
+    }
     & .btn {
         background: $u-purple;
         border: 1px solid $u-green;

@@ -10980,6 +10980,12 @@ a.text-dark:focus {
   list-style-position: inside;
 }
 
+.place-show__top__info__amenities__item {
+  font-size: 20px;
+  color: #664b87;
+  margin-right: 15px;
+}
+
 .place-show__top__info__amenities .badge-info {
   background-color: #664b87;
   color: #dfd68b;
@@ -11075,6 +11081,24 @@ a.text-dark:focus {
   }
 }
 
+.message-form input,
+.message-form textarea {
+  border-style: none;
+  border-bottom: 1px solid #fea58d;
+}
+
+.message-form input:hover,
+.message-form textarea:hover {
+  border-bottom: 3px solid #fea58d;
+}
+
+.message-form input:focus,
+.message-form textarea:focus {
+  outline: none !important;
+  border-color: #664b87;
+  box-shadow: 0 0 10px #664b87;
+}
+
 .message-form .btn {
   background: #664b87;
   border: 1px solid #dfd68b;
@@ -11088,11 +11112,12 @@ footer {
 }
 
 footer a {
-  color: #dfd68b;
+  color: #fea58d;
+  font-weight: 400;
 }
 
 footer a:hover {
-  color: rgba(223, 214, 139, 0.8);
+  color: rgba(254, 165, 141, 0.8);
 }
 
 footer .nav {
@@ -11294,12 +11319,13 @@ footer .nav {
 .search__content .cards .card__img {
   max-width: 100%;
   position: relative;
+  border-radius: 10px;
 }
 
 .search__content .cards .card .img__wrapper {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -1px;
+  left: -1px;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);

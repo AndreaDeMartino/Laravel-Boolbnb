@@ -30,7 +30,20 @@
                     <div class="place-show__top__info__amenities d-flex align-items-center">
                         <span class="d-inline-block mr-2">Servizi inclusi</span>
                         @forelse ( $place->amenities as $amenity )
-                            <span class="badge badge-pill badge-info mr-1">{{ $amenity->name }}</span>
+                            @if ($amenity->name === 'WiFi')
+                                <i class="place-show__top__info__amenities__item fas fa-wifi"></i>
+                            @elseif ($amenity->name === 'Posto Macchina')
+                                <i class="place-show__top__info__amenities__item fas fa-car"></i>
+                            @elseif ($amenity->name === 'Piscina')
+                                <i class="place-show__top__info__amenities__item fas fa-swimmer"></i>
+                            @elseif ($amenity->name === 'Portineria')
+                                <i class="place-show__top__info__amenities__item fas fa-user-shield"></i>
+                            @elseif ($amenity->name === 'Sauna')
+                                <i class="place-show__top__info__amenities__item fas fa-hot-tub"></i>
+                            @elseif ($amenity->name === 'Vista Mare')
+                                <i class="place-show__top__info__amenities__item fas fa-water"></i>
+                            @endif
+                            {{-- <span class="badge badge-pill badge-info mr-1">{{ $amenity->name }}</span> --}}
                         @empty
                             <span class="badge badge-pill badge-info">Nessun servizio incluso</span>
                         @endforelse
