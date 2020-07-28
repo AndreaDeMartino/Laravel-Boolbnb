@@ -2,10 +2,8 @@
 
 @section('content')
 <main class="wall">
-    <div class="new_place">
-        <h2 class="mt-4">Modifica Annuncio</h2>
-    
-        @if($errors->any())
+
+    @if($errors->any())
             <div class="alert u-alert-danger">
                 <ul>
                     @foreach($errors->all() as $error)
@@ -14,6 +12,10 @@
                 </ul>
             </div>
         @endif
+
+
+    <div class="new_place">
+        <h2 class="mt-4">Modifica Annuncio</h2> 
         <div class="new-place mt-5 col-lg-6 pl-0">
             <form action="{{route('user.place.update', $place->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf

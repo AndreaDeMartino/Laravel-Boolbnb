@@ -83,7 +83,7 @@ class RegisterController extends Controller
     ****************************************************/
 
     // Check on birth_date
-    private function age($num)
+    public static function age($num)
     {
         $time = strtotime("$num year", time());
         $date = date("Y-m-d", $time);

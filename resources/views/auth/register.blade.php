@@ -64,7 +64,7 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label for="birth_date" class="col-form-label text-md-right">{{ __('Data di nascita *') }}</label>
-                                    <input id="birth_date" type="date" class="form-control log-reg__input @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
+                                    <input id="birth_date" type="date" class="form-control log-reg__input @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus min="{{ App\Http\Controllers\Auth\RegisterController::age(-100) }}" max="{{ App\Http\Controllers\Auth\RegisterController::age(-18) }}">
     
                                     @error('birth_date')
                                         <span class="invalid-feedback" role="alert">
