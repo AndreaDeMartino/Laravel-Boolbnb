@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md py-3 py-md-0 shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="img-fluid" width="150" style="max-width: 100%" src="{{asset('images/logoBB.svg')}}" alt="boolbnb logo">
+            <img class="img-fluid" width="150" style="max-width: 100%" src="{{asset('images/logoBB.png')}}" alt="boolbnb logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -9,7 +9,7 @@
             <div class="icon-anim"><span></span><span></span><span></span><span></span></div>
         </button>
 
-        <div class="collapse navbar-collapse pt-2" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
 

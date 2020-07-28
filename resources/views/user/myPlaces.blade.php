@@ -23,7 +23,7 @@
         <p>Per l'appartamento <span class="u-text-success">{{ session('placeBuy') }}</span> è stato processato correttamente l'ordine: {{ session('transId') }}.</p>
     </div>
     @endif
-
+    
     <main class="my-places">
         <h1 class="my-places__title text-center pt-4">LE MIE INSERZIONI</h1>
 
@@ -36,11 +36,7 @@
                     @if ($placeSponsored->user_id == $user->id)
                         <div class="card col-lg-2 m-2">
                             <div class="card__logo">
-                                @if(!empty($placeSponsored->place_img))
-                                    <img class="card__img"src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}">
-                                @else
-                                    <div class="no-image">No image</div>
-                                @endif
+                                <img class="card__img"src="{{asset('storage/' . $placeSponsored->place_img)}}" alt="{{$placeSponsored->title}}">
                             </div>
                             
                             <div class="card__info">
