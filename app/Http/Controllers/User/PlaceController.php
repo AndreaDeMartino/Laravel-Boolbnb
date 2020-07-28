@@ -222,8 +222,10 @@ class PlaceController extends Controller
         $title = $place->title;
 
         $place->amenities()->detach();
-        
+        $place->visits()->delete();
+        $place->messages()->delete();
         $deleted = $place->delete();
+        
 
         if ($deleted){
             

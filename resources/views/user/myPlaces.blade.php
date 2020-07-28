@@ -5,8 +5,8 @@
 
     {{-- Place Cancellato --}}
     @if (session('place-deleted'))
-    <div class="alert u-alert-danger">
-        <p>Appartamento <span class="u-text-danger">{{ session('place-deleted') }}</span> Eliminato</p>
+    <div class="alert u-alert-success">
+        <p>Appartamento <span class="u-text-success">{{ session('place-deleted') }}</span> Eliminato</p>
     </div>
     @endif
 
@@ -46,7 +46,7 @@
                             <div class="card__info">
 
                                 <div class="card__top d-flex justify-content-between align-items-center">
-                                    <a class="card__title white" href="{{ route('place.show', $placeSponsored->slug)}}"><i class="fas fa-bullhorn mr-1"></i>{{$placeSponsored->title}}</a>
+                                    <a class="card__title" href="{{ route('place.show', $placeSponsored->slug)}}"><i class="fas fa-bullhorn mr-1"></i>{{$placeSponsored->title}}</a>
 
                                 <h5 class="card__visibility-badge">
                                     @if($placeSponsored->visibility)

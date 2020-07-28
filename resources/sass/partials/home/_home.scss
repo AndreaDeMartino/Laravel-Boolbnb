@@ -126,6 +126,104 @@
   &__sidebar{
     height: 100%;
     width: 30%;
+    
+    // Input Range
+    input[type=range] {
+      width: 100%;
+      margin: 8.1px 0;
+      background-color: transparent;
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus {
+      outline: none;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      background: #e0d68a;
+      border: 1.1px solid #e0d68a;
+      border-radius: 25px;
+      width: 100%;
+      height: 5.8px;
+      cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      margin-top: -9.2px;
+      width: 22px;
+      height: 22px;
+      background: $u-orange;
+      border: 3.8px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      cursor: pointer;
+      -webkit-appearance: none;
+    }
+    input[type=range]:focus::-webkit-slider-runnable-track {
+      background: #e4dc9a;
+    }
+    input[type=range]::-moz-range-track {
+      background: #e0d68a;
+      border: 1.1px solid #e0d68a;
+      border-radius: 25px;
+      width: 100%;
+      height: 5.8px;
+      cursor: pointer;
+    }
+    input[type=range]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      background: #664b87;
+      border: 3.8px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    input[type=range]::-ms-track {
+      background: transparent;
+      border-color: transparent;
+      border-width: 15.2px 0;
+      color: transparent;
+      width: 100%;
+      height: 5.8px;
+      cursor: pointer;
+    }
+    input[type=range]::-ms-fill-lower {
+      background: #dcd07a;
+      border: 1.1px solid #e0d68a;
+      border-radius: 50px;
+    }
+    input[type=range]::-ms-fill-upper {
+      background: #e0d68a;
+      border: 1.1px solid #e0d68a;
+      border-radius: 50px;
+    }
+    input[type=range]::-ms-thumb {
+      width: 22px;
+      height: 22px;
+      background: #664b87;
+      border: 3.8px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 0px;
+      /*Needed to keep the Edge thumb centred*/
+    }
+    input[type=range]:focus::-ms-fill-lower {
+      background: #e0d68a;
+    }
+    input[type=range]:focus::-ms-fill-upper {
+      background: #e4dc9a;
+    }
+    @supports (-ms-ime-align:auto) {
+      input[type=range] {
+        margin: 0;
+      }
+    }
+
+    .range-value{
+      width: 40px;
+      background: #fea58d;
+      border-radius: 3px;
+      border: 0;
+      outline: none;
+      color: white;
+    }
+    
     &__title{
       color: $u-orange;
     }

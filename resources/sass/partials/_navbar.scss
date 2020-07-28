@@ -13,3 +13,65 @@
 .fas.fa-bars {
     color: $main-color;
 }
+
+.u-nav-icon {
+    @include tablet {
+        width: 70px;
+        padding: 10px 0px;
+        border-bottom: 2px solid transparent;
+        transition: 
+        border-bottom .2s linear,
+        background-color .2s linear;
+
+    &:hover {
+        border-bottom: 2px solid $u-purple;
+        background-color: $u-green-nav;
+    }
+
+    &:first-child {
+        padding-left: 10px;
+        padding-right: 10px;
+
+        span {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+
+    &:nth-child(2) {
+        padding-left: 9px;
+        padding-right: 9px;
+    }
+
+    &:nth-child(3) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    
+    &.u-active {
+        border-bottom: 2px solid $u-purple;
+        background-color: $u-green-nav;
+    }
+    }
+
+    
+
+}
+
+
+.u-dropdown-menu {
+    background-color: $u-green-nav;
+    &:hover{
+        background-color: $u-green;
+        a{
+            background-color: $u-green; 
+        }
+    }
+}
+
+.u-dropdown {
+    padding: 10px 0px;
+}
+
+

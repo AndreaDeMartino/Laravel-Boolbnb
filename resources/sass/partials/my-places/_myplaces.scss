@@ -40,7 +40,7 @@
   .sponsored{
     margin-bottom: 100px !important;
     .card__info{
-      background: #fff586;
+      background: #fff8c37a;
     }
   }
   .card{
@@ -73,7 +73,7 @@
         width: 35px !important;
       }
       .card__title{
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 700;
         color: #635e5d;
       }
@@ -124,6 +124,11 @@
     background: $u-green-a;
     img{
       margin-bottom: 10px; 
+    }
+  }
+  .unsponsored{
+    .card__info{
+      background-color: #ffffff8c;
     }
   }
 }
