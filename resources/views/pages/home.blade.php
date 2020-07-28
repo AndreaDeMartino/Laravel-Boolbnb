@@ -60,11 +60,11 @@
                             <div class="row">
                                 <div class="sidebar__item d-flex flex-column align-items-center flex-wrap justify-content-center col-lg-6 mt-2">
                                     <label class="d-block" for="num_rooms"><i class="fas fa-couch pr-2"></i>Stanze</label>
-                                    <input class="text-center" type="number" name="num_rooms" id="num_rooms" value="{{old('num_rooms',1)}}">
+                                    <input class="text-center" type="number" name="num_rooms" id="num_rooms" value="{{old('num_rooms',1)}}" min="0">
                                 </div>          
                                 <div class="sidebar__item d-flex flex-column align-items-center flex-wrap justify-content-center col-lg-6 mt-2">
-                                    <label class="d-block" for="num_beds"><i class="fas fa-bed pr-2"></i>Posti Letto</label>
-                                    <input class="text-center" type="number" name="num_beds" id="num_beds" value="{{old('num_beds',1)}}">
+                                    <label class="d-block" for="num_beds"><i class="fas fa-bed pr-2"></i>Letti</label>
+                                    <input class="text-center" type="number" name="num_beds" id="num_beds" value="{{old('num_beds',1)}}" min="0">
                                 </div>
                             </div>
 
@@ -80,8 +80,15 @@
                                     </div>
                                 @endforeach
                             </div>
+                            <form class="d-flex flex-column align-items-center w-100 mt-4">
+                            <input type="range" class="custom-range w-100" min="1" max="100" value="20" step="1" id="amountRange" name="amountRange" oninput="this.form.amountInput.value=this.value">
+
+                            <span>Km</span>
+                            <input type="text" name="amountInput" min="1" max="100" value="20" class="range-value text-center" oninput="this.form.amountRange.value=this.value" />
                             
-                            <div class="search__btn btn mt-3 w-75">CERCA</div>
+                        </form>
+
+                            <div class="search__btn btn mt-3 w-75  d-flex justify-content-center">CERCA</div>
                         </div>
                         
                     </div>

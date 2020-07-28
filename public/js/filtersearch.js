@@ -67,6 +67,7 @@ $(document).ready(function () {
 
       success: function (res) {
         var resArray = [];
+        var rangeValue = $('.range-value').val();
         
         // Fix res if it isn't an array
         if(!Array.isArray(res)){
@@ -80,7 +81,7 @@ $(document).ready(function () {
         // Geo Search
         index.search('', {
           aroundLatLng: lat + ',' + long,
-          aroundRadius: 20 * 1000
+          aroundRadius: rangeValue * 1000
         }).then(({ hits }) => {
           console.log(hits);
           // Get Api Real Result

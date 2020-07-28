@@ -10990,6 +10990,61 @@ a.text-dark:focus {
   color: royalblue;
 }
 
+@media (min-width: 768px) {
+  .u-nav-icon {
+    width: 70px;
+    padding: 10px 0px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s linear, background-color 0.2s linear;
+  }
+
+  .u-nav-icon:hover {
+    border-bottom: 2px solid #664b87;
+    background-color: #c3bb7a;
+  }
+
+  .u-nav-icon:first-child {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-nav-icon:first-child span {
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .u-nav-icon:nth-child(2) {
+    padding-left: 9px;
+    padding-right: 9px;
+  }
+
+  .u-nav-icon:nth-child(3) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-nav-icon.u-active {
+    border-bottom: 2px solid #664b87;
+    background-color: #c3bb7a;
+  }
+}
+
+.u-dropdown-menu {
+  background-color: #c3bb7a;
+}
+
+.u-dropdown-menu:hover {
+  background-color: #dfd68b;
+}
+
+.u-dropdown-menu:hover a {
+  background-color: #dfd68b;
+}
+
+.u-dropdown {
+  padding: 10px 0px;
+}
+
 .icon-anim {
   width: 30px;
   height: 20px;
@@ -11371,6 +11426,115 @@ footer .nav .nav-link {
   width: 30%;
 }
 
+.search__sidebar input[type=range] {
+  width: 100%;
+  margin: 8.1px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+.search__sidebar input[type=range]:focus {
+  outline: none;
+}
+
+.search__sidebar input[type=range]::-webkit-slider-runnable-track {
+  background: #e0d68a;
+  border: 1.1px solid #e0d68a;
+  border-radius: 25px;
+  width: 100%;
+  height: 5.8px;
+  cursor: pointer;
+}
+
+.search__sidebar input[type=range]::-webkit-slider-thumb {
+  margin-top: -9.2px;
+  width: 22px;
+  height: 22px;
+  background: #fea58d;
+  border: 3.8px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.search__sidebar input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #e4dc9a;
+}
+
+.search__sidebar input[type=range]::-moz-range-track {
+  background: #e0d68a;
+  border: 1.1px solid #e0d68a;
+  border-radius: 25px;
+  width: 100%;
+  height: 5.8px;
+  cursor: pointer;
+}
+
+.search__sidebar input[type=range]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  background: #664b87;
+  border: 3.8px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.search__sidebar input[type=range]::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 15.2px 0;
+  color: transparent;
+  width: 100%;
+  height: 5.8px;
+  cursor: pointer;
+}
+
+.search__sidebar input[type=range]::-ms-fill-lower {
+  background: #dcd07a;
+  border: 1.1px solid #e0d68a;
+  border-radius: 50px;
+}
+
+.search__sidebar input[type=range]::-ms-fill-upper {
+  background: #e0d68a;
+  border: 1.1px solid #e0d68a;
+  border-radius: 50px;
+}
+
+.search__sidebar input[type=range]::-ms-thumb {
+  width: 22px;
+  height: 22px;
+  background: #664b87;
+  border: 3.8px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+
+.search__sidebar input[type=range]:focus::-ms-fill-lower {
+  background: #e0d68a;
+}
+
+.search__sidebar input[type=range]:focus::-ms-fill-upper {
+  background: #e4dc9a;
+}
+
+@supports (-ms-ime-align: auto) {
+  .search__sidebar input[type=range] {
+    margin: 0;
+  }
+}
+
+.search__sidebar .range-value {
+  width: 40px;
+  background: #fea58d;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
+  color: white;
+}
+
 .search__sidebar__title {
   color: #fea58d;
 }
@@ -11533,7 +11697,7 @@ footer .nav .nav-link {
 }
 
 .my-places .sponsored .card__info {
-  background: #fff586;
+  background: #fff8c37a;
 }
 
 .my-places .card {
@@ -11572,7 +11736,7 @@ footer .nav .nav-link {
 }
 
 .my-places .card__info .card__title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: #635e5d;
 }
@@ -11634,6 +11798,10 @@ footer .nav .nav-link {
 
 .my-places .banner img {
   margin-bottom: 10px;
+}
+
+.my-places .unsponsored .card__info {
+  background-color: #ffffff8c;
 }
 
 .new_place {
