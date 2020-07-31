@@ -128,14 +128,14 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 * Carbon
 
 
-## Team Composto da: ##
+## Team Di Sviluppo Composto da: ##
 
-##### 	https://github.com/AndreaDeMartino :technologist:	
+> ##### 	https://github.com/AndreaDeMartino :technologist:	
 
-#####	https://github.com/flavio-pinto :technologist:	
+> #####	    https://github.com/flavio-pinto :technologist:	
 
-##### 	https://github.com/fabiogadau :technologist:	
+> ##### 	https://github.com/fabiogadau :technologist:	
 
-##### 	https://github.com/francescoscarniglia :technologist:	
+> ##### 	https://github.com/francescoscarniglia :technologist:	
 
-##### 	https://github.com/SalvatoreLauriola :technologist:	
+> ##### 	https://github.com/SalvatoreLauriola :technologist:	
