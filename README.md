@@ -55,6 +55,14 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 
 > ## Compilare le seguenti key nel file .env:
 
+> Database Setup (Progetto realizzato in MySql)
+
+1. `DB_CONNECTION`
+2. `DB_HOST`
+3. `DB_DATABASE`
+2. `DB_USERNAME`
+3. `DB_PASSWORD`
+
 > Braintree (pagamenti)
 
 1. `BT_MERCHANT_ID`
