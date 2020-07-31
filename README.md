@@ -1,16 +1,16 @@
-\#   BOOLBNB #
+#   BOOLBNB 
 
 
 
-\> 
+> 
 
-\>
+>
 
-\> ##### **:open_file_folder: File Name\*:  Boolbnb :open_file_folder:*
+> ##### *:open_file_folder: File Name\:  Boolbnb :open_file_folder:*
 
-\>
+>
 
-\> 
+> 
 
 
 
@@ -29,65 +29,67 @@ Una volta trovato l’appartamento desiderato, l’utente interessato può conta
 
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
 
-\### :computer: Languages and Libraries:
+### :computer: Languages and Libraries:
 
 
-\* HTML
+* HTML
 
 
-\* CSS
+* CSS
 
 
-\* SASS
+* SASS
 
 
-\* Bootstrap
+* Bootstrap
 
 
-\* JS
+* JS
 
 
-\* jQuery
+* jQuery
 
 
-\* Chart Js
+* Chart Js
 
 
-\* Leaflet Js
+* Leaflet Js
 
 
-\* Algolia (Places/Scout/Autocomplete/Instasearch Js)
+* Algolia (Places/Scout/Autocomplete/Instasearch Js)
 
 
-\* Braintree
+* Braintree
 
 
-\* Ajax
+* Ajax
 
 
-\* Handlebars
+* Handlebars
 
 
-\* MySql
+* MySql
 
 
-\* PHP
+* PHP
 
 
-\* Laravel
+* Laravel
 
 
-\* Carbon
+* Carbon
 
 
-\### :desktop_computer: Anteprima Progetto::
+### :desktop_computer: Anteprima Progetto:
 
 Progetto Realizzato tramite Sketch & Invision App:
 
-![](images/sketch.png)
+![](public/images/sketch.png)
 
-Preview:
+****Preview Dekstop :desktop_computer: :****
 
-![](images/desktop.gif)
+![](public/images/desktop.gif)
 
-![](images/mobile.gif)
+****Preview Mobile :iphone:	:****
+
+![](public/images/mobileGif.gif)
