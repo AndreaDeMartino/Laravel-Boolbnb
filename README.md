@@ -22,13 +22,13 @@ BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti, a
 
 Attraverso BoolBnB i proprietari di appartamento possono inserire le informazioni degli appartamenti che vogliono affittare per cercare utenti interessati.
 
-Gli utenti che vogliono mettere in affitto un appartamento devono registrarsi alla piattaforma; una volta registrati hanno la possibilità di inserire uno o più appartamenti.
+Gli utenti che vogliono mettere in affitto un appartamento devono registrarsi alla piattaforma; una volta registrati hanno la possibilità di inserire uno o più appartamenti e di visualizzarne statistiche come i messaggi o visite ricevute nella fascita temporale desiderata.
 
-Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita pagina di ricerca, vedono una lista di possibili appartamenti e cliccando su ognuno possono vedere una pagina di dettaglio.
+Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita pagina di ricerca, vedono una lista di possibili appartamenti e cliccando su ognuno possono vedere una pagina di dettaglio, con relativa geocalizzazione.
 
 Una volta trovato l’appartamento desiderato, l’utente interessato può contattare l’utente proprietario per fare domande.
 
-Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
+Inoltre, i proprietari di un appartamento, possono decidere di acquistare tre diversi pacchetti per sponsorizzare l’annuncio del proprio appartamento e fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
 
 ---
 
@@ -52,8 +52,10 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 
 ## :key: Istruzioni:
 
+> ## 1. Download Db Example:
+https://drive.google.com/file/d/1BnsiPauEdYDpdEyyz0zNrAWCgD3MJAuj/view?usp=sharing
 
-> ## Compilare le seguenti key nel file .env:
+> ## 2. Compilare le seguenti key nel file .env:
 
 > Database Setup (Progetto realizzato in MySql)
 
