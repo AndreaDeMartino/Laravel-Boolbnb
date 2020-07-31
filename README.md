@@ -6,7 +6,7 @@
 
 >
 
-> ##### *:open_file_folder: File Name\:  Boolbnb :open_file_folder:*
+> ##### *:open_file_folder:  Project Name\:  Boolbnb :open_file_folder:*
 
 >
 
@@ -15,7 +15,7 @@
 
 
 
-****Project:**** 
+****Introduzione:**** 
 
 BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti.
 
@@ -29,7 +29,7 @@ Una volta trovato l’appartamento desiderato, l’utente interessato può conta
 
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
 
-### :computer: Languages and Libraries:
+### :computer: Linguaggi e Tecnologie utilizzate:
 
 
 * HTML
@@ -80,16 +80,32 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 * Carbon
 
 
-### :desktop_computer: Anteprima Progetto:
+### :spiral_notepad: Progettazione:
 
 Progetto Realizzato tramite Sketch & Invision App:
 
 ![](public/images/sketch.png)
 
-****Preview Dekstop :desktop_computer: :****
+### :arrow_forward: Anteprima Pagine Web:
+
+>  Preview Desktop :desktop_computer: 
 
 ![](public/images/desktop.gif)
 
-****Preview Mobile :iphone:	:****
+>  Preview Mobile :iphone: 
 
 ![](public/images/mobileGif.gif)
+
+
+
+## Team Composto da: ##
+
+##### 	https://github.com/AndreaDeMartino :technologist:	
+
+#####	https://github.com/flavio-pinto :technologist:	
+
+##### 	https://github.com/fabiogadau :technologist:	
+
+##### 	https://github.com/francescoscarniglia :technologist:	
+
+##### 	https://github.com/SalvatoreLauriola :technologist:	
