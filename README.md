@@ -6,18 +6,19 @@
 
 >
 
-> ##### *:open_file_folder:  Project Name\:  Boolbnb :open_file_folder:*
+> ##### *:open_file_folder:   Boolbnb - Inspired by Airbnb :open_file_folder:*
 
 >
 
 > 
 
+---
 
 
 
 ****Introduzione:**** 
 
-BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti.
+BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti, attraverso filtri su servizi, posizione geografica o specifiche preferenze.
 
 Attraverso BoolBnB i proprietari di appartamento possono inserire le informazioni degli appartamenti che vogliono affittare per cercare utenti interessati.
 
@@ -28,6 +29,53 @@ Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita 
 Una volta trovato l’appartamento desiderato, l’utente interessato può contattare l’utente proprietario per fare domande.
 
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
+
+---
+
+### :spiral_notepad: Fase Progettuale:
+
+> Mockup & Workflow realizzato utilizzando Sketch & InVisionApp:
+
+![](public/images/sketch.png)
+
+### :arrow_forward: Anteprima Pagine Web:
+
+>  Preview Desktop :desktop_computer: 
+
+![](public/images/desktop.gif)
+
+>  Preview Mobile :iphone: 
+
+![](public/images/mobileGif.gif)
+
+---
+
+## :key: Istruzioni:
+
+
+> ## Compilare le seguenti key nel file .env:
+
+> Braintree (pagamenti)
+
+1. `BT_MERCHANT_ID`
+2. `BT_PUBLIC_KEY`
+3. `BT_PRIVATE_KEY`
+
+> Algolia (Autocomplete, Map, GeoSearch)
+
+1. `PLACES_APP_ID`
+2. `PLACES_API_KEY`
+3. `ALGOLIA_APP_ID`
+4. `ALGOLIA_SECRET`
+5. `SCOUT_QUEUE`
+
+> Eseguire i seguenti comandi per visionare il progetto:
+
+* `npm install`
+* `composer install`
+* `php artisan storage:link`
+* `npm run watch & php artisan serve`
+
 
 ### :computer: Linguaggi e Tecnologie utilizzate:
 
@@ -78,24 +126,6 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 
 
 * Carbon
-
-
-### :spiral_notepad: Progettazione:
-
-Progetto Realizzato tramite Sketch & Invision App:
-
-![](public/images/sketch.png)
-
-### :arrow_forward: Anteprima Pagine Web:
-
->  Preview Desktop :desktop_computer: 
-
-![](public/images/desktop.gif)
-
->  Preview Mobile :iphone: 
-
-![](public/images/mobileGif.gif)
-
 
 
 ## Team Composto da: ##
